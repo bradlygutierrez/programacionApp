@@ -107,7 +107,7 @@ class Ui_Form(object):
         self.label_6.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Respuesta</span></p></body></html>"))
         self.label_9.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Confirmar contraseña</span></p></body></html>"))
         self.pushButton.setText(_translate("Form", "Cambiar contraseña"))
-import drive-download-20230504T_rc
+import iconosRecuperarContrasena
 
 
 if __name__ == "__main__":
