@@ -11,70 +11,70 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(521, 380)
-        Form.setStyleSheet("background-color: rgb(224,224, 224);")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
+class Ui_recuperarContrasena(object):
+    def setupUi(self, recuperarContrasena):
+        recuperarContrasena.setObjectName("recuperarContrasena")
+        recuperarContrasena.resize(521, 380)
+        recuperarContrasena.setStyleSheet("background-color: rgb(224,224, 224);")
+        self.lineEdit = QtWidgets.QLineEdit(recuperarContrasena)
         self.lineEdit.setGeometry(QtCore.QRect(50, 180, 281, 31))
         self.lineEdit.setStyleSheet("border-radius: 10px;\n"
 "background-color: white\n"
 "\n"
 "")
         self.lineEdit.setObjectName("lineEdit")
-        self.label_7 = QtWidgets.QLabel(Form)
+        self.label_7 = QtWidgets.QLabel(recuperarContrasena)
         self.label_7.setGeometry(QtCore.QRect(60, 230, 151, 20))
         self.label_7.setObjectName("label_7")
-        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3 = QtWidgets.QLabel(recuperarContrasena)
         self.label_3.setGeometry(QtCore.QRect(130, 20, 261, 21))
         self.label_3.setObjectName("label_3")
-        self.lineEdit_3 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_3 = QtWidgets.QLineEdit(recuperarContrasena)
         self.lineEdit_3.setGeometry(QtCore.QRect(50, 320, 281, 31))
         self.lineEdit_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: white\n"
 "\n"
 "")
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.label_5 = QtWidgets.QLabel(Form)
+        self.label_5 = QtWidgets.QLabel(recuperarContrasena)
         self.label_5.setGeometry(QtCore.QRect(0, 180, 71, 31))
         self.label_5.setStyleSheet("image: url(:/iconos/drive-download-20230504T092438Z-001/conversaciones.png);\n"
 "background-color: none\n"
 "")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
-        self.label_4 = QtWidgets.QLabel(Form)
+        self.label_4 = QtWidgets.QLabel(recuperarContrasena)
         self.label_4.setGeometry(QtCore.QRect(30, 50, 451, 101))
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet("background-color: none")
         self.label_4.setTextFormat(QtCore.Qt.AutoText)
         self.label_4.setObjectName("label_4")
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2 = QtWidgets.QLineEdit(recuperarContrasena)
         self.lineEdit_2.setGeometry(QtCore.QRect(50, 250, 281, 31))
         self.lineEdit_2.setStyleSheet("border-radius: 10px;\n"
 "background-color: white\n"
 "\n"
 "")
         self.lineEdit_2.setObjectName("lineEdit_2")
-        self.label_6 = QtWidgets.QLabel(Form)
+        self.label_6 = QtWidgets.QLabel(recuperarContrasena)
         self.label_6.setGeometry(QtCore.QRect(60, 160, 101, 20))
         self.label_6.setObjectName("label_6")
-        self.label_8 = QtWidgets.QLabel(Form)
+        self.label_8 = QtWidgets.QLabel(recuperarContrasena)
         self.label_8.setGeometry(QtCore.QRect(0, 250, 71, 31))
         self.label_8.setStyleSheet("image: url(:/iconos/drive-download-20230504T074811Z-001/bloquear (1).png);\n"
 "background-color: none")
         self.label_8.setText("")
         self.label_8.setObjectName("label_8")
-        self.label_9 = QtWidgets.QLabel(Form)
+        self.label_9 = QtWidgets.QLabel(recuperarContrasena)
         self.label_9.setGeometry(QtCore.QRect(60, 300, 181, 20))
         self.label_9.setObjectName("label_9")
-        self.label_10 = QtWidgets.QLabel(Form)
+        self.label_10 = QtWidgets.QLabel(recuperarContrasena)
         self.label_10.setGeometry(QtCore.QRect(0, 320, 71, 31))
         self.label_10.setStyleSheet("image: url(:/iconos/drive-download-20230504T074811Z-001/bloquear (1).png);\n"
 "background-color: none")
         self.label_10.setText("")
         self.label_10.setObjectName("label_10")
-        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton = QtWidgets.QPushButton(recuperarContrasena)
         self.pushButton.setGeometry(QtCore.QRect(350, 320, 151, 31))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("border-radius: 10px;\n"
@@ -83,38 +83,38 @@ class Ui_Form(object):
 "font-size: 15px;\n"
 "font-weight: bold;")
         self.pushButton.setObjectName("pushButton")
-        self.label = QtWidgets.QLabel(Form)
+        self.label = QtWidgets.QLabel(recuperarContrasena)
         self.label.setGeometry(QtCore.QRect(360, 180, 141, 121))
         self.label.setStyleSheet("border-image: url(:/iconos/87256.png);")
         self.label.setText("")
         self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2 = QtWidgets.QLabel(recuperarContrasena)
         self.label_2.setGeometry(QtCore.QRect(440, 190, 31, 31))
         self.label_2.setStyleSheet("border-image: url(:/iconos/2754.png);\n"
 "background-color: transparent;")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(recuperarContrasena)
+        QtCore.QMetaObject.connectSlotsByName(recuperarContrasena)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, recuperarContrasena):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_7.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Nueva contrase</span><span style=\" font-size:12pt; font-weight:600;\">ña</span></p></body></html>"))
-        self.label_3.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">¿Has olvidado tu contraseña?</span></p></body></html>"))
-        self.label_4.setText(_translate("Form", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">No te preocupes!, respondiendo la pregunta de seguridad que has </span></p><p align=\"center\"><span style=\" font-style:italic;\">seleccionado al momento de crear tu usuario tendras la opcion </span></p><p align=\"center\"><span style=\" font-style:italic;\">de cambiar la contraseña de tu usuario.</span></p></body></html>"))
-        self.label_6.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Respuesta</span></p></body></html>"))
-        self.label_9.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Confirmar contraseña</span></p></body></html>"))
-        self.pushButton.setText(_translate("Form", "Cambiar contraseña"))
+        recuperarContrasena.setWindowTitle(_translate("recuperarContrasena", "recuperarContrasena"))
+        self.label_7.setText(_translate("recuperarContrasena", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Nueva contrase</span><span style=\" font-size:12pt; font-weight:600;\">ña</span></p></body></html>"))
+        self.label_3.setText(_translate("recuperarContrasena", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">¿Has olvidado tu contraseña?</span></p></body></html>"))
+        self.label_4.setText(_translate("recuperarContrasena", "<html><head/><body><p align=\"center\"><span style=\" font-style:italic;\">No te preocupes!, respondiendo la pregunta de seguridad que has </span></p><p align=\"center\"><span style=\" font-style:italic;\">seleccionado al momento de crear tu usuario tendras la opcion </span></p><p align=\"center\"><span style=\" font-style:italic;\">de cambiar la contraseña de tu usuario.</span></p></body></html>"))
+        self.label_6.setText(_translate("recuperarContrasena", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Respuesta</span></p></body></html>"))
+        self.label_9.setText(_translate("recuperarContrasena", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Confirmar contraseña</span></p></body></html>"))
+        self.pushButton.setText(_translate("recuperarContrasena", "Cambiar contraseña"))
 import iconosRecuperarContrasena
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    recuperarContrasena = QtWidgets.QWidget()
+    ui = Ui_recuperarContrasena()
+    ui.setupUi(recuperarContrasena)
+    recuperarContrasena.show()
     sys.exit(app.exec_())

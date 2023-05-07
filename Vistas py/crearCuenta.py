@@ -9,21 +9,30 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+import sys
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1024, 600)
-        MainWindow.setStyleSheet("background-color: rgb(20 ,18 ,35);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_crearUsuario(object):
+
+    def close(self):
+        super().close()
+
+    def cerrarventana2(self):
+        self.close()
+
+    def setupUi(self, crearUsuario):
+        crearUsuario.setObjectName("crearUsuario")
+        crearUsuario.resize(1024, 600)
+        crearUsuario.setStyleSheet("background-color: rgb(20 ,18 ,35);")
+        self.centralwidget = QtWidgets.QWidget(crearUsuario)
         self.centralwidget.setStyleSheet("background-color: rgb(20 ,18 ,35);")
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(230, 40, 561, 501))
         self.frame.setStyleSheet("background-color: rgb(224, 224, 224);\n"
-"border-radius: 20px;\n"
-"")
+                                 "border-radius: 20px;\n"
+                                 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -56,35 +65,35 @@ class Ui_MainWindow(object):
         self.lineEdit.setBaseSize(QtCore.QSize(0, 0))
         self.lineEdit.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                    "border-radius : 10px;")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.frame)
         self.lineEdit_3.setGeometry(QtCore.QRect(70, 320, 191, 25))
         self.lineEdit_3.setBaseSize(QtCore.QSize(0, 0))
         self.lineEdit_3.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit_3.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                      "border-radius : 10px;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.frame)
         self.lineEdit_4.setGeometry(QtCore.QRect(340, 260, 191, 25))
         self.lineEdit_4.setBaseSize(QtCore.QSize(0, 0))
         self.lineEdit_4.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit_4.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                      "border-radius : 10px;")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.lineEdit_5 = QtWidgets.QLineEdit(self.frame)
         self.lineEdit_5.setGeometry(QtCore.QRect(340, 320, 191, 25))
         self.lineEdit_5.setBaseSize(QtCore.QSize(0, 0))
         self.lineEdit_5.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit_5.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                      "border-radius : 10px;")
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.lineEdit_6 = QtWidgets.QLineEdit(self.frame)
         self.lineEdit_6.setGeometry(QtCore.QRect(340, 380, 191, 25))
         self.lineEdit_6.setBaseSize(QtCore.QSize(0, 0))
         self.lineEdit_6.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                      "border-radius : 10px;")
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.label_2 = QtWidgets.QLabel(self.frame)
         self.label_2.setGeometry(QtCore.QRect(300, 370, 31, 31))
@@ -103,7 +112,7 @@ class Ui_MainWindow(object):
         self.comboBox = QtWidgets.QComboBox(self.frame)
         self.comboBox.setGeometry(QtCore.QRect(70, 380, 191, 25))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius : 10px;")
+                                    "border-radius : 10px;")
         self.comboBox.setObjectName("comboBox")
         self.label_18 = QtWidgets.QLabel(self.frame)
         self.label_18.setGeometry(QtCore.QRect(330, 240, 201, 17))
@@ -118,47 +127,58 @@ class Ui_MainWindow(object):
         self.pushButton_5.setGeometry(QtCore.QRect(200, 430, 151, 41))
         self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_5.setStyleSheet("background-color: rgb(51, 209, 122);\n"
-"border-radius: 10px;\n"
-"color: white;\n"
-"font-size: 16px;\n"
-"font-weight: bold;\n"
-"")
+                                        "border-radius: 10px;\n"
+                                        "color: white;\n"
+                                        "font-size: 16px;\n"
+                                        "font-weight: bold;\n"
+                                        "")
         self.pushButton_5.setObjectName("pushButton_5")
         self.label_8 = QtWidgets.QLabel(self.frame)
         self.label_8.setGeometry(QtCore.QRect(210, 190, 161, 31))
         self.label_8.setObjectName("label_8")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        crearUsuario.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(crearUsuario)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        crearUsuario.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(crearUsuario)
+        QtCore.QMetaObject.connectSlotsByName(crearUsuario)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, crearUsuario):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/unnamed (1).png\"/></p></body></html>"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/correo.png\"/></p></body></html>"))
-        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/proteger (1).png\"/></p></body></html>"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/bloquear (1).png\"/></p></body></html>"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/bloquear (1).png\"/></p></body></html>"))
-        self.label_7.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/CrearCuenta/usuario (2).png\"/></p></body></html>"))
-        self.label_15.setText(_translate("MainWindow", "Ingrese su correo electronico"))
-        self.label_16.setText(_translate("MainWindow", "Ingrese su contraseña"))
-        self.label_17.setText(_translate("MainWindow", "Eliga su pregunta  de seguiradad"))
-        self.label_18.setText(_translate("MainWindow", "Ingrese su nombre de usuario"))
-        self.label_19.setText(_translate("MainWindow", "Verifique su contraseña"))
-        self.label_44.setText(_translate("MainWindow", "Respuesta"))
-        self.pushButton_5.setText(_translate("MainWindow", "Registrar Usuario"))
-        self.label_8.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Registrar Usuario</span></p></body></html>"))
+        crearUsuario.setWindowTitle(_translate("crearUsuario", "crearUsuario"))
+        self.label.setText(_translate("crearUsuario",
+                                      "<html><head/><body><p><img src=\":/CrearCuenta/unnamed (1).png\"/></p></body></html>"))
+        self.label_3.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><img src=\":/CrearCuenta/correo.png\"/></p></body></html>"))
+        self.label_5.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><img src=\":/CrearCuenta/proteger (1).png\"/></p></body></html>"))
+        self.label_4.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><img src=\":/CrearCuenta/bloquear (1).png\"/></p></body></html>"))
+        self.label_6.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><img src=\":/CrearCuenta/bloquear (1).png\"/></p></body></html>"))
+        self.label_7.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><img src=\":/CrearCuenta/usuario (2).png\"/></p></body></html>"))
+        self.label_15.setText(_translate("crearUsuario", "Ingrese su correo electronico"))
+        self.label_16.setText(_translate("crearUsuario", "Ingrese su contraseña"))
+        self.label_17.setText(_translate("crearUsuario", "Eliga su pregunta  de seguiradad"))
+        self.label_18.setText(_translate("crearUsuario", "Ingrese su nombre de usuario"))
+        self.label_19.setText(_translate("crearUsuario", "Verifique su contraseña"))
+        self.label_44.setText(_translate("crearUsuario", "Respuesta"))
+        self.pushButton_5.setText(_translate("crearUsuario", "Registrar Usuario"))
+        self.label_8.setText(_translate("crearUsuario",
+                                        "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Registrar Usuario</span></p></body></html>"))
+        self.pushButton.clicked.connect(self.close)
+
+
 import iconosCrearCuenta
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    crearUsuario = QtWidgets.QMainWindow()
+    ui = Ui_crearUsuario()
+    ui.setupUi(crearUsuario)
+    crearUsuario.show()
     sys.exit(app.exec_())
