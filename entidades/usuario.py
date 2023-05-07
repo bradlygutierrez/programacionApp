@@ -34,7 +34,7 @@ class Usuario:
 
     #SET
     @idUsuario.setter
-    def idusuario(self, idUsuario):
+    def idUsuario(self, idUsuario):
         self._idUsuario=idUsuario
 
     @property
@@ -74,7 +74,7 @@ class Usuario:
         return self._respuesta
 
     @respuesta.setter
-    def fecha_creacion(self,respuesta):
+    def respuesta(self,respuesta):
         self._respuesta = respuesta
 
 if __name__ == '__main__':
