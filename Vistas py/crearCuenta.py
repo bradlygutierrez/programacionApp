@@ -152,8 +152,7 @@ class Ui_MainWindow(object):
         self.label_44.setText(_translate("MainWindow", "Respuesta"))
         self.pushButton_5.setText(_translate("MainWindow", "Registrar Usuario"))
         self.label_8.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Registrar Usuario</span></p></body></html>"))
-import drive-download-20230504T0_rc
-
+import iconosCrearCuenta
 
 if __name__ == "__main__":
     import sys
