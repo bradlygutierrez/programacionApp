@@ -77,7 +77,11 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Nombre de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Prepuesto de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
 import logos2
-
+"Nuevo Array para agregarEtapas"
+AgregarEtapas = []
+NumEtapa =
+nombreEtapa =
+presupuestoEtapa =
 
 if __name__ == "__main__":
     import sys

@@ -1,11 +1,12 @@
 import  copy
 class Etapa:
-    def __init__(self, idEtapa, idProyecto, nombreEtapa, descripcion, presupuestoEtapa):
+    def __init__(self, idEtapa, idProyecto, nombreEtapa, descripcion, presupuestoEtapa, NumEtapa):
         self._idEtapa = idEtapa
         self._idProyecto = idProyecto
         self._nombreEtapa = nombreEtapa
         self._descripcion = descripcion
         self._presupuestoEtapa = presupuestoEtapa
+        self._NumEtapa = NumEtapa
 
     # getters y setters usando @property
     @property
@@ -47,6 +48,13 @@ class Etapa:
     @presupuestoEtapa.setter
     def presupuestoEtapa(self, value):
         self._presupuestoEtapa = value
+
+    @property
+    def NumEtapa(self):
+        return self._NumEtapa
+    @NumEtapa.setter
+    def  NumEtapa(self,value):
+        self._NumEtapa = value
 
     # método to string (str)
     def __str__(self):
