@@ -84,6 +84,7 @@ import logos2
 NumEtapa = self.lineEdit.text()
 nombreEtapa = self.lineEdit_2()
 presupuestoEtapa = self.lineEdit_3()"""
+    "!"
 
 if __name__ == "__main__":
     import sys
