@@ -14,6 +14,8 @@
   <h3 align= "center"> 🔎TECNOLOGIAS USADAS📑</h3>
   
 <p align="center"> 
-<a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="65" height="60"/> </a>
-<a href="https://github.com"><img src="https://camo.githubusercontent.com/6aea43d076c7bf00489f1b347caa33fe5c4d84a8af2983804f8702632f2669ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746875622532302d2532333132313031312e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/github%20-%23121011.svg?&amp;style=for-the-badge&amp;logo=github&amp;logoColor=white" style="max-width: 100%;"></a>
-<a href="https://git-scm.com" rel="nofollow"><img src="https://camo.githubusercontent.com/22d1116e541b7b380161ed7c77ceb24e5e88a71acbec6d9dae7a5624b23a46fd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769742532302d2532334630353033332e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d676974266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/git%20-%23F05033.svg?&amp;style=for-the-badge&amp;logo=git&amp;logoColor=white" style="max-width: 100%;"></a>
+<a href="https://www.python.org" rel="nofollow"><img title="Python" height="25" src="https://d1q6f0aelx0por.cloudfront.net/product-logos/library-python-logo.png" style="max-width: 100%;"></a>
+<a href="https://github.com" rel="nofollow"><img title="Github" height="25" src="https://thumbs.dreamstime.com/b/github-icon-filled-website-design-mobile-app-development-social-collection-isolated-black-background-155364515.jpg" style="max-width: 100%;"></a>
+<a href="https://www.mysql.com/" rel="nofollow"><img title="Mysql" height="25" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp8E9PkMFIgCPo5xDu_sLiWoK8tGd5yUa3Ug&usqp=CAU" style="max-width: 100%;"></a>
+<a href="https://doc.qt.io/qt-6/qtdesigner-manual.html" rel="nofollow"><img title="QTDesigner5" height="25" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png" style="max-width: 100%;"></a>
+  
