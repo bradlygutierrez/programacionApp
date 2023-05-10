@@ -12,6 +12,7 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from crearCuenta import Ui_crearUsuario
 from recuperarContraseña import Ui_recuperarContrasena
+import sys
 
 
 class Ui_iniciarSesion(QtWidgets.QMainWindow):
@@ -170,3 +171,4 @@ if __name__ == "__main__":
     ui.setupUi(iniciarSesion)
     iniciarSesion.show()
     sys.exit(app.exec_())
+
