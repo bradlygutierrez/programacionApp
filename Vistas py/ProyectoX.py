@@ -9,14 +9,26 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from GastosEtapa import Ui_GastosEtapa
 
 
-class Ui_MainWindow(object):
+
+class Ui_ProyectoX(object):
+
+    def abrir_nueva_ventana(self):
+        ProyectoX.close()
+        app2 = QtWidgets.QApplication(sys.argv)
+        GastosEtapa = QtWidgets.QMainWindow()
+        ui2 = Ui_GastosEtapa()
+        ui2.setupUi(GastosEtapa)
+        GastosEtapa.show()
+        sys.exit(app2.exec_())
+
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(796, 446)
-        MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        ProyectoX.setObjectName("MainWindow")
+        ProyectoX.resize(796, 446)
+        ProyectoX.setStyleSheet("background-color: rgb(20, 18, 35);")
+        self.centralwidget = QtWidgets.QWidget(ProyectoX)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(290, 0, 201, 41))
@@ -123,21 +135,21 @@ class Ui_MainWindow(object):
         self.pushButton_3.setStyleSheet("background-color: rgb(53, 134, 54);\n"
 "color: rgb(255, 255, 255);")
         self.pushButton_3.setObjectName("pushButton_3")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        ProyectoX.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(ProyectoX)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 796, 22))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        ProyectoX.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(ProyectoX)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        ProyectoX.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(ProyectoX)
+        QtCore.QMetaObject.connectSlotsByName(ProyectoX)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        ProyectoX.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Bluefields"))
         self.label_2.setText(_translate("MainWindow", "Saldo disponible"))
         self.label_3.setText(_translate("MainWindow", "C$ 365, 854, 679.86"))
@@ -182,13 +194,15 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Ver gastos por etapas"))
         self.pushButton_2.setText(_translate("MainWindow", "Anadir Gasto"))
         self.pushButton_3.setText(_translate("MainWindow", "Ver todos los gastos"))
+        self.pushButton.clicked.connect(self.abrir_nueva_ventana())
+
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ProyectoX = QtWidgets.QMainWindow()
+    ui = Ui_ProyectoX()
+    ui.setupUi(ProyectoX)
+    ProyectoX.show()
     sys.exit(app.exec_())

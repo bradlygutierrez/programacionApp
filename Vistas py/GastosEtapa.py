@@ -11,14 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1024, 600)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
-        MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_GastosEtapa(object):
+    def setupUi(self, GastosEtapa):
+        GastosEtapa.setObjectName("MainWindow")
+        GastosEtapa.resize(1024, 600)
+        GastosEtapa.setMinimumSize(QtCore.QSize(0, 0))
+        GastosEtapa.setLayoutDirection(QtCore.Qt.LeftToRight)
+        GastosEtapa.setStyleSheet("background-color: rgb(20, 18, 35);")
+        self.centralwidget = QtWidgets.QWidget(GastosEtapa)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 41, 31))
@@ -137,17 +137,17 @@ class Ui_MainWindow(object):
         self.label_4.raise_()
         self.label_5.raise_()
         self.label_15.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        GastosEtapa.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(GastosEtapa)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 22))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        GastosEtapa.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(GastosEtapa)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        GastosEtapa.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(GastosEtapa)
+        QtCore.QMetaObject.connectSlotsByName(GastosEtapa)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -168,8 +168,8 @@ import logos2
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    GastosEtapa = QtWidgets.QMainWindow()
+    ui = Ui_GastosEtapa()
+    ui.setupUi(GastosEtapa)
+    GastosEtapa.show()
     sys.exit(app.exec_())
