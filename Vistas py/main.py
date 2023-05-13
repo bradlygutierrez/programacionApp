@@ -73,6 +73,7 @@ if __name__ == '__main__':
     import sys
     print("Hola Andre")
     print("Hola Bradly")
+    print("Hola Jorge")
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()
