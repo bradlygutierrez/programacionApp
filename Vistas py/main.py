@@ -13,51 +13,64 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-
-        # Set up main window
         self.ui = Ui_iniciarSesion()
         self.ui.setupUi(self)
+        self.verificador = 0
+        self.contador = 1
+        self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
+        self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
 
-        # Connect button to show second window
-        self.ui.commandLinkButton_2.clicked.connect(self.show_second_window)
-        self.ui.commandLinkButton.clicked.connect(self.show_third_window)
+    def show_crear_usuario(self):
+        if self.contador == 1:
+            self.close()
+        else:
+            self.uiPrincipal.close()
 
-    def show_second_window(self):
+        self.verificador = 1
+
         # Hide main window
-        self.hide()
+        self.uiCrearUsuario = Ui_crearUsuario()
+        self.uiCrearUsuario.setupUi(self.uiCrearUsuario)
+        self.uiCrearUsuario.pushButton.clicked.connect(self.show_main_window)
+        self.uiCrearUsuario.show()
 
-        # Show second window
-        self.second_window = QMainWindow()
-        self.ui2 = Ui_crearUsuario()
-        self.ui2.setupUi(self.second_window)
-        self.ui2.pushButton.clicked.connect(self.close)
-        self.second_window.show()
-        self.ui2.pushButton.clicked.connect(self.show_main_window)
 
-    def show_third_window(self):
+    def show_recuperar_contrasena(self):
+
+        if self.contador == 1:
+            self.close()
+        else:
+            self.uiPrincipal.close()
+
         # Hide main window
-        self.hide()
-
         # Show third window
-        self.third_window = QMainWindow()
-        self.ui3 = Ui_recuperarContrasena()
-        self.ui3.setupUi(self.third_window)
-        self.ui3.pushButton.clicked.connect(self.close)
-        self.third_window.show()
+        self.verificador = 0
+
+        self.uiRecuperarContrasena = Ui_recuperarContrasena()
+        self.uiRecuperarContrasena.setupUi(self.uiRecuperarContrasena)
+        self.uiRecuperarContrasena.pushButton.clicked.connect(self.show_main_window)
+        self.uiRecuperarContrasena.show()
 
     def show_main_window(self):
-        self.hide()
+        if self.verificador == 1:
+            self.uiCrearUsuario.close()
+        else:
+            self.uiRecuperarContrasena.close()
 
-        # Show main window
-        self.main_window = QMainWindow()
-        self.ui4 = self
-        self.ui4.pushButton.clicked.connect(self.close)
-        self.main_window.show()
+        self.contador = 2
+
+        self.uiPrincipal = Ui_iniciarSesion()
+        self.uiPrincipal.setupUi(self.uiPrincipal)
+
+        # Connect button to show second window
+        self.uiPrincipal.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
+        self.uiPrincipal.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
+        self.uiPrincipal.pushButton.clicked.connect(self.show_main_window)
+        self.uiPrincipal.show()
 
 
 if __name__ == '__main__':
     import sys
-
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()

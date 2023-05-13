@@ -11,7 +11,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_recuperarContrasena(object):
+class Ui_recuperarContrasena(QtWidgets.QMainWindow):
+
     def setupUi(self, recuperarContrasena):
         recuperarContrasena.setObjectName("recuperarContrasena")
         recuperarContrasena.resize(521, 380)

@@ -15,6 +15,7 @@ from recuperarContraseña import Ui_recuperarContrasena
 import sys
 
 
+
 class Ui_iniciarSesion(QtWidgets.QMainWindow):
 
     def setupUi(self, iniciarSesion):
@@ -155,6 +156,7 @@ class Ui_iniciarSesion(QtWidgets.QMainWindow):
         self.commandLinkButton.setText(_translate("iniciarSesion", "¿Olvidaste tu contraseña?"))
         self.commandLinkButton_2.setText(_translate("iniciarSesion", "¿No tienes cuenta? Registrate"))
         self.commandLinkButton_3.setText(_translate("iniciarSesion", "Salir"))
+
 
 
 
