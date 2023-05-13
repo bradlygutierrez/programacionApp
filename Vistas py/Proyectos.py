@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'Principal.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_proyectos(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText("")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(820, 80, 41, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(870, 80, 41, 41))
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet("image: url(:/iconos principal/engranaje.png);\n"
 "background-color: transparent;\n"
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText("")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(770, 80, 41, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(820, 80, 41, 41))
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("image: url(:/iconos principal/menos (1).png);\n"
 "background-color: transparent;\n"
@@ -51,45 +51,13 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText("")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(720, 80, 41, 41))
+        self.pushButton_4.setGeometry(QtCore.QRect(770, 80, 41, 41))
         self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setStyleSheet("image: url(:/iconos principal/boton-agregar.png);\n"
 "background-color: transparent;\n"
 "border: none;")
         self.pushButton_4.setText("")
         self.pushButton_4.setObjectName("pushButton_4")
-        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(80, 170, 171, 141))
-        self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_5.setStyleSheet("image: url(:/iconos principal/carpeta.png);\n"
-"background-color: transparent;\n"
-"border: none;")
-        self.pushButton_5.setText("")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QtCore.QRect(300, 170, 171, 141))
-        self.pushButton_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_6.setStyleSheet("image: url(:/iconos principal/carpeta.png);\n"
-"background-color: transparent;\n"
-"border: none;")
-        self.pushButton_6.setText("")
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_7.setGeometry(QtCore.QRect(520, 170, 171, 141))
-        self.pushButton_7.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_7.setStyleSheet("image: url(:/iconos principal/carpeta.png);\n"
-"background-color: transparent;\n"
-"border: none;")
-        self.pushButton_7.setText("")
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(740, 170, 171, 141))
-        self.pushButton_8.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_8.setStyleSheet("image: url(:/iconos principal/carpeta.png);\n"
-"background-color: transparent;\n"
-"border: none;")
-        self.pushButton_8.setText("")
-        self.pushButton_8.setObjectName("pushButton_8")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(870, 480, 41, 41))
         self.label.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -103,6 +71,13 @@ class Ui_MainWindow(object):
 "background-color: rgb(51, 209, 122);\n"
 "border-bottom-left-radius: 10px;")
         self.pushButton_9.setObjectName("pushButton_9")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(60, 140, 851, 321))
+        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);\n"
+"border-radius: 20px;")
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -123,7 +98,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_proyectos()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

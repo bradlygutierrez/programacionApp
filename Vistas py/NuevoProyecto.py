@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_NuevoProyecto(object):
+class Ui_NuevoProyecto(QtWidgets.QMainWindow):
     def setupUi(self, NuevoProyecto):
         NuevoProyecto.setObjectName("NuevoProyecto")
         NuevoProyecto.resize(1024, 600)

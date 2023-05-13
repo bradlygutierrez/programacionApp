@@ -6,6 +6,8 @@ from PyQt5.uic.properties import QtWidgets
 from IniciarSesion import Ui_iniciarSesion
 from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
+from Proyectos import Ui_proyectos
+from NuevoProyecto import Ui_NuevoProyecto
 
 
 class MainWindow(QMainWindow):
@@ -17,8 +19,10 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.verificador = 0
         self.contador = 1
+        self.controlador_proyectos = 0
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
+        self.ui.pushButton.clicked.connect(self.show_proyectos)
 
     def show_crear_usuario(self):
         if self.contador == 1:
@@ -34,7 +38,6 @@ class MainWindow(QMainWindow):
         self.uiCrearUsuario.pushButton.clicked.connect(self.show_main_window)
         self.uiCrearUsuario.show()
 
-
     def show_recuperar_contrasena(self):
 
         if self.contador == 1:
@@ -48,7 +51,7 @@ class MainWindow(QMainWindow):
 
         self.uiRecuperarContrasena = Ui_recuperarContrasena()
         self.uiRecuperarContrasena.setupUi(self.uiRecuperarContrasena)
-        self.uiRecuperarContrasena.pushButton.clicked.connect(self.show_main_window)
+        self.uiRecuperarContrasena.pushButton.clicked.connect(self.show_proyectos)
         self.uiRecuperarContrasena.show()
 
     def show_main_window(self):
@@ -68,13 +71,39 @@ class MainWindow(QMainWindow):
         self.uiPrincipal.pushButton.clicked.connect(self.show_main_window)
         self.uiPrincipal.show()
 
+    def show_proyectos(self):
+        if self.contador == 1:
+            self.close()
+        elif:
+            self.uiPrincipal.close()
+
+        if self.controlador_proyectos == 1:
+            self.show_proyectos.close()
+        else:
+
+
+        self.uiproyectos = Ui_proyectos()
+        self.uiproyectos.setupUi(self.uiproyectos)
+        self.uiproyectos.pushButton_4.clicked.connect(self.show_Nuevo_Proyecto)
+        self.uiproyectos.show()
+
+    def show_Nuevo_Proyecto(self):
+
+        self.controlador_proyectos = 1
+        self.uiproyectos.close()
+        self.uinuevoproyecto = Ui_NuevoProyecto()
+        self.uinuevoproyecto.setupUi(self.uinuevoproyecto)
+        self.uinuevoproyecto.pushButton.clicked.connect(self.show_Nuevo_Proyecto)
+        self.uinuevoproyecto.show()
+
+    def regresar_proyectos
+
+
+
 
 if __name__ == '__main__':
     import sys
-    print("Hola Andre")
-    print("Hola Bradly")
-    print("Hola Jorge")
-    print("Ultimo push")
+
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()

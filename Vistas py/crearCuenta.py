@@ -15,8 +15,6 @@ import sys
 class Ui_crearUsuario(QtWidgets.QMainWindow):
 
 
-
-
     def setupUi(self, crearUsuario):
         crearUsuario.setObjectName("crearUsuario")
         crearUsuario.resize(1024, 600)
