@@ -9,6 +9,8 @@ from crearCuenta import Ui_crearUsuario
 from Proyectos import Ui_proyectos
 from NuevoProyecto import Ui_nuevoProyecto
 from Configuracion import Ui_configuracion
+from Etapas import Ui_etapas
+from AgregarEtapa import Ui_AgregarEtapa
 
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
@@ -20,11 +22,13 @@ class MainWindow(QMainWindow):
         self.verificador = 0
         self.contador = 1
         self.controlador_proyectos = 7
+        self.controlador_etapas = 10
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.pushButton.clicked.connect(self.show_proyectos)
 
     def show_crear_usuario(self):
+
         if self.contador == 1:
             self.close()
         else:
@@ -51,7 +55,7 @@ class MainWindow(QMainWindow):
 
         self.uiRecuperarContrasena = Ui_recuperarContrasena()
         self.uiRecuperarContrasena.setupUi(self.uiRecuperarContrasena)
-        self.uiRecuperarContrasena.pushButton.clicked.connect(self.show_proyectos)
+        self.uiRecuperarContrasena.pushButton.clicked.connect(self.show_main_window)
         self.uiRecuperarContrasena.show()
 
     def show_main_window(self):
@@ -69,15 +73,15 @@ class MainWindow(QMainWindow):
         # Connect button to show second window
         self.uiPrincipal.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.uiPrincipal.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
-        self.uiPrincipal.pushButton.clicked.connect(self.show_proyectos())
+        self.uiPrincipal.pushButton.clicked.connect(self.show_proyectos)
         self.uiPrincipal.show()
 
     def show_proyectos(self):
+
         if self.contador == 1:
             self.close()
         else:
             self.uiPrincipal.close()
-
         if self.controlador_proyectos == 1:
             self.uiNuevoproyecto.close()
         elif self.controlador_proyectos == 2:
@@ -91,6 +95,7 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
+        self.uiProyectos.pushButton_9.clicked.connect(self.show_etapas)
         self.uiProyectos.show()
 
     def show_nuevo_proyecto(self):
@@ -110,6 +115,36 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.setupUi(self.uiConfiguracion)
         self.uiConfiguracion.pushButton.clicked.connect(self.show_proyectos)
         self.uiConfiguracion.show()
+
+    def show_etapas(self):
+
+        if self.controlador_proyectos == 1:
+            self.close()
+        else:
+            self.uiProyectos.close()
+
+        if self.controlador_etapas == 1:
+            self.uiNuevaEtapa.close()
+        elif self.controlador_etapas == 2:
+            self.uiEditarEtapa.close()
+        elif self.controlador_etapas == 3:
+            self.uiEliminarEtapa.close()
+        else:
+            print("Pasamos")
+
+        self.uiEtapas = Ui_etapas()
+        self.uiEtapas.setupUi(self.uiEtapas)
+        self.uiEtapas.pushButton.clicked.connect(self.show_agregar_etapa)
+        self.uiEtapas.show()
+
+    def show_agregar_etapa(self):
+        self.controlador_etapas = 1
+
+        self.uiEtapas.close()
+        self.uiNuevaEtapa = Ui_AgregarEtapa()
+        self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
+        self.uiNuevaEtapa.pushButton.clicked.connect(self.show_etapas)
+        self.uiNuevaEtapa.show()
 
 
 
