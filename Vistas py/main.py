@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     import sys
     print("Hola Andre")
+    print("Hola Bradly")
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()
