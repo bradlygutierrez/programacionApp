@@ -9,6 +9,7 @@
   <h3 align= "center">🟠 Bradly Antonio Gutiérrez Córdoba 🔵 </h3>
   <h3 align= "center">🔵 Jorge Evaristo García Flores 🟠 </h3>
   <h3 align= "center">🟠 Harry Enrrique Bodán Navarro 🔵 </h3>
+  <h3 align= "center">🟠 Marcello Josué Álvarez Gonzales 🔵 </h3>
   
   <hr style="border-color:red">
   <h3 align= "center"> 🔎TECNOLOGIAS USADAS📑</h3>
