@@ -11,6 +11,7 @@ from Configuracion import Ui_configuracion
 from Etapas import Ui_etapas
 from AgregarEtapa import Ui_AgregarEtapa
 
+
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
@@ -110,7 +111,7 @@ class MainWindow(QMainWindow):
         self.controlador_proyectos = 2
 
         self.uiProyectos.close()
-        self.uiConfiguracion= Ui_configuracion()
+        self.uiConfiguracion = Ui_configuracion()
         self.uiConfiguracion.setupUi(self.uiConfiguracion)
         self.uiConfiguracion.pushButton.clicked.connect(self.show_proyectos)
         self.uiConfiguracion.show()
@@ -134,6 +135,7 @@ class MainWindow(QMainWindow):
         self.uiEtapas = Ui_etapas()
         self.uiEtapas.setupUi(self.uiEtapas)
         self.uiEtapas.pushButton.clicked.connect(self.show_agregar_etapa)
+        self.uiEtapas.pushButton_5.clicked.connect(self.show_proyectos)
         self.uiEtapas.show()
 
     def show_agregar_etapa(self):
@@ -142,9 +144,8 @@ class MainWindow(QMainWindow):
         self.uiEtapas.close()
         self.uiNuevaEtapa = Ui_AgregarEtapa()
         self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
-        self.uiNuevaEtapa.pushButton.clicked.connect(self.show_etapas)
+        self.uiNuevaEtapa.pushButton_2.clicked.connect(self.show_etapas)
         self.uiNuevaEtapa.show()
-
 
 
 if __name__ == '__main__':

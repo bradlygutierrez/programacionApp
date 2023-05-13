@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_AgregarEtapa(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
@@ -82,14 +82,14 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Nombre de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Prepuesto de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.pushButton_2.setText(_translate("MainWindow", "Volver"))
-import logos2_rc
+import logos2
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_AgregarEtapa()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
