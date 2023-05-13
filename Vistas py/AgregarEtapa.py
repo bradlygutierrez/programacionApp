@@ -10,7 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_AgregarEtapa(QtWidgets.QMainWindow):
+
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
@@ -55,6 +56,11 @@ class Ui_AgregarEtapa(QtWidgets.QMainWindow):
         self.label_5.setStyleSheet("border-image: url(:/logo/unnamed (1).png);")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(10, 10, 111, 31))
+        self.pushButton_2.setStyleSheet("font: 57 10pt \"Ubuntu bold\";\n"
+"background-color: rgb(35, 134, 54);")
+        self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 22))
@@ -75,23 +81,15 @@ class Ui_AgregarEtapa(QtWidgets.QMainWindow):
         self.pushButton.setText(_translate("MainWindow", "Agregar"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Nombre de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Prepuesto de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
+        self.pushButton_2.setText(_translate("MainWindow", "Volver"))
+import logos2_rc
 
-    """def agregaretapas(self,dato):
-        self.AgregarEtapas.append(dato)
-"Nuevo Array para agregarEtapas"
-    def __init__(self):
-        self.AgregarEtapas = []
-NumEtapa = self.lineEdit.text()
-nombreEtapa = self.lineEdit_2()
-presupuestoEtapa = self.lineEdit_3()"""
-    "!"
-import logos2
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_AgregarEtapa()
+    ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

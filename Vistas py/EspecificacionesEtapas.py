@@ -70,15 +70,15 @@ class Ui_MainWindow(object):
         self.lineEdit_3.setGeometry(QtCore.QRect(860, 70, 121, 25))
         self.lineEdit_3.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(10, 10, 31, 31))
-        self.label_4.setStyleSheet("border-image: url(:/logos/flecha-hacia-atras.png);")
-        self.label_4.setText("")
-        self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(250, 10, 541, 41))
         self.label_5.setStyleSheet("font: 75 16pt \"Ubuntu\";")
         self.label_5.setObjectName("label_5")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(10, 10, 89, 25))
+        self.pushButton.setStyleSheet("\n"
+"background-color: rgb(35, 134, 54)")
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 22))
@@ -118,8 +118,9 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Número:</span></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Presupuesto:</span></p></body></html>"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
-import logo1
-import logos2
+        self.pushButton.setText(_translate("MainWindow", "Volver"))
+import logo1_rc
+import logos2_rc
 
 
 if __name__ == "__main__":

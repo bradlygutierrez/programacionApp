@@ -26,22 +26,6 @@
    <string notr="true">background-color: rgb(20, 18, 35);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/logos/flecha-hacia-atras.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -358,12 +342,27 @@ font: 75 20pt &quot;Ubuntu&quot;;</string>
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(35, 134, 54);</string>
+    </property>
+    <property name="text">
+     <string>Regresar</string>
+    </property>
+   </widget>
    <zorder>label_10</zorder>
    <zorder>label_9</zorder>
    <zorder>label_6</zorder>
    <zorder>label_8</zorder>
    <zorder>label_12</zorder>
-   <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>label_7</zorder>
    <zorder>label_3</zorder>
@@ -372,6 +371,7 @@ font: 75 20pt &quot;Ubuntu&quot;;</string>
    <zorder>label_4</zorder>
    <zorder>label_5</zorder>
    <zorder>label_15</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

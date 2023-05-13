@@ -2,7 +2,6 @@ import PyQt5
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.uic.properties import QtWidgets
-
 from IniciarSesion import Ui_iniciarSesion
 from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
