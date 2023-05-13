@@ -57,6 +57,7 @@ class Ui_iniciarSesion(QtWidgets.QMainWindow):
                                     "")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.frame)
+        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_2.setGeometry(QtCore.QRect(130, 280, 201, 31))
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                                       "border-radius: 10px;")

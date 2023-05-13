@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(10, 120, 1001, 441))
         self.tableWidget.setStyleSheet("\n"
-"background-color: rgb(168,168,168);\n"
+"background-color: rgb(224,224,224);\n"
 "")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(10)
@@ -119,15 +119,14 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Presupuesto:</span></p></body></html>"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Volver"))
-import logo1_rc
-import logos2_rc
-
+import logo1
+import logos2
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_Especificaciones_Etapas()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

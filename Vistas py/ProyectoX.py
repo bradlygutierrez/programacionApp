@@ -9,20 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from GastosEtapa import Ui_GastosEtapa
+
 
 
 
 class Ui_ProyectoX(object):
 
-    def abrir_nueva_ventana(self):
-        ProyectoX.close()
-        app2 = QtWidgets.QApplication(sys.argv)
-        GastosEtapa = QtWidgets.QMainWindow()
-        ui2 = Ui_GastosEtapa()
-        ui2.setupUi(GastosEtapa)
-        GastosEtapa.show()
-        sys.exit(app2.exec_())
 
     def setupUi(self, MainWindow):
         ProyectoX.setObjectName("MainWindow")
@@ -194,7 +186,7 @@ class Ui_ProyectoX(object):
         self.pushButton.setText(_translate("MainWindow", "Ver gastos por etapas"))
         self.pushButton_2.setText(_translate("MainWindow", "Anadir Gasto"))
         self.pushButton_3.setText(_translate("MainWindow", "Ver todos los gastos"))
-        self.pushButton.clicked.connect(self.abrir_nueva_ventana())
+
 
 
 

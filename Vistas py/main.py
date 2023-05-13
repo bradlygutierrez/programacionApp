@@ -117,6 +117,7 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.show()
 
     def show_etapas(self):
+        self.controlador_etapas = 4
 
         if self.controlador_proyectos == 1:
             self.close()
@@ -130,7 +131,7 @@ class MainWindow(QMainWindow):
         elif self.controlador_etapas == 3:
             self.uiEliminarEtapa.close()
         else:
-            print("Pasamos")
+            self.close()
 
         self.uiEtapas = Ui_etapas()
         self.uiEtapas.setupUi(self.uiEtapas)
@@ -146,6 +147,7 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
         self.uiNuevaEtapa.pushButton_2.clicked.connect(self.show_etapas)
         self.uiNuevaEtapa.show()
+
 
 
 if __name__ == '__main__':
