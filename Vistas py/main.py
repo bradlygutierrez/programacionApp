@@ -7,8 +7,8 @@ from IniciarSesion import Ui_iniciarSesion
 from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
 from Proyectos import Ui_proyectos
-from NuevoProyecto import Ui_NuevoProyecto
-
+from NuevoProyecto import Ui_nuevoProyecto
+from Configuracion import Ui_configuracion
 
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.verificador = 0
         self.contador = 1
-        self.controlador_proyectos = 0
+        self.controlador_proyectos = 7
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.pushButton.clicked.connect(self.show_proyectos)
@@ -55,6 +55,7 @@ class MainWindow(QMainWindow):
         self.uiRecuperarContrasena.show()
 
     def show_main_window(self):
+
         if self.verificador == 1:
             self.uiCrearUsuario.close()
         else:
@@ -68,36 +69,47 @@ class MainWindow(QMainWindow):
         # Connect button to show second window
         self.uiPrincipal.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.uiPrincipal.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
-        self.uiPrincipal.pushButton.clicked.connect(self.show_main_window)
+        self.uiPrincipal.pushButton.clicked.connect(self.show_proyectos())
         self.uiPrincipal.show()
 
     def show_proyectos(self):
         if self.contador == 1:
             self.close()
-        elif:
+        else:
             self.uiPrincipal.close()
 
         if self.controlador_proyectos == 1:
-            self.show_proyectos.close()
+            self.uiNuevoproyecto.close()
+        elif self.controlador_proyectos == 2:
+            self.uiConfiguracion.close()
+        elif self.controlador_proyectos == 3:
+            self.uiEliminarProyecto.close()
         else:
+            print("Pasamos")
 
+        self.uiProyectos = Ui_proyectos()
+        self.uiProyectos.setupUi(self.uiProyectos)
+        self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
+        self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
+        self.uiProyectos.show()
 
-        self.uiproyectos = Ui_proyectos()
-        self.uiproyectos.setupUi(self.uiproyectos)
-        self.uiproyectos.pushButton_4.clicked.connect(self.show_Nuevo_Proyecto)
-        self.uiproyectos.show()
-
-    def show_Nuevo_Proyecto(self):
-
+    def show_nuevo_proyecto(self):
         self.controlador_proyectos = 1
-        self.uiproyectos.close()
-        self.uinuevoproyecto = Ui_NuevoProyecto()
-        self.uinuevoproyecto.setupUi(self.uinuevoproyecto)
-        self.uinuevoproyecto.pushButton.clicked.connect(self.show_Nuevo_Proyecto)
-        self.uinuevoproyecto.show()
 
-    def regresar_proyectos
+        self.uiProyectos.close()
+        self.uiNuevoproyecto = Ui_nuevoProyecto()
+        self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
+        self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
+        self.uiNuevoproyecto.show()
 
+    def show_configuracion(self):
+        self.controlador_proyectos = 2
+
+        self.uiProyectos.close()
+        self.uiConfiguracion= Ui_configuracion()
+        self.uiConfiguracion.setupUi(self.uiConfiguracion)
+        self.uiConfiguracion.pushButton.clicked.connect(self.show_proyectos)
+        self.uiConfiguracion.show()
 
 
 

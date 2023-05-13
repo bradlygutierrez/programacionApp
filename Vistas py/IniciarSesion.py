@@ -17,7 +17,6 @@ from PyQt5 import uic, QtWidgets
 
 class Ui_iniciarSesion(QtWidgets.QMainWindow):
 
-
     def setupUi(self, iniciarSesion):
         iniciarSesion.setObjectName("iniciarSesion")
         iniciarSesion.resize(1024, 600)
