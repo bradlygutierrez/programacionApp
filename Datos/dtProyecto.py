@@ -14,8 +14,8 @@ class DT_proyect:
                 proyecto = []
                 try:
                     for x in resultado:
-                        u = Proyecto(x['beneficiario'], x['fecha_inicio'], x['id_proyecto'], x['id_usuario'],
-                                    x['presupuesto_inicial'])
+                        u = Proyecto(x['id_proyecto'], x['id_usuario'],x['fecha_inicio'],x['presupuesto_inicial'],x['beneficiario']
+                                    )
                         proyecto.append(u)
                     print('proyectos', proyecto)
                     return proyecto
