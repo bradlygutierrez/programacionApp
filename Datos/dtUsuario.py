@@ -36,6 +36,11 @@ class DT_Usuario:
                 except Exception as e:
                     print(f'Exception {e}')
 
+    def autentificar_usuario(self):
+        with Conexion.getConnection() as conexion:
+            with conexion.cursor() as cursor:
+
+
 
 if __name__ == '__main__':
     #INSERTAR REGISTRO
