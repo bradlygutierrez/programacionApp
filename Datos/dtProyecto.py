@@ -41,7 +41,7 @@ class DT_proyect:
                 x['presupuesto_inicial'],
                 x['beneficiario']
                 )
-            proyectos.append(proyecto)
+                proyectos.append(proyecto)
             return proyectos
         except Exception as e:
             print(f'Excepción: {e}')
