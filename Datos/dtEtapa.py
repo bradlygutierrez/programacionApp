@@ -1,4 +1,4 @@
-from conexion import Conexion
+from Datos.conexion import Conexion
 from entidades.etapas import Etapa
 
 

@@ -7,7 +7,7 @@ from crearCuenta import Ui_crearUsuario
 from Proyectos import Ui_proyectos
 from NuevoProyecto import Ui_nuevoProyecto
 from Configuracion import Ui_configuracion
-from Etapas import Ui_etapas
+from Etapas import Ui_Etapas
 from AgregarEtapa import Ui_AgregarEtapa
 
 
@@ -86,7 +86,7 @@ class MainWindow(QMainWindow):
         elif self.controlador_proyectos == 2:
             self.uiConfiguracion.close()
         elif self.controlador_proyectos == 3:
-            self.uiEliminarProyecto.close()
+            self.uiEtapas.close()
         else:
             print("Pasamos")
 
@@ -116,7 +116,7 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.show()
 
     def show_etapas(self):
-
+        self.controlador_proyectos = 3
         if self.controlador_proyectos == 1:
             self.close()
         else:
@@ -131,10 +131,11 @@ class MainWindow(QMainWindow):
         else:
             self.close()
 
-        self.uiEtapas = Ui_etapas()
+        self.uiEtapas = Ui_Etapas()
         self.uiEtapas.setupUi(self.uiEtapas)
         self.uiEtapas.pushButton.clicked.connect(self.show_agregar_etapa)
         self.uiEtapas.pushButton_5.clicked.connect(self.show_proyectos)
+        self.uiEtapas.cargar_etapas()
         self.uiEtapas.show()
 
     def show_agregar_etapa(self):
@@ -145,6 +146,8 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
         self.uiNuevaEtapa.pushButton_2.clicked.connect(self.show_etapas)
         self.uiNuevaEtapa.show()
+
+
 
 
 if __name__ == '__main__':
