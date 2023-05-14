@@ -14,15 +14,8 @@ from AgregarEtapa import Ui_AgregarEtapa
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
-    def __init__(self,id_usuario,nombre,correo,clave, id_pregunta,respuesta):
+    def __init__(self):
         super().__init__()
-        self.id_usuario = 0
-        self.usuario = usuario
-        self.nombre = nombre
-        self.correo = correo
-        self.clave = clave
-        self.id_pregunta = id_pregunta
-        self.respuesta = respuesta
         self.ui = Ui_iniciarSesion()
         self.ui.setupUi(self)
         self.verificador = 0
