@@ -16,7 +16,7 @@ class Proyecto:
 
     @property
     def idUsuario(self):
-        return self.idUsuario
+        return self._idUsuario
 
     @idUsuario.setter
     def idUsuario(self, value):

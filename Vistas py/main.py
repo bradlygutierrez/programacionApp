@@ -1,7 +1,6 @@
 import PyQt5
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.uic.properties import QtWidgets
 from IniciarSesion import Ui_iniciarSesion
 from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
@@ -117,7 +116,6 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.show()
 
     def show_etapas(self):
-        self.controlador_etapas = 4
 
         if self.controlador_proyectos == 1:
             self.close()
@@ -149,11 +147,11 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.show()
 
 
-
 if __name__ == '__main__':
     import sys
 
     app = QApplication(sys.argv)
     main_window = MainWindow()
+    ui.cargar_proyectos()
     main_window.show()
     sys.exit(app.exec_())
