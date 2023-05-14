@@ -2,6 +2,7 @@ from Datos.conexion import Conexion
 from entidades.proyecto import Proyecto
 
 
+
 class DT_proyect:
     _INSERT = "INSERT INTO sermiccsa.proyecto (beneficiario, fecha_inicio, id_proyecto, id_usuario, presupuesto_inicial) VALUES (%s, NOW(), %s, %s, %s)"
 
