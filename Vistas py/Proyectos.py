@@ -80,7 +80,7 @@ class Ui_proyectos(QtWidgets.QMainWindow):
         self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);\n"
                                        "border-radius: 20px;")
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setColumnCount(5)
         self.tableWidget.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -99,7 +99,6 @@ class Ui_proyectos(QtWidgets.QMainWindow):
 
     def cargar_proyectos(self):
         proyectos = DT_proyect.listarProyectos()
-        self.tableWidget.setColumnCount(5)
         self.tableWidget.setRowCount(len(proyectos))
         self.tableWidget.setHorizontalHeaderLabels(
             ["ID Proyecto", "ID Usuario", "Fecha Inicio", "Presupuesto Inicial", "Beneficiario"])

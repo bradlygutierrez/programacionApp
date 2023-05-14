@@ -95,11 +95,12 @@ class MainWindow(QMainWindow):
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
         self.uiProyectos.pushButton_9.clicked.connect(self.show_etapas)
+        self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
+
 
     def show_nuevo_proyecto(self):
         self.controlador_proyectos = 1
-
         self.uiProyectos.close()
         self.uiNuevoproyecto = Ui_nuevoProyecto()
         self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
@@ -108,7 +109,6 @@ class MainWindow(QMainWindow):
 
     def show_configuracion(self):
         self.controlador_proyectos = 2
-
         self.uiProyectos.close()
         self.uiConfiguracion = Ui_configuracion()
         self.uiConfiguracion.setupUi(self.uiConfiguracion)
@@ -149,9 +149,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     import sys
-
     app = QApplication(sys.argv)
     main_window = MainWindow()
-    ui.cargar_proyectos()
     main_window.show()
     sys.exit(app.exec_())
