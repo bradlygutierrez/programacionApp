@@ -14,8 +14,8 @@ class DT_Usuario:
                 usuarios = []
                 try:
                     for x in resultado:
-                        u = Usuario(x['clave'], x['correo'], x['id_pregunta'], x['id_usuario'],
-                                    x['nombre'], x['respuesta'])
+                        u = Usuario(x['nombre'], x['correo'], x['id_pregunta'], x['id_usuario'],
+                                     x['clave'],x['respuesta'])
                         usuarios.append(u)
                     print('usuarios', usuarios)
                     return usuarios
@@ -36,18 +36,12 @@ class DT_Usuario:
                 except Exception as e:
                     print(f'Exception {e}')
 
-    def autentificar_usuario(self):
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-
+    #def autentificar_usuario(self):
+        #with Conexion.getConnection() as conexion:
+            #with conexion.cursor() as cursor
 
 
 if __name__ == '__main__':
-    #INSERTAR REGISTRO
-    # usuario1 = Usuario(nombre='miguel', apellido='cervantes', nombreusuario='elQuijote', clave='123', fecha_creacion='2023-03-10')
-    # insertar = DT_Usuario.guardarUsuario(usuario1)
-    # print(f'Usuario insertado : {insertar}')
-
     #LISTAR USUARIOS
     users = DT_Usuario.listarUsuario()
     for x in users:
