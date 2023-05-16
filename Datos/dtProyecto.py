@@ -10,7 +10,7 @@ class DT_proyect:
     def listarProyectos(cls):
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
-        cursor.execute("SELECT * FROM sermiccsa.proyecto")
+        cursor.execute("SELECT * FROM sermiccsa.proyecto;")
         resultado = cursor.fetchall()
         proyectos = []
         try:

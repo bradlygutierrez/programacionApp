@@ -76,7 +76,7 @@ class MainWindow(QMainWindow):
         self.uiPrincipal.show()
 
     def show_proyectos(self):
-
+        print("xd")
         if self.contador == 1:
             self.close()
         else:

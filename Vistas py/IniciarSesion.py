@@ -157,8 +157,6 @@ class Ui_iniciarSesion(QtWidgets.QMainWindow):
         self.commandLinkButton_2.setText(_translate("iniciarSesion", "¿No tienes cuenta? Registrate"))
         self.commandLinkButton_3.setText(_translate("iniciarSesion", "Salir"))
 
-
-
 import iconos
 
 if __name__ == "__main__":
