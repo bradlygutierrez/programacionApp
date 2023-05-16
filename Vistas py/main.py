@@ -77,6 +77,7 @@ class MainWindow(QMainWindow):
 
     def show_proyectos(self):
         print("xd")
+        print("Andre")
         if self.contador == 1:
             self.close()
         else:
