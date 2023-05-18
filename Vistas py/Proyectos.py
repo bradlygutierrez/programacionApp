@@ -15,6 +15,7 @@ import iconosPrincipal
 
 
 class Ui_proyectos(QtWidgets.QMainWindow):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
@@ -61,6 +62,12 @@ class Ui_proyectos(QtWidgets.QMainWindow):
                                         "border: none;")
         self.pushButton_4.setText("")
         self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_5.setStyleSheet("background-color: transparent;\n"
+                                        "border: none;")
+        self.pushButton_5.setText("")
+        self.pushButton_5.setObjectName("pushButton_5")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(870, 480, 41, 41))
         self.label.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -100,6 +107,7 @@ class Ui_proyectos(QtWidgets.QMainWindow):
         proyectos = DT_proyect.listarProyectos()
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(proyectos))
+        self.tableWidget.setColumnCount(5)
         self.tableWidget.setHorizontalHeaderLabels(
             ["ID Proyecto", "ID Usuario", "Fecha Inicio", "Presupuesto Inicial", "Beneficiario"])
         self.tableWidget.setColumnWidth(0, 157)
@@ -110,11 +118,13 @@ class Ui_proyectos(QtWidgets.QMainWindow):
         self.tableWidget.setColumnHidden(1, True)
         for i, proyecto in enumerate(proyectos):
             self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.idproyecto)))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.idUsuario)))
             self.tableWidget.setItem(i, 2, QTableWidgetItem(str(proyecto.fechaInicio)))
             self.tableWidget.setItem(i, 3, QTableWidgetItem(str(proyecto.presupuestoInicial)))
             self.tableWidget.setItem(i, 4, QTableWidgetItem(str(proyecto.beneficiarioProyecto)))
 
         alignment = QtCore.Qt.AlignCenter
+
         for i in range(self.tableWidget.columnCount()):
             for j in range(self.tableWidget.rowCount()):
                 item = self.tableWidget.item(j, i)

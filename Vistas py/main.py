@@ -9,6 +9,9 @@ from NuevoProyecto import Ui_nuevoProyecto
 from Configuracion import Ui_configuracion
 from Etapas import Ui_Etapas
 from AgregarEtapa import Ui_AgregarEtapa
+from ProyectoX import Ui_ProyectoX
+from Datos.dtProyecto import DT_proyect
+
 
 
 class MainWindow(QMainWindow):
@@ -25,6 +28,7 @@ class MainWindow(QMainWindow):
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.pushButton.clicked.connect(self.show_proyectos)
+
 
     def show_crear_usuario(self):
 
@@ -76,8 +80,6 @@ class MainWindow(QMainWindow):
         self.uiPrincipal.show()
 
     def show_proyectos(self):
-        print("xd")
-        print("Andre")
         if self.contador == 1:
             self.close()
         else:
@@ -95,9 +97,12 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
-        self.uiProyectos.pushButton_9.clicked.connect(self.show_etapas)
+        self.uiProyectos.tableWidget.cellClicked.connect(self.show_proyectoX)
         self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
+
+
+
 
 
     def show_nuevo_proyecto(self):
@@ -117,7 +122,6 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.show()
 
     def show_etapas(self):
-        self.controlador_proyectos = 3
         if self.controlador_proyectos == 1:
             self.close()
         else:
@@ -147,6 +151,26 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
         self.uiNuevaEtapa.pushButton_2.clicked.connect(self.show_etapas)
         self.uiNuevaEtapa.show()
+
+    def show_proyectoX(self):
+        self.controlador_proyectos = 3
+        if self.controlador_proyectos == 1:
+            self.close()
+        else:
+            self.uiProyectos.close()
+
+        if self.controlador_etapas == 1:
+            self.uiNuevaEtapa.close()
+        elif self.controlador_etapas == 2:
+            self.uiEditarEtapa.close()
+        elif self.controlador_etapas == 3:
+            self.uiEliminarEtapa.close()
+        else:
+            self.close()
+
+        self.uiProyectoX = Ui_ProyectoX()
+        self.uiProyectoX.setupUi(self.uiProyectoX)
+        self.uiProyectoX.show()
 
 
 
