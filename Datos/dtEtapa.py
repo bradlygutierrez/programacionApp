@@ -31,13 +31,37 @@ class DT_etapa:
             with conexion.cursor() as cursor:
                 try:
                     print(f'Etapa a insertar: {etapa}')
-                    valores = (etapa.descripcion, etapa.idEtapa, etapa.idProyecto ,etapa.nombreEtapa, etapa.NumEtapa, etapa.presupuestoEtapa)
+                    valores = (etapa.idEtapa, etapa.idProyecto, etapa.nombreEtapa,etapa.descripcion, etapa.presupuestoEtapa, etapa.NumEtapa)
                     cursor.execute(cls._INSERT, valores)
                     print(f'Etapa insertado: {etapa}')
                     conexion.commit()
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Exception {e}')
+
+    def Editar_Etapa(self):
+        if Conexion.getConnection():
+            print("Conexión exitosa editar")
+        with Conexion.getConnection() as conexion:
+            with conexion.cursor() as cursor:
+                try:
+                    cursor.execute("UPDATE FROM sermiccsa.etapa SET nombre = 'PRUEBA 1'")
+                    cursor.commit()
+                    print("Registro editado con éxito")
+                except Exception as e:
+                    print("Error durante la conexión", e)
+
+    def Eliminar_Etapa(self):
+        if Conexion.getConnection():
+            print("Conexión exitosa")
+        with Conexion.getConnection() as conexion:
+            with conexion.cursor() as cursor:
+                try:
+                    cursor.execute("DELETE FROM sermiccsa.etapa WHERE id_etapa = 1")
+                    cursor.commit()
+                    print("Registro eliminado con éxito")
+                except Exception as e:
+                    print("Error durante la conexión", e)
 
 
 if __name__ == '__main__':
