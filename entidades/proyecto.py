@@ -1,69 +1,69 @@
 class Proyecto:
-    def __init__(self, idproyecto, idUsuario, fechaInicio, presupuestoInicial, beneficiarioProyecto):
-        self._idproyecto = idproyecto
-        self._idUsuario = idUsuario
-        self._fechaInicio = fechaInicio
-        self._presupuestoInicial = presupuestoInicial
-        self._beneficiarioProyecto = beneficiarioProyecto
+    def __init__(self, id_proyecto, id_usuario, fecha_inicio, presupuesto_inicial, beneficiario_proyecto):
+        self._id_proyecto = id_proyecto
+        self._id_usuario = id_usuario
+        self._fecha_inicio = fecha_inicio
+        self._presupuesto_inicial = presupuesto_inicial
+        self._beneficiario_proyecto = beneficiario_proyecto
 
     @property
-    def idproyecto(self):
-        return self._idproyecto
+    def id_proyecto(self):
+        return self._id_proyecto
 
-    @idproyecto.setter
-    def idproyecto(self, value):
-        self._idproyecto = value
-
-    @property
-    def idUsuario(self):
-        return self._idUsuario
-
-    @idUsuario.setter
-    def idUsuario(self, value):
-        self._idUsuario = value
+    @id_proyecto.setter
+    def id_proyecto(self, value):
+        self._id_proyecto = value
 
     @property
-    def fechaInicio(self):
-        return self._fechaInicio
+    def id_usuario(self):
+        return self._id_usuario
 
-    @fechaInicio.setter
-    def fechaInicio(self, value):
-        self._fechaInicio = value
-
-    @property
-    def presupuestoInicial(self):
-        return self._presupuestoInicial
-
-    @presupuestoInicial.setter
-    def presupuestoInicial(self, value):
-        self._presupuestoInicial = value
+    @id_usuario.setter
+    def id_usuario(self, value):
+        self._id_usuario = value
 
     @property
-    def beneficiarioProyecto(self):
-        return self._beneficiarioProyecto
+    def fecha_inicio(self):
+        return self._fecha_inicio
 
-    @beneficiarioProyecto.setter
-    def beneficiarioProyecto(self, value):
-        self._beneficiarioProyecto = value
+    @fecha_inicio.setter
+    def fecha_inicio(self, value):
+        self._fecha_inicio = value
+
+    @property
+    def presupuesto_inicial(self):
+        return self._presupuesto_inicial
+
+    @presupuesto_inicial.setter
+    def presupuesto_inicial(self, value):
+        self._presupuesto_inicial = value
+
+    @property
+    def beneficiario_proyecto(self):
+        return self._beneficiario_proyecto
+
+    @beneficiario_proyecto.setter
+    def beneficiario_proyecto(self, value):
+        self._beneficiario_proyecto = value
 
     # método to string (str)
     def __str__(self):
-        return f"ID del proyecto: {self._idproyecto}\n" \
-               f"ID del usuario: {self._idUsuario}\n" \
-               f"Fecha de inicio: {self._fechaInicio}\n" \
-               f"Presupuesto inicial: {self._presupuestoInicial}\n" \
-               f"Beneficiario del proyecto: {self._beneficiarioProyecto}"
+        return f"ID del proyecto: {self._id_proyecto}\n" \
+               f"ID del usuario: {self._id_usuario}\n" \
+               f"Fecha de inicio: {self._fecha_inicio}\n" \
+               f"Presupuesto inicial: {self._presupuesto_inicial}\n" \
+               f"Beneficiario del proyecto: {self._beneficiario_proyecto}"
 
     # método __getitem__
     def __getitem__(self, item):
         u = copy.copy(self)
-        u.idproyecto = u._idproyecto
-        u.idusuario = u._idusuario
-        u.fechaInicio = u._fechaInicial
-        u.presupuestoInicial = u._presupuestoInicial
-        u.beneficiarioProyecto = u._beneficiarioProyecto
+        u.id_proyecto = u._id_proyecto
+        u.id_usuario = u._id_usuario
+        u.fecha_inicio = u._fecha_inicial
+        u.presupuesto_inicial = u._presupuesto_inicial
+        u.beneficiario_proyecto = u._beneficiario_proyecto
         return u
 
 if __name__ == '__main__':
-    proyecto = Proyecto(idproyecto='1', idUsuario='2', fechaInicio='hoy', presupuestoInicial=2000, beneficiarioProyecto='Brad')
+    proyecto = Proyecto(id_proyecto='1', id_usuario='2', fecha_inicio='hoy', presupuesto_inicial=2000, beneficiario_proyecto='Brad')
     print(proyecto)
