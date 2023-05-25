@@ -4,7 +4,7 @@ from entidades.proyecto import Proyecto
 
 
 class DT_proyect:
-    _INSERT = "INSERT INTO sermiccsa.proyecto (beneficiario, fecha_inicio, id_proyecto, id_usuario, presupuesto_inicial) VALUES (%s, NOW(), %s, %s, %s)"
+    _INSERT = "INSERT INTO sermiccsa.proyecto (id_usuario, fecha_inicio, presupuesto_inicial, beneficiario ) VALUES (%s, NOW(), %f, %s)"
 
     @classmethod
     def listarProyectos(cls):
@@ -32,11 +32,10 @@ class DT_proyect:
             with conexion.cursor() as cursor:
                 try:
                     valores = (
-                        proyecto.beneficiario,
-                        proyecto.fecha_inicio,
-                        proyecto.id_proyecto,
                         proyecto.id_usuario,
-                        proyecto.presupuesto_inicial
+                        proyecto.presupuesto_inicial,
+                        proyecto.beneficiario_proyecto
+
                     )
                     cursor.execute(cls._INSERT, valores)
                     conexion.commit()

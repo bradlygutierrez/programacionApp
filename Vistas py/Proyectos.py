@@ -117,11 +117,11 @@ class Ui_proyectos(QtWidgets.QMainWindow):
         self.tableWidget.setColumnWidth(4, 256)
         self.tableWidget.setColumnHidden(1, True)
         for i, proyecto in enumerate(proyectos):
-            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.idproyecto)))
-            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.idUsuario)))
-            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(proyecto.fechaInicio)))
-            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(proyecto.presupuestoInicial)))
-            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(proyecto.beneficiarioProyecto)))
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.id_proyecto)))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.id_usuario)))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(proyecto.fecha_inicio)))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(proyecto.presupuesto_inicial)))
+            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(proyecto.beneficiario_proyecto)))
 
         alignment = QtCore.Qt.AlignCenter
 

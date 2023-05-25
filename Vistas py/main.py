@@ -9,9 +9,8 @@ from NuevoProyecto import Ui_nuevoProyecto
 from Configuracion import Ui_configuracion
 from Etapas import Ui_Etapas
 from AgregarEtapa import Ui_AgregarEtapa
-from ProyectoX import Ui_ProyectoX
+from ProyectoX import Ui_proyectoX
 from Datos.dtProyecto import DT_proyect
-
 
 
 class MainWindow(QMainWindow):
@@ -28,7 +27,6 @@ class MainWindow(QMainWindow):
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.pushButton.clicked.connect(self.show_proyectos)
-
 
     def show_crear_usuario(self):
 
@@ -101,16 +99,14 @@ class MainWindow(QMainWindow):
         self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
 
-
-
-
-
     def show_nuevo_proyecto(self):
         self.controlador_proyectos = 1
         self.uiProyectos.close()
         self.uiNuevoproyecto = Ui_nuevoProyecto()
         self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
+        self.uiNuevoproyecto.btnGuardarClick()
+        self.uiNuevoproyecto.pushButton_2.clicked.connect(self.uiNuevoproyecto.btnGuardarClick)
         self.uiNuevoproyecto.show()
 
     def show_configuracion(self):
@@ -168,15 +164,15 @@ class MainWindow(QMainWindow):
         else:
             self.close()
 
-        self.uiProyectoX = Ui_ProyectoX()
+        self.uiProyectoX = Ui_proyectoX()
         self.uiProyectoX.setupUi(self.uiProyectoX)
+        self.uiProyectoX.cargar_proyectoX()
         self.uiProyectoX.show()
-
-
 
 
 if __name__ == '__main__':
     import sys
+
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()

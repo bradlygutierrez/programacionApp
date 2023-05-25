@@ -104,7 +104,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(154, 153, 150);</string>
+     <string notr="true">background-color: rgb(224, 224, 224);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -142,131 +142,6 @@
        <height>171</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(20, 18, 35);
-color: rgb(255, 255, 255);</string>
-     </property>
-     <row>
-      <property name="text">
-       <string>1</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>2</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>Gasto</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Beneficiario</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Etapa</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Factura</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Total</string>
-      </property>
-     </column>
-     <item row="0" column="0">
-      <property name="text">
-       <string>Grua</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="1">
-      <property name="text">
-       <string>SINSA</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="2">
-      <property name="text">
-       <string>4</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="3">
-      <property name="text">
-       <string>0001</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="4">
-      <property name="text">
-       <string>1000</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="0">
-      <property name="text">
-       <string>Carro</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="1">
-      <property name="text">
-       <string>BMW</string>
-      </property>
-     </item>
-     <item row="1" column="2">
-      <property name="text">
-       <string>3</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="3">
-      <property name="text">
-       <string>0002</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="4">
-      <property name="text">
-       <string>300005</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">

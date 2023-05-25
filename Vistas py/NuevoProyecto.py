@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from entidades.proyecto import Proyecto
+from Datos.dtProyecto import DT_proyect
 
 
 class Ui_nuevoProyecto(QtWidgets.QMainWindow):
@@ -237,6 +239,28 @@ class Ui_nuevoProyecto(QtWidgets.QMainWindow):
         self.label_5.setText(_translate("NuevoProyecto", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Descripción:</span></p></body></html>"))
         self.label_8.setText(_translate("NuevoProyecto", "<html><head/><body><p><span style=\" font-weight:600;\">Nombre:</span></p></body></html>"))
         self.pushButton_2.setText(_translate("NuevoProyecto", "Crear Proyecto"))
+
+    def btnGuardarClick(self):
+        self.lineEdit_2.setText("15.43")
+        presupuesto_inicialxd = self.lineEdit_2.text()
+        presupuesto_inicial = float(presupuesto_inicialxd)
+        beneficiario = self.lineEdit_3.text()
+        fecha_inicio = self.lineEdit_4.text()
+        descripcion = self.lineEdit_5.text()
+
+        Proyecto.presupuesto_inicial = presupuesto_inicial
+        Proyecto.beneficiario_proyecto = beneficiario
+        Proyecto.fecha_inicio = fecha_inicio
+        Proyecto.id_usuario = 1
+        DT_proyect.guardarProyecto(Proyecto)
+        #Limpiar campos
+        self.limpiarcampos()
+
+    def limpiarcampos(self):
+        self.lineEdit_2.setText("")
+        self.lineEdit_3.setText("")
+        self.lineEdit_4.setText("")
+        self.lineEdit_5.setText("")
 import logo1
 import logos2
 
