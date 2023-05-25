@@ -12,12 +12,7 @@ class DT_gasto:
         gastos = []
         try:
             for x in resultado:
-                gasto = Gasto(
-                    x['id_gasto'],
-                    x['nombre'],
-                    x['descripcion'],
-                    x['id_etapa']
-                )
+                gasto = Gasto(x['id_gasto'], x['nombre'], x['descripcion'], x['id_etapa'])
                 gastos.append(gasto)
             return gastos
         except Exception as e:
