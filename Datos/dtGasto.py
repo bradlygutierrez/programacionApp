@@ -1,8 +1,10 @@
-from conexion import Conexion
+from Datos.conexion import Conexion
 from entidades.gasto import Gasto
+
 
 class DT_gasto:
     _INSERT = "INSERT INTO sermiccsa.gasto (id_gasto, nombre, descripcion, id_etapa) values (%d, %s, %s, %d)"
+
     @classmethod
     def listarGastos(cls):
         conexion = Conexion.getConnection()
@@ -14,9 +16,10 @@ class DT_gasto:
             for x in resultado:
                 gasto = Gasto(
                     x['id_gasto'],
+                    x['id_etapa'],
                     x['nombre'],
-                    x['descripcion'],
-                    x['id_etapa']
+                    x['descripcion']
+
                 )
                 gastos.append(gasto)
             return gastos
@@ -36,6 +39,7 @@ class DT_gasto:
             return cursor.rowcount
         except Exception as e:
             print(f'Exception {e}')
+
 
 if __name__ == '__main__':
     gasto = DT_gasto.listarGastos()
