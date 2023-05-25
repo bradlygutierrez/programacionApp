@@ -29,7 +29,7 @@ class DT_pregunta:
                     print(f'Pregunta a insertar: {pregunta}')
                     valores = (pregunta.idPregunta, pregunta.contenidoPregunta)
                     cursor.execute(cls._INSERT, valores)
-                    print(f'Usuario insertado: {pregunta}')
+                    print(f'Pregunta insertado: {pregunta}')
                     conexion.commit()
                     return cursor.rowcount
                 except Exception as e:
