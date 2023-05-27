@@ -102,8 +102,8 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
-       <pointsize>20</pointsize>
+       <family>Tlwg Typist</family>
+       <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -111,7 +111,9 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+font: 14pt &quot;Tlwg Typist&quot;;
+border-color: rgb(0, 0, 0);
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -219,19 +221,27 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
-       <pointsize>20</pointsize>
+       <family>Tlwg Typist</family>
+       <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+border-color: rgb(0, 0, 0);
+font: 14pt &quot;Tlwg Typist&quot;;
+color: black</string>
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_2">
@@ -245,8 +255,8 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
-       <pointsize>20</pointsize>
+       <family>Tlwg Typist</family>
+       <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -254,7 +264,9 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+font: 14pt &quot;Tlwg Typist&quot;;
+border-color: rgb(0, 0, 0);
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -271,8 +283,8 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
-       <pointsize>20</pointsize>
+       <family>Tlwg Typist</family>
+       <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -280,7 +292,9 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+border-color: rgb(0, 0, 0);
+font: 14pt &quot;Tlwg Typist&quot;;
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -297,8 +311,8 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
-       <pointsize>20</pointsize>
+       <family>Tlwg Typist</family>
+       <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -306,7 +320,9 @@ border-color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(0, 0, 0);</string>
+border-color: rgb(0, 0, 0);
+font: 14pt &quot;Tlwg Typist&quot;;
+color: black</string>
      </property>
      <property name="text">
       <string/>
