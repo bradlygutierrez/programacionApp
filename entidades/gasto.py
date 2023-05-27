@@ -27,8 +27,8 @@ class Gasto:
         u.idGasto = u._idGasto
         u.idEtapa = u._idEtapa
         u.idRUbro = u._idRUbro
-        u.ifFactura = u._idFactura
-        u._idBeneficiario = u._idBeneficiario
+        u.idFactura = u._idFactura
+        u.idBeneficiario = u._idBeneficiario
         u.nombre = u._nombre
         u.descripcion = u._descripcion
         return u

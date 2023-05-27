@@ -17,11 +17,12 @@ class DT_gasto:
                 gasto = Gasto(
                     x['id_gasto'],
                     x['id_etapa'],
-                    x['id_Rubro'],
-                    x['idFactura'],
-                    x['idBeneficiario'],
+                    x['id_rubro'],
+                    x['id_factura'],
+                    x['id_beneficiario'],
                     x['nombre'],
-                    x['descripcion'])
+                    x['descripcion']
+                )
                 gastos.append(gasto)
             return gastos
         except Exception as e:
@@ -43,6 +44,6 @@ class DT_gasto:
 
 
 if __name__ == '__main__':
-    gasto = DT_gasto.listarGastos()
-    for x in gasto:
+    gastos = DT_gasto.listarGastos()
+    for x in gastos:
         print(x)
