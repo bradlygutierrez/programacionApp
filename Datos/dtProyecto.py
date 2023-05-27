@@ -4,7 +4,7 @@ from entidades.proyecto import Proyecto
 
 
 class DT_proyect:
-    _INSERT = "INSERT INTO sermiccsa.proyecto (id_usuario, fecha_inicio, presupuesto_inicial, beneficiario ) VALUES (%s, NOW(), %f, %s)"
+    _INSERT = "INSERT INTO sermiccsa.proyecto (id_usuario, nombre, descripcion,fecha_inicio, beneficiario, presupuesto_inicial ) VALUES (%s, %s, %s, NOW(), %s, %f)"
 
     @classmethod
     def listarProyectos(cls):
@@ -18,6 +18,8 @@ class DT_proyect:
                 proyecto = Proyecto(
                 x['id_proyecto'],
                 x['id_usuario'],
+                x['nombre'],
+                x['descripcion'],
                 x['fecha_inicio'],
                 x['presupuesto_inicial'],
                 x['beneficiario']
@@ -33,6 +35,9 @@ class DT_proyect:
                 try:
                     valores = (
                         proyecto.id_usuario,
+                        proyecto.nombre,
+                        proyecto.descripcion,
+                        proyecto.fecha_inicio,
                         proyecto.presupuesto_inicial,
                         proyecto.beneficiario_proyecto
 

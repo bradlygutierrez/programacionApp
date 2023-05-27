@@ -3,7 +3,7 @@ from entidades.gasto import Gasto
 
 
 class DT_gasto:
-    _INSERT = "INSERT INTO sermiccsa.gasto (id_gasto, nombre, descripcion, id_etapa) values (%d, %s, %s, %d)"
+    _INSERT = "INSERT INTO sermiccsa.gasto (id_etapa, nombre, descripcion, id_rubro, id_beneficiario, id_factura ) values (%d, %s, %s, %d, %d, %d)"
 
     @classmethod
     def listarGastos(cls):
@@ -17,10 +17,11 @@ class DT_gasto:
                 gasto = Gasto(
                     x['id_gasto'],
                     x['id_etapa'],
+                    x['id_Rubro'],
+                    x['idFactura'],
+                    x['idBeneficiario'],
                     x['nombre'],
-                    x['descripcion']
-
-                )
+                    x['descripcion'])
                 gastos.append(gasto)
             return gastos
         except Exception as e:
@@ -32,7 +33,7 @@ class DT_gasto:
         cursor = conexion.cursor()
         try:
             print(f'Gasto a insertar: {gasto}')
-            valores = (gasto.idGasto, gasto.nombre, gasto.descripcion, gasto.idEtapa)
+            valores = ( gasto.idEtapa, gasto.nombre, gasto.descripcion, gasto.idRubro, gasto.idBeneficiario, gasto.idFactura)
             cursor.execute(cls._INSERT, valores)
             print(f'Gasto insertado: {gasto}')
             conexion.commit()

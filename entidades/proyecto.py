@@ -1,7 +1,10 @@
+import copy
 class Proyecto:
-    def __init__(self, id_proyecto, id_usuario, fecha_inicio, presupuesto_inicial, beneficiario_proyecto):
+    def __init__(self, id_proyecto, id_usuario, fecha_inicio, nombre, descripcion, presupuesto_inicial, beneficiario_proyecto):
         self._id_proyecto = id_proyecto
         self._id_usuario = id_usuario
+        self._nombre = nombre
+        self._descripcion = descripcion
         self._fecha_inicio = fecha_inicio
         self._presupuesto_inicial = presupuesto_inicial
         self._beneficiario_proyecto = beneficiario_proyecto
@@ -21,6 +24,22 @@ class Proyecto:
     @id_usuario.setter
     def id_usuario(self, value):
         self._id_usuario = value
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @nombre.setter
+    def nombre(self, value):
+        self._nombre = value
+
+    @property
+    def descripcion(self):
+        return self._descripcion
+
+    @descripcion.setter
+    def descripcion(self, value):
+        self._descripcion = value
 
     @property
     def fecha_inicio(self):
@@ -50,6 +69,8 @@ class Proyecto:
     def __str__(self):
         return f"ID del proyecto: {self._id_proyecto}\n" \
                f"ID del usuario: {self._id_usuario}\n" \
+               f"Nombre: {self._nombre}\n" \
+               f"Descripcion: {self._descripcion}\n" \
                f"Fecha de inicio: {self._fecha_inicio}\n" \
                f"Presupuesto inicial: {self._presupuesto_inicial}\n" \
                f"Beneficiario del proyecto: {self._beneficiario_proyecto}"
@@ -59,6 +80,8 @@ class Proyecto:
         u = copy.copy(self)
         u.id_proyecto = u._id_proyecto
         u.id_usuario = u._id_usuario
+        u.nombre = u._nombre
+        u.descripcion = u._descripcion
         u.fecha_inicio = u._fecha_inicial
         u.presupuesto_inicial = u._presupuesto_inicial
         u.beneficiario_proyecto = u._beneficiario_proyecto

@@ -2,9 +2,12 @@ import copy
 
 
 class Gasto:
-    def __init__(self, idGasto, idEtapa, nombre, descripcion):
+    def __init__(self, idGasto, idEtapa, idRubro, idFactura, idBeneficiario, nombre, descripcion):
         self._idGasto = idGasto
         self._idEtapa = idEtapa
+        self._idRUbro = idRubro
+        self._idFactura = idFactura
+        self._idBeneficiario = idBeneficiario
         self._nombre = nombre
         self._descripcion = descripcion
 
@@ -12,6 +15,9 @@ class Gasto:
         return f'''
         idGasto: {self._idGasto},
         idEtapa: {self._idEtapa},
+        idRubro: {self._idRUbro},
+        idFactura: {self._idFactura},
+        idBeneficiario: {self._idBeneficiario}
         nombre: {self._nombre},
         descripcion: {self._descripcion}
         '''
@@ -20,6 +26,9 @@ class Gasto:
         u = copy.copy(self)
         u.idGasto = u._idGasto
         u.idEtapa = u._idEtapa
+        u.idRUbro = u._idRUbro
+        u.ifFactura = u._idFactura
+        u._idBeneficiario = u._idBeneficiario
         u.nombre = u._nombre
         u.descripcion = u._descripcion
         return u
@@ -44,6 +53,35 @@ class Gasto:
     @idEtapa.setter
     def idEtapa(self, idEtapa):
         self._idEtapa = idEtapa
+
+    @property
+    def idRubro(self):
+        return self._idRUbro
+
+    # SET
+    @idRubro.setter
+    def idRubro(self, idRubro):
+        self._idRUbro = idRubro
+
+    @property
+    def idFactura(self):
+        return self._idFactura
+
+    # SET
+    @idFactura.setter
+    def idFactura(self, valor):
+        self._idFactura = valor
+
+    @property
+    def idBeneficiario(self):
+        return self._idBeneficiario
+
+    # SET
+    @idBeneficiario.setter
+    def idBeneficiario(self, valor):
+        self._idBeneficiario = valor
+
+
 
     @property
     def nombre(self):
