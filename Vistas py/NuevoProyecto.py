@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from entidades.proyecto import Proyecto
 from Datos.dtProyecto import DT_proyect
-
+from Proyectos import Ui_proyectos
 
 class Ui_nuevoProyecto(QtWidgets.QMainWindow):
         def setupUi(self, NuevoProyecto):
@@ -259,26 +259,35 @@ class Ui_nuevoProyecto(QtWidgets.QMainWindow):
                 self.pushButton_2.setText(_translate("NuevoProyecto", "Crear Proyecto"))
 
         def btnGuardarClick(self):
-                self.lineEdit_2.setText("15.43")
-                presupuesto_inicialxd = self.lineEdit_2.text()
-                presupuesto_inicial = float(presupuesto_inicialxd)
+                nombre = self.lineEdit.text()
+                presupuesto_inicial1 = self.lineEdit_2.text()
                 beneficiario = self.lineEdit_3.text()
                 fecha_inicio = self.lineEdit_4.text()
                 descripcion = self.lineEdit_5.text()
 
-                Proyecto.presupuesto_inicial = presupuesto_inicial
-                Proyecto.beneficiario_proyecto = beneficiario
-                Proyecto.fecha_inicio = fecha_inicio
+                Proyecto.id_proyecto = 5
                 Proyecto.id_usuario = 1
+                Proyecto.nombre = nombre
+                Proyecto.descripcion = descripcion
+                Proyecto.fecha_inicio = fecha_inicio
+                Proyecto.presupuesto_inicial = presupuesto_inicial1
+                Proyecto.beneficiario_proyecto = beneficiario
+
+
                 DT_proyect.guardarProyecto(Proyecto)
         #Limpiar campos
                 self.limpiarcampos()
 
         def limpiarcampos(self):
+                self.lineEdit.setText("")
                 self.lineEdit_2.setText("")
                 self.lineEdit_3.setText("")
                 self.lineEdit_4.setText("")
                 self.lineEdit_5.setText("")
+
+
+        def volver(self):
+                self.pushButton.clicked.connect(Ui_proyectos.show())
 import logo1
 import logos2
 

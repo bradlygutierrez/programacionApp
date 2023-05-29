@@ -11,6 +11,7 @@
 from Datos.dtProyecto import DT_proyect
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
+
 import iconosPrincipal
 
 
@@ -109,16 +110,16 @@ class Ui_proyectos(QtWidgets.QMainWindow):
         self.tableWidget.setRowCount(len(proyectos))
         self.tableWidget.setColumnCount(5)
         self.tableWidget.setHorizontalHeaderLabels(
-            ["ID Proyecto", "ID Usuario", "Fecha Inicio", "Presupuesto Inicial", "Beneficiario"])
+            ["Nombre del proyecto", "Descripcion", "Fecha Inicio", "Presupuesto Inicial", "Beneficiario"])
         self.tableWidget.setColumnWidth(0, 157)
         self.tableWidget.setColumnWidth(1, 150)
         self.tableWidget.setColumnWidth(2, 208)
         self.tableWidget.setColumnWidth(3, 217)
         self.tableWidget.setColumnWidth(4, 256)
-        self.tableWidget.setColumnHidden(1, True)
+
         for i, proyecto in enumerate(proyectos):
-            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.id_proyecto)))
-            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.id_usuario)))
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.nombre)))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.descripcion)))
             self.tableWidget.setItem(i, 2, QTableWidgetItem(str(proyecto.fecha_inicio)))
             self.tableWidget.setItem(i, 3, QTableWidgetItem(str(proyecto.presupuesto_inicial)))
             self.tableWidget.setItem(i, 4, QTableWidgetItem(str(proyecto.beneficiario_proyecto)))

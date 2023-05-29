@@ -10,7 +10,6 @@ from Configuracion import Ui_configuracion
 from Etapas import Ui_Etapas
 from AgregarEtapa import Ui_AgregarEtapa
 from ProyectoX import Ui_proyectoX
-from Datos.dtProyecto import DT_proyect
 
 
 class MainWindow(QMainWindow):
@@ -105,7 +104,6 @@ class MainWindow(QMainWindow):
         self.uiNuevoproyecto = Ui_nuevoProyecto()
         self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
-        self.uiNuevoproyecto.btnGuardarClick()
         self.uiNuevoproyecto.pushButton_2.clicked.connect(self.uiNuevoproyecto.btnGuardarClick)
         self.uiNuevoproyecto.show()
 
