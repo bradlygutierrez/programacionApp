@@ -43,6 +43,19 @@ class DT_proyect:
         except Exception as e:
                 print(f'''Excepción: {e}''')
 
+    @classmethod
+    def eliminarProyecto(cls, proyecto):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            _DELETE = f"DELETE FROM `sermiccsa`.`proyecto` WHERE (`nombre` = '{proyecto.nombre}');;"
+            print("Eliminando proyecto")
+            cursor.execute(_DELETE)
+            print("Proyecto eliminado")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+                print(f'''Excepción: {e}''')
 
 if __name__ == '__main__':
     proyectos = DT_proyect.listarProyectos()

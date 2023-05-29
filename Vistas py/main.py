@@ -94,7 +94,8 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
-        self.uiProyectos.tableWidget.cellClicked.connect(self.show_proyectoX)
+        self.uiProyectos.pushButton_3.clicked.connect(self.uiProyectos.eliminar_proyecto)
+        #self.uiProyectos.tableWidget.cellClicked.connect(self.show_proyectoX)
         self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
 
