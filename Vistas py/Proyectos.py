@@ -133,11 +133,9 @@ class Ui_proyectos(QtWidgets.QMainWindow):
                 if item is not None:
                     item.setTextAlignment(alignment)
 
-    def eliminar_proyecto(self):
-        row = self.tableWidget.currentRow()
-        nombre = self.tableWidget.item(row, 0).text()
-        Proyecto.nombre = nombre
-        DT_proyect.eliminarProyecto(Proyecto)
+
+
+
 
 if __name__ == "__main__":
     import sys

@@ -258,32 +258,9 @@ class Ui_nuevoProyecto(QtWidgets.QMainWindow):
                                                 "<html><head/><body><p><span style=\" font-weight:600;\">Nombre:</span></p></body></html>"))
                 self.pushButton_2.setText(_translate("NuevoProyecto", "Crear Proyecto"))
 
-        def btnGuardarClick(self):
-                nombre = self.lineEdit.text()
-                presupuesto_inicial1 = self.lineEdit_2.text()
-                beneficiario = self.lineEdit_3.text()
-                fecha_inicio = self.lineEdit_4.text()
-                descripcion = self.lineEdit_5.text()
-
-                Proyecto.id_proyecto = 5
-                Proyecto.id_usuario = 1
-                Proyecto.nombre = nombre
-                Proyecto.descripcion = descripcion
-                Proyecto.fecha_inicio = fecha_inicio
-                Proyecto.presupuesto_inicial = presupuesto_inicial1
-                Proyecto.beneficiario_proyecto = beneficiario
 
 
-                DT_proyect.guardarProyecto(Proyecto)
-        #Limpiar campos
-                self.limpiarcampos()
 
-        def limpiarcampos(self):
-                self.lineEdit.setText("")
-                self.lineEdit_2.setText("")
-                self.lineEdit_3.setText("")
-                self.lineEdit_4.setText("")
-                self.lineEdit_5.setText("")
 
 
         def volver(self):

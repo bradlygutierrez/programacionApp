@@ -28,6 +28,7 @@ class DT_proyect:
         except Exception as e:
             print(f'Excepción: {e}')
         conexion.close()
+
     @classmethod
     def guardarProyecto(cls, proyecto):
         conexion = Conexion.getConnection()
@@ -48,7 +49,8 @@ class DT_proyect:
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
         try:
-            _DELETE = f"DELETE FROM `sermiccsa`.`proyecto` WHERE (`nombre` = '{proyecto.nombre}');;"
+            print(proyecto)
+            _DELETE = f"DELETE FROM `sermiccsa`.`proyecto` WHERE (`nombre` = '{proyecto}');"
             print("Eliminando proyecto")
             cursor.execute(_DELETE)
             print("Proyecto eliminado")
@@ -56,6 +58,14 @@ class DT_proyect:
             return cursor.rowcount
         except Exception as e:
                 print(f'''Excepción: {e}''')
+
+    def encontrarProyecto(self, nombre):
+        proyectos = self.listarProyectos()
+
+        for proyecto in proyectos:
+            if proyecto.nombre == nombre:
+                return proyecto
+
 
 if __name__ == '__main__':
     proyectos = DT_proyect.listarProyectos()

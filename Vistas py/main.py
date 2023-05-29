@@ -10,13 +10,16 @@ from Configuracion import Ui_configuracion
 from Etapas import Ui_Etapas
 from AgregarEtapa import Ui_AgregarEtapa
 from ProyectoX import Ui_proyectoX
-
+from Proyectos import Ui_proyectos
+from Datos.dtProyecto import DT_proyect
+from entidades.proyecto import Proyecto
 
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
     def __init__(self):
         super().__init__()
+        self.nombre_proyecto = ""
         self.ui = Ui_iniciarSesion()
         self.ui.setupUi(self)
         self.verificador = 0
@@ -76,6 +79,19 @@ class MainWindow(QMainWindow):
         self.uiPrincipal.pushButton.clicked.connect(self.show_proyectos)
         self.uiPrincipal.show()
 
+
+
+
+
+    def eliminar_proyectos(self):
+        row = self.uiProyectos.tableWidget.currentRow()
+        self.nombre_proyecto = self.uiProyectos.tableWidget.item(row, 0).text()
+        DT_proyect().eliminarProyecto(self.nombre_proyecto)
+        self.show_proyectos()
+
+    def ver_proyecto_especifico(self):
+        self.show_proyectoX()
+
     def show_proyectos(self):
         if self.contador == 1:
             self.close()
@@ -94,10 +110,32 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
-        self.uiProyectos.pushButton_3.clicked.connect(self.uiProyectos.eliminar_proyecto)
-        #self.uiProyectos.tableWidget.cellClicked.connect(self.show_proyectoX)
+        self.uiProyectos.tableWidget.cellDoubleClicked.connect(self.ver_proyecto_especifico)
+        self.uiProyectos.pushButton_3.clicked.connect(self.eliminar_proyectos)
         self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
+
+    def limpiar_campos_guardar_proyecto(self):
+            self.uiNuevoproyecto.lineEdit.setText("")
+            self.uiNuevoproyecto.lineEdit.setText("")
+            self.uiNuevoproyecto.lineEdit.setText("")
+            self.uiNuevoproyecto.lineEdit.setText("")
+            self.uiNuevoproyecto.lineEdit.setText("")
+
+    def save_nuevo_proyecto(self):
+        nombre = self.uiNuevoproyecto.lineEdit.text()
+        presupuesto_inicial = self.uiNuevoproyecto.lineEdit_2.text()
+        beneficiario = self.uiNuevoproyecto.lineEdit_3.text()
+        fecha_inicio = self.uiNuevoproyecto.lineEdit_4.text()
+        descripcion = self.uiNuevoproyecto.lineEdit_5.text()
+
+        proyectoGuardar = Proyecto(5, 1,fecha_inicio,nombre,descripcion, presupuesto_inicial, beneficiario)
+
+
+        DT_proyect.guardarProyecto(proyectoGuardar)
+
+        self.limpiar_campos_guardar_proyecto
+        self.show_proyectos()
 
     def show_nuevo_proyecto(self):
         self.controlador_proyectos = 1
@@ -105,7 +143,7 @@ class MainWindow(QMainWindow):
         self.uiNuevoproyecto = Ui_nuevoProyecto()
         self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
-        self.uiNuevoproyecto.pushButton_2.clicked.connect(self.uiNuevoproyecto.btnGuardarClick)
+        self.uiNuevoproyecto.pushButton_2.clicked.connect(self.save_nuevo_proyecto)
         self.uiNuevoproyecto.show()
 
     def show_configuracion(self):
@@ -171,7 +209,6 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     import sys
-
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()
