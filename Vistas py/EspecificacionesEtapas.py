@@ -9,6 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QTableWidgetItem
+
+from Datos.dtEtapa import DT_etapa
 
 
 class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
@@ -18,56 +21,28 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
         MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 120, 1001, 441))
-        self.tableWidget.setStyleSheet("\n"
-"background-color: rgb(224,224,224);\n"
-"")
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(10)
-        self.tableWidget.setRowCount(0)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(7, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(8, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(9, item)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(140, 60, 131, 41))
+        self.label.setGeometry(QtCore.QRect(100, 70, 131, 41))
         self.label.setStyleSheet("font: 75 16pt \"Ubuntu\";")
         self.label.setObjectName("label")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(270, 70, 121, 25))
+        self.lineEdit.setGeometry(QtCore.QRect(230, 80, 121, 25))
         self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(400, 60, 121, 41))
+        self.label_2.setGeometry(QtCore.QRect(360, 70, 121, 41))
         self.label_2.setStyleSheet("font: 75 16pt \"Ubuntu\";")
         self.label_2.setObjectName("label_2")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(530, 70, 121, 25))
+        self.lineEdit_2.setGeometry(QtCore.QRect(490, 80, 121, 25))
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(670, 60, 191, 41))
+        self.label_3.setGeometry(QtCore.QRect(630, 70, 191, 41))
         self.label_3.setStyleSheet("font: 75 16pt \"Ubuntu\";")
         self.label_3.setObjectName("label_3")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(860, 70, 121, 25))
+        self.lineEdit_3.setGeometry(QtCore.QRect(820, 80, 121, 25))
         self.lineEdit_3.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
@@ -77,8 +52,14 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(10, 10, 89, 25))
         self.pushButton.setStyleSheet("\n"
-"background-color: rgb(35, 134, 54)")
+                                      "background-color: rgb(35, 134, 54)")
         self.pushButton.setObjectName("pushButton")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(30, 140, 971, 391))
+        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);")
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(6)
+        self.tableWidget.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 22))
@@ -94,39 +75,57 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "ID"))
-        item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Nombre"))
-        item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Comprobante"))
-        item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Descripcion"))
-        item = self.tableWidget.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Subtotal"))
-        item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow", "IVA"))
-        item = self.tableWidget.horizontalHeaderItem(6)
-        item.setText(_translate("MainWindow", "Total"))
-        item = self.tableWidget.horizontalHeaderItem(7)
-        item.setText(_translate("MainWindow", "Beneficiario"))
-        item = self.tableWidget.horizontalHeaderItem(8)
-        item.setText(_translate("MainWindow", "Retencion IR"))
-        item = self.tableWidget.horizontalHeaderItem(9)
-        item.setText(_translate("MainWindow", "Rubro"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Nombre:</span></p></body></html>"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Número:</span></p></body></html>"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Presupuesto:</span></p></body></html>"))
-        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow",
+                                      "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Nombre:</span></p></body></html>"))
+        self.label_2.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Número:</span></p></body></html>"))
+        self.label_3.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Presupuesto:</span></p></body></html>"))
+        self.label_5.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Volver"))
+    def cargar_etapa(self):
+        etapas = DT_etapa.listarEtapa()
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setRowCount(len(etapas))
+        self.tableWidget.setColumnCount(6)
+        self.tableWidget.setHorizontalHeaderLabels(
+            ["ID etapa", "ID proyecto", "Nombre", "Descripcion", "Presupuesto", "Numero de etapa"])
+        self.tableWidget.setColumnWidth(0, 157)
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 250)
+        self.tableWidget.setColumnWidth(3, 300)
+        self.tableWidget.setColumnWidth(4, 250)
+        self.tableWidget.setColumnWidth(5, 168)
+        self.tableWidget.setColumnHidden(0, True)
+        self.tableWidget.setColumnHidden(1, True)
+        for i, etapa in enumerate(etapas):
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(etapas.idEtapa)))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapas.idProyecto)))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(etapas.nombreEtapa)))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(etapas.descripcion)))
+            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(etapas.presupuestoEtapa)))
+            self.tableWidget.setItem(i, 5, QTableWidgetItem(str(etapas.NumEtapa)))
+
+        alignment = QtCore.Qt.AlignCenter
+
+        for i in range(self.tableWidget.columnCount()):
+            for j in range(self.tableWidget.rowCount()):
+                item = self.tableWidget.item(j, i)
+                if item is not None:
+                    item.setTextAlignment(alignment)
+
+
 import logo1
 import logos2
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_Especificaciones_Etapas()
     ui.setupUi(MainWindow)
+    ui.cargar_etapa()
     MainWindow.show()
     sys.exit(app.exec_())

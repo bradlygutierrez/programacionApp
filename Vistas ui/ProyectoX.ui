@@ -38,10 +38,10 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>40</x>
        <y>10</y>
-       <width>91</width>
-       <height>17</height>
+       <width>121</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -53,7 +53,7 @@
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Bluefields</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Bluefields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -195,6 +195,22 @@ color: rgb(255, 255, 255);</string>
      <string>Ver todos los gastos</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/iconosalida/cerrar-sesion.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -208,6 +224,8 @@ color: rgb(255, 255, 255);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../../Downloads/salida.qrc"/>
+ </resources>
  <connections/>
 </ui>

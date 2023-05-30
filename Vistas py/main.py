@@ -13,6 +13,9 @@ from ProyectoX import Ui_proyectoX
 from Proyectos import Ui_proyectos
 from Datos.dtProyecto import DT_proyect
 from entidades.proyecto import Proyecto
+from verificacionEliminacionProyecto import Ui_verificarEliminacion
+from AgregarGasto import Ui_agregarGasto
+
 
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
@@ -26,6 +29,7 @@ class MainWindow(QMainWindow):
         self.contador = 1
         self.controlador_proyectos = 7
         self.controlador_etapas = 10
+        self.controlador_proyectoX = 12
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.pushButton.clicked.connect(self.show_proyectos)
@@ -79,18 +83,12 @@ class MainWindow(QMainWindow):
         self.uiPrincipal.pushButton.clicked.connect(self.show_proyectos)
         self.uiPrincipal.show()
 
-
-
-
-
     def eliminar_proyectos(self):
         row = self.uiProyectos.tableWidget.currentRow()
         self.nombre_proyecto = self.uiProyectos.tableWidget.item(row, 0).text()
         DT_proyect().eliminarProyecto(self.nombre_proyecto)
         self.show_proyectos()
 
-    def ver_proyecto_especifico(self):
-        self.show_proyectoX()
 
     def show_proyectos(self):
         if self.contador == 1:
@@ -103,6 +101,10 @@ class MainWindow(QMainWindow):
             self.uiConfiguracion.close()
         elif self.controlador_proyectos == 3:
             self.uiEtapas.close()
+        elif self.controlador_proyectos == 4:
+            self.uiVerificar.close()
+        elif self.controlador_proyectos == 5:
+            self.uiproyectoX.close()
         else:
             print("Pasamos")
 
@@ -110,17 +112,24 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
-        self.uiProyectos.tableWidget.cellDoubleClicked.connect(self.ver_proyecto_especifico)
-        self.uiProyectos.pushButton_3.clicked.connect(self.eliminar_proyectos)
+        self.uiProyectos.tableWidget.cellDoubleClicked.connect(self.show_proyectoX)
+        self.uiProyectos.pushButton_3.clicked.connect(self.verificar_eliminacion)
         self.uiProyectos.cargar_proyectos()
         self.uiProyectos.show()
 
+    def verificar_eliminacion(self):
+        self.controlador_proyectos = 4
+        self.uiVerificar = Ui_verificarEliminacion()
+        self.uiVerificar.setupUi(self.uiVerificar)
+        self.uiVerificar.pushButton_2.clicked.connect(self.eliminar_proyectos)
+        self.uiVerificar.pushButton.clicked.connect(self.show_proyectos)
+        self.uiVerificar.show()
     def limpiar_campos_guardar_proyecto(self):
-            self.uiNuevoproyecto.lineEdit.setText("")
-            self.uiNuevoproyecto.lineEdit.setText("")
-            self.uiNuevoproyecto.lineEdit.setText("")
-            self.uiNuevoproyecto.lineEdit.setText("")
-            self.uiNuevoproyecto.lineEdit.setText("")
+        self.uiNuevoproyecto.lineEdit.setText("")
+        self.uiNuevoproyecto.lineEdit.setText("")
+        self.uiNuevoproyecto.lineEdit.setText("")
+        self.uiNuevoproyecto.lineEdit.setText("")
+        self.uiNuevoproyecto.lineEdit.setText("")
 
     def save_nuevo_proyecto(self):
         nombre = self.uiNuevoproyecto.lineEdit.text()
@@ -129,8 +138,7 @@ class MainWindow(QMainWindow):
         fecha_inicio = self.uiNuevoproyecto.lineEdit_4.text()
         descripcion = self.uiNuevoproyecto.lineEdit_5.text()
 
-        proyectoGuardar = Proyecto(5, 1,fecha_inicio,nombre,descripcion, presupuesto_inicial, beneficiario)
-
+        proyectoGuardar = Proyecto(5, 1, fecha_inicio, nombre, descripcion, presupuesto_inicial, beneficiario)
 
         DT_proyect.guardarProyecto(proyectoGuardar)
 
@@ -154,14 +162,15 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.pushButton.clicked.connect(self.show_proyectos)
         self.uiConfiguracion.show()
 
-    def show_etapas(self):
+    def show_proyectoX(self):
+        self.controlador_proyectos = 5
         if self.controlador_proyectos == 1:
             self.close()
         else:
             self.uiProyectos.close()
 
-        if self.controlador_etapas == 1:
-            self.uiNuevaEtapa.close()
+        if self.controlador_proyectoX == 1:
+            self.uiproyectoX.close()
         elif self.controlador_etapas == 2:
             self.uiEditarEtapa.close()
         elif self.controlador_etapas == 3:
@@ -169,12 +178,19 @@ class MainWindow(QMainWindow):
         else:
             self.close()
 
-        self.uiEtapas = Ui_Etapas()
-        self.uiEtapas.setupUi(self.uiEtapas)
-        self.uiEtapas.pushButton.clicked.connect(self.show_agregar_etapa)
-        self.uiEtapas.pushButton_5.clicked.connect(self.show_proyectos)
-        self.uiEtapas.cargar_etapas()
-        self.uiEtapas.show()
+        self.uiproyectoX = Ui_proyectoX()
+        self.uiproyectoX.setupUi(self.uiproyectoX)
+        self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos)
+        self.uiproyectoX.pushButton_2.clicked.connect(self.show_agregar_gasto)
+        self.uiproyectoX.cargar_proyectoX()
+        self.uiproyectoX.show()
+
+    def show_agregar_gasto(self):
+        self.controlador_proyectoX = 1
+        self.uiproyectoX.close()
+        self.uiagregargasto = Ui_agregarGasto()
+        self.uiagregargasto.setupUi(self.uiagregargasto)
+        self.uiagregargasto.show()
 
     def show_agregar_etapa(self):
         self.controlador_etapas = 1
@@ -185,30 +201,13 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.pushButton_2.clicked.connect(self.show_etapas)
         self.uiNuevaEtapa.show()
 
-    def show_proyectoX(self):
-        self.controlador_proyectos = 3
-        if self.controlador_proyectos == 1:
-            self.close()
-        else:
-            self.uiProyectos.close()
 
-        if self.controlador_etapas == 1:
-            self.uiNuevaEtapa.close()
-        elif self.controlador_etapas == 2:
-            self.uiEditarEtapa.close()
-        elif self.controlador_etapas == 3:
-            self.uiEliminarEtapa.close()
-        else:
-            self.close()
 
-        self.uiProyectoX = Ui_proyectoX()
-        self.uiProyectoX.setupUi(self.uiProyectoX)
-        self.uiProyectoX.cargar_proyectoX()
-        self.uiProyectoX.show()
 
 
 if __name__ == '__main__':
     import sys
+
     app = QApplication(sys.argv)
     main_window = MainWindow()
     main_window.show()

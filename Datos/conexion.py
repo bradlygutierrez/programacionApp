@@ -5,8 +5,8 @@ import pymysql.cursors
 
 class Conexion:
     _DATABASE = 'sermiccsa'
-    _USERNAME = 'harry'
-    _PASSWORD = '2705'
+    _USERNAME = 'root'
+    _PASSWORD = '1234'
     _HOST = 'localhost'
     _conexion = None
     _cursor = None

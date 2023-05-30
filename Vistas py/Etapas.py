@@ -990,7 +990,7 @@ class Ui_Etapas(QtWidgets.QMainWindow):
         self.tableWidget.setColumnWidth(2, 126)
         self.tableWidget.setColumnWidth(3, 212)
         self.tableWidget.setColumnWidth(4, 100)
-        self.tableWidget.setColumnWidth(5, 130)
+        self.tableWidget.setColumnWidth(5, 140)
         self.tableWidget.setColumnHidden(0, True)
         for i, etapa in enumerate(etapas):
             self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapa.idProyecto)))

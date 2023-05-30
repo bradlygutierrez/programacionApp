@@ -2,7 +2,6 @@ from Datos.conexion import Conexion
 from entidades.proyecto import Proyecto
 
 
-
 class DT_proyect:
 
     @classmethod

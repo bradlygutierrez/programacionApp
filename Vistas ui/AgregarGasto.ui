@@ -43,9 +43,9 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>90</y>
-      <width>231</width>
+      <x>140</x>
+      <y>100</y>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
@@ -60,7 +60,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
+      <y>100</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -83,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>130</y>
+      <y>140</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -106,7 +106,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>130</y>
+      <y>140</y>
       <width>191</width>
       <height>51</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>80</y>
+      <y>90</y>
       <width>391</width>
       <height>231</height>
      </rect>
@@ -139,78 +139,6 @@
     <property name="title">
      <string>Beneficiario</string>
     </property>
-    <widget class="QTableWidget" name="tableWidget">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>110</y>
-       <width>211</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255,255,255);
-color: rgb(0, 0, 0);</string>
-     </property>
-     <row>
-      <property name="text">
-       <string>1</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>2</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>Beneficiario</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Identificacion</string>
-      </property>
-     </column>
-     <item row="0" column="0">
-      <property name="text">
-       <string>SINSA</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="0" column="1">
-      <property name="text">
-       <string>654754456</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="0">
-      <property name="text">
-       <string>Harry</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-     <item row="1" column="1">
-      <property name="text">
-       <string>401-270504-1006M</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </item>
-    </widget>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
@@ -240,7 +168,8 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: Black</string>
      </property>
      <property name="text">
       <string/>
@@ -275,7 +204,8 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -297,12 +227,25 @@ color: rgb(0, 0, 0);</string>
       <string>Agregar</string>
      </property>
     </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>361</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(224, 224, 224);</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>200</y>
+      <y>210</y>
       <width>311</width>
       <height>231</height>
      </rect>
@@ -405,7 +348,8 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -421,7 +365,9 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: black
+</string>
      </property>
      <property name="text">
       <string/>
@@ -430,14 +376,15 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>80</x>
        <y>150</y>
-       <width>261</width>
+       <width>211</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: black</string>
      </property>
      <property name="text">
       <string/>
@@ -446,14 +393,16 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>80</x>
        <y>200</y>
-       <width>251</width>
+       <width>211</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: black
+</string>
      </property>
      <property name="text">
       <string/>
@@ -464,10 +413,15 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>450</y>
+      <y>460</y>
       <width>291</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(35, 134, 54);
@@ -481,7 +435,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>340</y>
+      <y>350</y>
       <width>391</width>
       <height>91</height>
      </rect>
@@ -524,19 +478,27 @@ color: rgb(255, 255, 255);</string>
      </item>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/iconosalida/cerrar-sesion.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../../Downloads/salida.qrc"/>
+ </resources>
  <connections/>
 </ui>
