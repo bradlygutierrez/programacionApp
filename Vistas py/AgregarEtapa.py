@@ -10,57 +10,84 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_AgregarEtapa(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 600)
+        MainWindow.setMaximumSize(QtCore.QSize(1024, 600))
         MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(180, 30, 671, 111))
+        self.label.setGeometry(QtCore.QRect(330, 30, 341, 71))
         self.label.setStyleSheet("font: 75 20pt \"Ubuntu\";")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(90, 180, 371, 41))
+        self.label_2.setGeometry(QtCore.QRect(90, 130, 191, 21))
         self.label_2.setStyleSheet("font: 75 20pt \"Ubuntu\";")
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(540, 190, 361, 25))
-        self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit.setGeometry(QtCore.QRect(320, 130, 361, 25))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                                    "\n"
+                                    "")
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(400, 430, 221, 81))
+        self.pushButton.setGeometry(QtCore.QRect(400, 480, 181, 41))
         self.pushButton.setStyleSheet("font: 57 20pt \"Ubuntu bold\";\n"
-"background-color: rgb(35, 134, 54);")
+                                      "background-color: rgb(224, 224, 224);")
         self.pushButton.setObjectName("pushButton")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(540, 250, 361, 25))
+        self.lineEdit_2.setGeometry(QtCore.QRect(320, 180, 361, 25))
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(90, 240, 371, 51))
+        self.label_3.setGeometry(QtCore.QRect(90, 180, 191, 21))
         self.label_3.setStyleSheet("font: 75 20pt \"Ubuntu\";")
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(90, 310, 401, 51))
+        self.label_4.setGeometry(QtCore.QRect(90, 230, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Ubuntu")
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.label_4.setFont(font)
         self.label_4.setStyleSheet("font: 75 20pt \"Ubuntu\";")
         self.label_4.setObjectName("label_4")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(540, 320, 361, 25))
+        self.lineEdit_3.setGeometry(QtCore.QRect(320, 230, 361, 25))
         self.lineEdit_3.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(850, 410, 131, 141))
-        self.label_5.setStyleSheet("border-image: url(:/logo/unnamed (1).png);")
+        self.label_5.setGeometry(QtCore.QRect(780, 190, 161, 161))
+        self.label_5.setStyleSheet("border-image: url(:/Inicio/unnamed (1).png);")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(10, 10, 111, 31))
         self.pushButton_2.setStyleSheet("font: 57 10pt \"Ubuntu bold\";\n"
-"background-color: rgb(35, 134, 54);")
+                                        "background-color: rgb(224, 224, 224);")
         self.pushButton_2.setObjectName("pushButton_2")
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(90, 300, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Ubuntu")
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.label_6.setFont(font)
+        self.label_6.setStyleSheet("font: 75 20pt \"Ubuntu\";")
+        self.label_6.setObjectName("label_6")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_4.setGeometry(QtCore.QRect(320, 300, 361, 141))
+        self.lineEdit_4.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_4.setObjectName("lineEdit_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 22))
@@ -76,14 +103,19 @@ class Ui_AgregarEtapa(QtWidgets.QMainWindow):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt; font-weight:600; color:#ffffff;\">Agregar etapa</span></p></body></html>"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Número de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
+        self.label.setText(_translate("MainWindow",
+                                      "<html><head/><body><p><span style=\" font-size:36pt; font-weight:600; color:#ffffff;\">Agregar etapa</span></p></body></html>"))
+        self.label_2.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Número de la etapa:</span></p><p><span style=\" font-size:14pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Agregar"))
-        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Nombre de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Prepuesto de la etapa:</span></p><p><span style=\" font-size:28pt; color:#ffffff;\"><br/></span></p></body></html>"))
+        self.label_3.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Nombre de la etapa:</span></p><p><span style=\" font-size:14pt; color:#ffffff;\"><br/></span></p></body></html>"))
+        self.label_4.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Prepuesto de la etapa:</span></p><p><span style=\" font-size:14pt; color:#ffffff;\"><br/></span></p></body></html>"))
         self.pushButton_2.setText(_translate("MainWindow", "Volver"))
-import logos2
-
+        self.label_6.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Descripcion:</span><span style=\" font-size:16pt; color:#ffffff;\"><br/></span></p></body></html>"))
+import iconos
 
 if __name__ == "__main__":
     import sys

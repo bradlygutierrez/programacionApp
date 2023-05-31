@@ -9,18 +9,22 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QTableWidgetItem
 
+from Datos.dtBeneficiario import DT_beneficiario
 
 
 class Ui_agregarGasto(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 557)
+        MainWindow.resize(1024, 600)
+        MainWindow.setMinimumSize(QtCore.QSize(1024, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(1024, 600))
         MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(280, 10, 221, 41))
+        self.label.setGeometry(QtCore.QRect(400, 30, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(24)
         font.setBold(True)
@@ -29,12 +33,12 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.label.setStyleSheet("color: rgb(255, 255, 255);")
         self.label.setObjectName("label")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(140, 100, 191, 21))
+        self.lineEdit.setGeometry(QtCore.QRect(240, 120, 211, 21))
         self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(20, 100, 81, 21))
+        self.label_2.setGeometry(QtCore.QRect(110, 120, 81, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -43,7 +47,7 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 140, 111, 21))
+        self.label_3.setGeometry(QtCore.QRect(110, 160, 111, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -52,13 +56,14 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.label_3.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_3.setObjectName("label_3")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(140, 140, 191, 51))
+        self.lineEdit_2.setGeometry(QtCore.QRect(240, 160, 211, 51))
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.lineEdit_2.setText("")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(380, 90, 391, 231))
+        self.groupBox.setGeometry(QtCore.QRect(500, 110, 441, 231))
         font = QtGui.QFont()
+        font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.groupBox.setFont(font)
@@ -72,7 +77,7 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.label_8.setFont(font)
         self.label_8.setObjectName("label_8")
         self.lineEdit_7 = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_7.setGeometry(QtCore.QRect(70, 40, 131, 21))
+        self.lineEdit_7.setGeometry(QtCore.QRect(70, 40, 171, 21))
         self.lineEdit_7.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                                       "color: Black")
         self.lineEdit_7.setText("")
@@ -85,24 +90,26 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.lineEdit_8 = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_8.setGeometry(QtCore.QRect(30, 70, 171, 21))
+        self.lineEdit_8.setGeometry(QtCore.QRect(70, 70, 171, 21))
         self.lineEdit_8.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                                       "color: black")
         self.lineEdit_8.setText("")
         self.lineEdit_8.setObjectName("lineEdit_8")
         self.pushButton_4 = QtWidgets.QPushButton(self.groupBox)
-        self.pushButton_4.setGeometry(QtCore.QRect(230, 50, 141, 31))
+        self.pushButton_4.setGeometry(QtCore.QRect(280, 50, 141, 31))
         self.pushButton_4.setStyleSheet("background-color: rgb(145, 65, 172);")
         self.pushButton_4.setObjectName("pushButton_4")
         self.tableWidget = QtWidgets.QTableWidget(self.groupBox)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 110, 361, 101))
-        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);")
+        self.tableWidget.setGeometry(QtCore.QRect(10, 110, 411, 101))
+        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);""background-color: rgb(255, 255, 255);\n"
+                                      "color: Black")
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_2.setGeometry(QtCore.QRect(20, 210, 311, 231))
+        self.groupBox_2.setGeometry(QtCore.QRect(110, 230, 341, 231))
         font = QtGui.QFont()
+        font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.groupBox_2.setFont(font)
@@ -163,7 +170,7 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.lineEdit_6.setText("")
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(240, 460, 291, 61))
+        self.pushButton_3.setGeometry(QtCore.QRect(330, 490, 291, 61))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.pushButton_3.setFont(font)
@@ -171,21 +178,22 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
                                         "color: rgb(255, 255, 255);")
         self.pushButton_3.setObjectName("pushButton_3")
         self.groupBox_3 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_3.setGeometry(QtCore.QRect(380, 350, 391, 91))
+        self.groupBox_3.setGeometry(QtCore.QRect(500, 370, 391, 91))
         font = QtGui.QFont()
+        font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.groupBox_3.setFont(font)
         self.groupBox_3.setStyleSheet("color: rgb(255, 255, 255);")
         self.groupBox_3.setObjectName("groupBox_3")
         self.comboBox = QtWidgets.QComboBox(self.groupBox_3)
-        self.comboBox.setGeometry(QtCore.QRect(10, 40, 211, 25))
+        self.comboBox.setGeometry(QtCore.QRect(10, 40, 281, 25))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 10, 51, 51))
+        self.pushButton.setGeometry(QtCore.QRect(40, 30, 51, 51))
         self.pushButton.setStyleSheet("border-image: url(:/iconosalida/cerrar-sesion.png);")
         self.pushButton.setText("")
         self.pushButton.setObjectName("pushButton")
@@ -217,27 +225,21 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.comboBox.setItemText(0, _translate("MainWindow", "Transporte"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Tecnologia"))
         self.comboBox.setItemText(2, _translate("MainWindow", "Materiales"))
-""""
+
     def cargar_beneficiario(self):
-        etapas = DT_etapa.listarEtapa()
+        beneficiarios = DT_beneficiario.listarBeneficiario()
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget.setRowCount(len(etapas))
-        self.tableWidget.setColumnCount(6)
+        self.tableWidget.setRowCount(len(beneficiarios))
+        self.tableWidget.setColumnCount(3)
         self.tableWidget.setHorizontalHeaderLabels(
-            ["ID Etapa", "ID Proyecto", "Nombre", "Descripción", "Presupuesto", "Número de Etapa"])
+            ["ID Beneficiarip", "Nombre", "Identificacion"])
         self.tableWidget.setColumnWidth(0, 0)
-        self.tableWidget.setColumnWidth(1, 100)
-        self.tableWidget.setColumnWidth(2, 126)
-        self.tableWidget.setColumnWidth(3, 212)
-        self.tableWidget.setColumnWidth(4, 100)
-        self.tableWidget.setColumnWidth(5, 140)
+        self.tableWidget.setColumnWidth(1, 198)
+        self.tableWidget.setColumnWidth(2, 198)
         self.tableWidget.setColumnHidden(0, True)
-        for i, etapa in enumerate(etapas):
-            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapa.idProyecto)))
-            self.tableWidget.setItem(i, 2, QTableWidgetItem(etapa.nombreEtapa))
-            self.tableWidget.setItem(i, 3, QTableWidgetItem(etapa.descripcion))
-            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(etapa.presupuestoEtapa)))
-            self.tableWidget.setItem(i, 5, QTableWidgetItem(str(etapa.NumEtapa)))
+        for i, beneficiario in enumerate(beneficiarios):
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(beneficiario.nombre))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(beneficiario.identificacion))
 
         alignment = QtCore.Qt.AlignCenter
         for i in range(self.tableWidget.columnCount()):
@@ -245,10 +247,9 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
                 item = self.tableWidget.item(j, i)
                 if item is not None:
                     item.setTextAlignment(alignment)
-"""
+
 
 import salida
-
 
 if __name__ == "__main__":
     import sys
@@ -257,5 +258,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_agregarGasto()
     ui.setupUi(MainWindow)
+    ui.cargar_beneficiario()
     MainWindow.show()
     sys.exit(app.exec_())

@@ -3,7 +3,6 @@ from entidades.etapas import Etapa
 
 
 class DT_etapa:
-    _INSERT = "INSERT INTO sermiccsa.etapa (descripcion, id_etapa, id_proyecto, nombre, numero_etapa, presupuesto) values (%s, %d, %d, %s, %d, %f)"
 
     @classmethod
     def listarEtapa(cls):
@@ -27,17 +26,18 @@ class DT_etapa:
 
     @classmethod
     def guardarEtapa(cls, etapa):
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-                try:
-                    print(f'Etapa a insertar: {etapa}')
-                    valores = (etapa.idEtapa, etapa.idProyecto, etapa.nombreEtapa,etapa.descripcion, etapa.presupuestoEtapa, etapa.NumEtapa)
-                    cursor.execute(cls._INSERT, valores)
-                    print(f'Etapa insertado: {etapa}')
-                    conexion.commit()
-                    return cursor.rowcount
-                except Exception as e:
-                    print(f'Exception {e}')
+            conexion = Conexion.getConnection()
+            cursor = conexion.cursor()
+            try:
+                _INSERT = f"INSERT INTO `sermiccsa`.`etapa` (`nombre`, `numero_etapa`, `descripcion`, `presupuesto`) VALUES ('{etapa.nombreEtapa}', '{etapa.NumEtapa}', '{etapa.descripcion}', '{etapa.presupuestoEtapa}');"
+                print(f'Etapa a insertar: {etapa}')
+                cursor.execute(_INSERT)
+                print(f'Etapa insertado: {etapa}')
+                conexion.commit()
+                return cursor.rowcount
+            except Exception as e:
+                print(f'Exception {e}')
+
 
     def Editar_Etapa(self):
         if Conexion.getConnection():
@@ -51,17 +51,20 @@ class DT_etapa:
                 except Exception as e:
                     print("Error durante la conexión", e)
 
-    def Eliminar_Etapa(self):
-        if Conexion.getConnection():
-            print("Conexión exitosa")
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-                try:
-                    cursor.execute("DELETE FROM sermiccsa.etapa WHERE id_etapa = 1")
-                    cursor.commit()
-                    print("Registro eliminado con éxito")
-                except Exception as e:
-                    print("Error durante la conexión", e)
+    @classmethod
+    def eliminarEtapa(cls, etapa):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            print(etapa)
+            _DELETE = f"DELETE FROM `sermiccsa`.`etapa` WHERE (`id_etapa` = '{etapa}');"
+            print("Eliminando etapa")
+            cursor.execute(_DELETE)
+            print("Etapa eliminada")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+                print(f'''Excepción: {e}''')
 
 
 if __name__ == '__main__':

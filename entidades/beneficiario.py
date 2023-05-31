@@ -1,4 +1,6 @@
 import copy
+
+
 class Beneficiario:
     def __init__(self, idBeneficiario, nombre, identificacion):
         self._idBeneficiario = idBeneficiario
@@ -25,24 +27,20 @@ class Beneficiario:
 
     @nombre.setter
     def nombre(self, nombre):
-        self._nombre=nombre
+        self._nombre = nombre
 
     @property
     def identificacion(self):
         return self._identificacion
 
     @identificacion.setter
-    def correo(self,identificacion):
+    def correo(self, identificacion):
         self._identificacion = identificacion
 
     @property
-    def idBeneficiario(self):
+    def id_Beneficiario(self):
         return self._idBeneficiario
 
-    @idBeneficiario.setter
-    def idBeneficiario(self, idBeneficiario):
+    @id_Beneficiario.setter
+    def id_Beneficiario(self, idBeneficiario):
         self._idBeneficiario = idBeneficiario
-
-if __name__ == '__main__':
-    beneficiario1 = Beneficiario(idBeneficiario=1, nombre='Jorge', identificacion='mghhh46235f')
-    print(beneficiario1)

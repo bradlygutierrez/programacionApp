@@ -84,7 +84,7 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
         self.label_5.setText(_translate("MainWindow",
                                         "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Volver"))
-    def cargar_etapa(self):
+    def cargar_gasto(self):
         etapas = DT_etapa.listarEtapa()
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(etapas))
@@ -100,12 +100,12 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
         self.tableWidget.setColumnHidden(0, True)
         self.tableWidget.setColumnHidden(1, True)
         for i, etapa in enumerate(etapas):
-            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(etapas.idEtapa)))
-            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapas.idProyecto)))
-            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(etapas.nombreEtapa)))
-            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(etapas.descripcion)))
-            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(etapas.presupuestoEtapa)))
-            self.tableWidget.setItem(i, 5, QTableWidgetItem(str(etapas.NumEtapa)))
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(etapa.idEtapa)))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapa.idProyecto)))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(etapa.nombreEtapa)))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(etapa.descripcion)))
+            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(etapa.presupuestoEtapa)))
+            self.tableWidget.setItem(i, 5, QTableWidgetItem(str(etapa.NumEtapa)))
 
         alignment = QtCore.Qt.AlignCenter
 
@@ -115,9 +115,6 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
                 if item is not None:
                     item.setTextAlignment(alignment)
 
-
-import logo1
-import logos2
 
 if __name__ == "__main__":
     import sys
