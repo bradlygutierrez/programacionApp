@@ -11,12 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(402, 254)
-        MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_PreguntaContra(object):
+    def setupUi(self, PreguntaContra):
+        PreguntaContra.setObjectName("PreguntaContra")
+        PreguntaContra.resize(402, 254)
+        PreguntaContra.setStyleSheet("background-color: rgb(20, 18, 35);")
+        self.centralwidget = QtWidgets.QWidget(PreguntaContra)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(10, 10, 31, 31))
@@ -68,35 +68,35 @@ class Ui_MainWindow(object):
         self.lineEdit_2.raise_()
         self.label_5.raise_()
         self.label_6.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        PreguntaContra.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(PreguntaContra)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 402, 22))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        PreguntaContra.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(PreguntaContra)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        PreguntaContra.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(PreguntaContra)
+        QtCore.QMetaObject.connectSlotsByName(PreguntaContra)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, PreguntaContra):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "Buscar"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Respuesta:</span></p></body></html>"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#ffffff;\">¿Olvidaste tu contraseña?</span></p></body></html>"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Pregunta:</span></p></body></html>"))
-        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        PreguntaContra.setWindowTitle(_translate("PreguntaContra", "MainWindow"))
+        self.pushButton_2.setText(_translate("PreguntaContra", "Buscar"))
+        self.label.setText(_translate("PreguntaContra", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Respuesta:</span></p></body></html>"))
+        self.label_2.setText(_translate("PreguntaContra", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#ffffff;\">¿Olvidaste tu contraseña?</span></p></body></html>"))
+        self.label_4.setText(_translate("PreguntaContra", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Pregunta:</span></p></body></html>"))
+        self.label_5.setText(_translate("PreguntaContra", "<html><head/><body><p><br/></p></body></html>"))
+        self.label_6.setText(_translate("PreguntaContra", "<html><head/><body><p><br/></p></body></html>"))
 import CambiarContra_rc
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    PreguntaContra = QtWidgets.QMainWindow()
+    ui = Ui_PreguntaContra()
+    ui.setupUi(PreguntaContra)
+    PreguntaContra.show()
     sys.exit(app.exec_())

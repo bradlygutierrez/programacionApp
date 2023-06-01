@@ -11,12 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(334, 158)
-        MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_UsuarioRecuperar(object):
+    def setupUi(self, UsuarioRecuperar):
+        UsuarioRecuperar.setObjectName("UsuarioRecuperar")
+        UsuarioRecuperar.resize(334, 158)
+        UsuarioRecuperar.setStyleSheet("background-color: rgb(20, 18, 35);")
+        self.centralwidget = QtWidgets.QWidget(UsuarioRecuperar)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(10, 10, 31, 31))
@@ -49,32 +49,32 @@ class Ui_MainWindow(object):
         self.pushButton_2.raise_()
         self.label_2.raise_()
         self.label_3.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        UsuarioRecuperar.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(UsuarioRecuperar)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 334, 22))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        UsuarioRecuperar.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(UsuarioRecuperar)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        UsuarioRecuperar.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(UsuarioRecuperar)
+        QtCore.QMetaObject.connectSlotsByName(UsuarioRecuperar)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, UsuarioRecuperar):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "Buscar"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Usuario:</span></p></body></html>"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Recuperar cuenta</span></p></body></html>"))
-import CambiarContra_rc
+        UsuarioRecuperar.setWindowTitle(_translate("UsuarioRecuperar", "MainWindow"))
+        self.pushButton_2.setText(_translate("UsuarioRecuperar", "Buscar"))
+        self.label.setText(_translate("UsuarioRecuperar", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Usuario:</span></p></body></html>"))
+        self.label_2.setText(_translate("UsuarioRecuperar", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Recuperar cuenta</span></p></body></html>"))
+import IconosCOntraseña
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    UsuarioRecuperar = QtWidgets.QMainWindow()
+    ui = Ui_UsuarioRecuperar()
+    ui.setupUi(UsuarioRecuperar)
+    UsuarioRecuperar.show()
     sys.exit(app.exec_())

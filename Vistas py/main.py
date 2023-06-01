@@ -25,7 +25,7 @@ from entidades.etapas import Etapa
 from Datos.dtEtapa import DT_etapa
 from Datos.dtUsuario import DT_Usuario
 from entidades.usuario import Usuario
-
+from PreguntarUsuario import Ui_UsuarioRecuperar
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
@@ -88,13 +88,8 @@ class MainWindow(QMainWindow):
         self.uiCrearUsuario.cargar_preguntas()
         self.uiCrearUsuario.show()
 
-    def recuperando_clave(self):
-        #clave = self.uiRecuperarContrasena.lineEdit.text()
-        mensaje = QMessageBox()
-        mensaje.setWindowTitle("Venta emergente")
-        mensaje.setText("¡Realiza tu compra ahora!")
-        mensaje.setIcon(QMessageBox.Information)
-        mensaje.exec_()
+    #def recuperando_clave(self):
+
 
 
     def show_recuperar_contrasena(self):
@@ -110,10 +105,10 @@ class MainWindow(QMainWindow):
         # Show third window
         self.verificador = 4
 
-        self.uiRecuperarContrasena = Ui_recuperarContrasena()
-        self.uiRecuperarContrasena.setupUi(self.uiRecuperarContrasena)
-        self.uiRecuperarContrasena.pushButton.clicked.connect(self.recuperando_clave)
-        self.uiRecuperarContrasena.show()
+        self.uiUsuarioRecuperar = Ui_UsuarioRecuperar()
+        self.uiUsuarioRecuperar.setupUi(self.uiUsuarioRecuperar)
+        self.uiUsuarioRecuperar.pushButton.clicked.connect(self.recuperando_clave)
+        self.uiUsuarioRecuperar.show()
 
     def mostrar_proyectos_especificos(self):
         if self.verificador == 1:
