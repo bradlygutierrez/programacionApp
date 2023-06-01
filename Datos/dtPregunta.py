@@ -1,25 +1,25 @@
-from conexion import Conexion
+from Datos.conexion import Conexion
 from entidades.pregunta import Pregunta
 
 
 class DT_pregunta:
-    _INSERT = "INSERT INTO sermiccsa.pregunta (id_pregunta,pregunta) values (%d, %s)"
+    _INSERT = "INSERT INTO sermiccsa.pregunta (pregunta) values (%d, %s)"
 
     @classmethod
     def listarPreguntas(cls):
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-                cursor.execute("SELECT * FROM sermiccsa.pregunta")
-                resultado = cursor.fetchall()
-                preguntas = []
-                try:
-                    for x in resultado:
-                        u = Pregunta(x['id_pregunta'], x['pregunta'], )
-                        preguntas.append(u)
-                    print('preguntas', preguntas)
-                    return preguntas
-                except Exception as e:
-                    print(f'Excepción {e}')
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM sermiccsa.pregunta")
+        resultado = cursor.fetchall()
+        preguntas = []
+        try:
+            for x in resultado:
+                u = Pregunta(x['id_pregunta'],x['pregunta'])
+                preguntas.append(u)
+                print('preguntas', preguntas)
+                return preguntas
+        except Exception as e:
+            print(f'Excepción {e}')
 
     @classmethod
     def guardarPregunta(cls, pregunta):

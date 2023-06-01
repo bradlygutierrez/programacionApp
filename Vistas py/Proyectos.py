@@ -105,8 +105,13 @@ class Ui_proyectos(QtWidgets.QMainWindow):
                                       "<html><head/><body><p><img src=\":/iconos principal/impresora (2).png\"/></p></body></html>"))
         self.pushButton_9.setText(_translate("MainWindow", "Imprimir presupuesto"))
 
-    def cargar_proyectos(self):
-        proyectos = DT_proyect.listarProyectos()
+    def cargar_proyectos(self, usuario):
+        proyectitos = DT_proyect.listarProyectos()
+        proyectos = []
+        for proyecto in proyectitos:
+            if proyecto.id_usuario == usuario:
+                proyectos.append(proyecto)
+
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(proyectos))
         self.tableWidget.setColumnCount(5)

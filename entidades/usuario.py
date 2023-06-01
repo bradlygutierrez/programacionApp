@@ -1,6 +1,6 @@
 import copy
 class Usuario:
-    def __init__(self, nombre, correo, idUsuario, pregunta, contrasenia, respuesta):
+    def __init__(self, idUsuario, nombre, correo, pregunta, contrasenia, respuesta):
         self._nombre = nombre
         self._correo = correo
         self._idUsuario = idUsuario

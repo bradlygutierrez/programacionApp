@@ -10,6 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 import sys
+from Datos.dtPregunta import DT_pregunta
 
 
 class Ui_crearUsuario(QtWidgets.QMainWindow):
@@ -163,6 +164,13 @@ class Ui_crearUsuario(QtWidgets.QMainWindow):
         self.label_8.setText(_translate("crearUsuario",
                                         "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Registrar Usuario</span></p></body></html>"))
 
+    def cargar_preguntas(self):
+        preguntas = DT_pregunta.listarPreguntas()
+
+        for pregunta in preguntas:
+            self.comboBox.addItem(pregunta.contenidoPregunta, pregunta.idPregunta)  # Asocia el ID del proyecto como valor
+
+        self.comboBox.setCurrentIndex(-1)
 
 import iconosCrearCuenta
 
