@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_PreguntaContra(object):
+class Ui_PreguntaContra(QtWidgets.QMainWindow):
     def setupUi(self, PreguntaContra):
         PreguntaContra.setObjectName("PreguntaContra")
         PreguntaContra.resize(402, 254)
@@ -89,7 +89,8 @@ class Ui_PreguntaContra(object):
         self.label_4.setText(_translate("PreguntaContra", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Pregunta:</span></p></body></html>"))
         self.label_5.setText(_translate("PreguntaContra", "<html><head/><body><p><br/></p></body></html>"))
         self.label_6.setText(_translate("PreguntaContra", "<html><head/><body><p><br/></p></body></html>"))
-import CambiarContra_rc
+
+import IconosCOntraseña
 
 
 if __name__ == "__main__":

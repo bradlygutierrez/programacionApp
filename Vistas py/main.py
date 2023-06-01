@@ -25,7 +25,10 @@ from entidades.etapas import Etapa
 from Datos.dtEtapa import DT_etapa
 from Datos.dtUsuario import DT_Usuario
 from entidades.usuario import Usuario
+from Datos.dtPregunta import DT_pregunta
 from PreguntarUsuario import Ui_UsuarioRecuperar
+from OlvidasteContra import Ui_PreguntaContra
+from CambiarContra import Ui_NuevaContra
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
@@ -34,12 +37,9 @@ class MainWindow(QMainWindow):
         self.nombre_proyecto = ""
         self.ui = Ui_iniciarSesion()
         self.ui.setupUi(self)
+        self.nombre_editar = ""
         self.verificador = 1
-        self.contador = 1
-        self.controlador_proyectos = 7
         self.id_usuario = 0
-        self.controlador_etapas = 10
-        self.controlador_proyectoX = 12
         self.ui.commandLinkButton_2.clicked.connect(self.show_crear_usuario)
         self.ui.commandLinkButton.clicked.connect(self.show_recuperar_contrasena)
         self.ui.commandLinkButton_3.clicked.connect(sys.exit)
@@ -61,9 +61,17 @@ class MainWindow(QMainWindow):
             mensaje.exec_()
             self.show_crear_usuario()
         else:
-            usuario_a_guardar = Usuario(1, nombre_usuario, correo, pregunta, clave, respuesta)
-            DT_Usuario.guardarUsuario(usuario_a_guardar)
-            self.show_main_window()
+            if(DT_Usuario.existe_solo_usuario(DT_Usuario, nombre_usuario)):
+                mensaje = QMessageBox()
+                mensaje.setWindowTitle("Sermiccsa")
+                mensaje.setText("Usuario ya existe. Intente de nuevo")
+                mensaje.setIcon(QMessageBox.Information)
+                mensaje.exec_()
+                self.show_crear_usuario()
+            else:
+                usuario_a_guardar = Usuario(1, nombre_usuario, correo, pregunta, clave, respuesta)
+                DT_Usuario.guardarUsuario(usuario_a_guardar)
+                self.show_main_window()
 
 
 
@@ -88,16 +96,76 @@ class MainWindow(QMainWindow):
         self.uiCrearUsuario.cargar_preguntas()
         self.uiCrearUsuario.show()
 
-    #def recuperando_clave(self):
+    def solucionar_recuperacion(self):
+        nuevaClave = self.uiNuevaContra.lineEdit.text()
+        nuevaClave1 = self.uiNuevaContra.lineEdit_2.text()
+        if(nuevaClave == nuevaClave1):
+            DT_Usuario.actualizar_clave(DT_Usuario, self.nombre_editar, nuevaClave)
+            self.show_main_window()
+        else:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("Sermiccsa")
+            mensaje.setText("Las claves no coinciden. Intente de nuevo")
+            mensaje.setIcon(QMessageBox.Warning)
+            mensaje.exec_()
+            self.manejar_pregunta_respuesta()
 
+
+    def manejar_pregunta_respuesta(self):
+        respuesta = self.uiPreguntaRespuesta.lineEdit.text()
+        if(DT_Usuario.verificar_respuesta(DT_Usuario, self.nombre_editar, respuesta)):
+            self.uiPreguntaRespuesta.close()
+            self.verificador = 15
+            self.uiNuevaContra = Ui_NuevaContra()
+            self.uiNuevaContra.setupUi(self.uiNuevaContra)
+            self.uiNuevaContra.pushButton.clicked.connect(self.recuperando_clave)
+            self.uiNuevaContra.pushButton_2.clicked.connect(self.solucionar_recuperacion)
+            self.uiNuevaContra.show()
+        else:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("Sermiccsa")
+            mensaje.setText("Respuesta invalida. Intente de nuevo")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
+            self.recuperando_clave()
+
+
+    def recuperando_clave(self):
+        self.nombre_editar = self.uiUsuarioRecuperar.lineEdit.text()
+        self.id_pregunta = DT_Usuario.buscar_pregunta(DT_Usuario, self.nombre_editar)
+        self.pregunta = DT_pregunta.buscar_pregunta(DT_pregunta, self.id_pregunta)
+
+        if(DT_Usuario.existe_solo_usuario(DT_Usuario, self.nombre_editar)):
+            if self.verificador == 4:
+                self.uiUsuarioRecuperar.close()
+            elif self.verificador == 15:
+                self.uiNuevaContra.close()
+
+            self.verificador = 14
+            self.uiPreguntaRespuesta = Ui_PreguntaContra()
+            self.uiPreguntaRespuesta.setupUi(self.uiPreguntaRespuesta)
+            self.uiPreguntaRespuesta.lineEdit_2.setText(self.pregunta)
+            self.uiPreguntaRespuesta.pushButton.clicked.connect(self.show_recuperar_contrasena)
+            self.uiPreguntaRespuesta.pushButton_2.clicked.connect(self.manejar_pregunta_respuesta)
+            self.uiPreguntaRespuesta.show()
+        else:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("Sermiccsa")
+            mensaje.setText("Usuario no encontrado. Intente de nuevo")
+            mensaje.setIcon(QMessageBox.Information)
+            mensaje.exec_()
+            self.show_recuperar_contrasena()
 
 
     def show_recuperar_contrasena(self):
-
         if self.verificador == 1:
             self.close()
         elif self.verificador == 2:
             self.uiPrincipal.close()
+        elif self.verificador == 4:
+            self.uiUsuarioRecuperar.close()
+        elif self.verificador == 14:
+            self.uiPreguntaRespuesta.close()
         else:
             pass
 
@@ -107,7 +175,8 @@ class MainWindow(QMainWindow):
 
         self.uiUsuarioRecuperar = Ui_UsuarioRecuperar()
         self.uiUsuarioRecuperar.setupUi(self.uiUsuarioRecuperar)
-        self.uiUsuarioRecuperar.pushButton.clicked.connect(self.recuperando_clave)
+        self.uiUsuarioRecuperar.pushButton.clicked.connect(self.show_main_window)
+        self.uiUsuarioRecuperar.pushButton_2.clicked.connect(self.recuperando_clave)
         self.uiUsuarioRecuperar.show()
 
     def mostrar_proyectos_especificos(self):
@@ -145,11 +214,13 @@ class MainWindow(QMainWindow):
         if self.verificador == 3:
             self.uiCrearUsuario.close()
         elif self.verificador == 4:
-            self.uiRecuperarContrasena.close()
+            self.uiUsuarioRecuperar.close()
         elif self.verificador == 2:
             self.uiPrincipal.close()
         elif self.verificador == 1:
             self.close()
+        elif self.verificador == 15:
+            self.uiNuevaContra.close()
         else:
             pass
 
@@ -201,7 +272,7 @@ class MainWindow(QMainWindow):
 
     def verificar_eliminacion(self):
         if self.verificador == 5:
-            self.uiProyectos.show()
+            self.uiProyectos.close()
         else:
             pass
 
@@ -237,13 +308,12 @@ class MainWindow(QMainWindow):
     def show_nuevo_proyecto(self):
 
         if self.verificador == 5:
-            self.uietapas.close()
+            self.uiProyectos.close()
         else:
             pass
 
         self.verificador = 6
 
-        self.uiProyectos.close()
         self.uiNuevoproyecto = Ui_nuevoProyecto()
         self.uiNuevoproyecto.setupUi(self.uiNuevoproyecto)
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
@@ -260,12 +330,14 @@ class MainWindow(QMainWindow):
         self.uiConfiguracion.show()
 
     def show_proyectoX(self):
-        if self.verifcador == 5:
+        if self.verificador == 5:
             self.uiProyectos.close()
         elif self.verificador == 11:
             self.uiagregargasto.close()
         elif self.verificador == 12:
             self.uiverEtapas.close()
+        elif self.verificador == 9:
+            self.uietapas.close()
         else:
             pass
 

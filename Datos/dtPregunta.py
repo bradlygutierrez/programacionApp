@@ -9,15 +9,15 @@ class DT_pregunta:
     def listarPreguntas(cls):
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
-        cursor.execute("SELECT * FROM sermiccsa.pregunta")
+        cursor.execute("SELECT * FROM sermiccsa.pregunta;")
         resultado = cursor.fetchall()
         preguntas = []
         try:
             for x in resultado:
-                u = Pregunta(x['id_pregunta'],x['pregunta'])
+                u = Pregunta(x['id_pregunta'], x['pregunta'])
                 preguntas.append(u)
-                print('preguntas', preguntas)
-                return preguntas
+            print('preguntas', preguntas)
+            return preguntas
         except Exception as e:
             print(f'Excepción {e}')
 
@@ -34,6 +34,13 @@ class DT_pregunta:
                     return cursor.rowcount
                 except Exception as e:
                     print(f'Exception {e}')
+
+    def buscar_pregunta(self, id_pregunta):
+        preguntas = self.listarPreguntas()
+
+        for pregunta in preguntas:
+            if pregunta.idPregunta == id_pregunta:
+                return pregunta.contenidoPregunta
 
 
 if __name__ == '__main__':

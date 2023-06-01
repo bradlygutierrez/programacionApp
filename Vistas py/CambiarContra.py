@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_NuevaContra(object):
+class Ui_NuevaContra(QtWidgets.QMainWindow):
     def setupUi(self, NuevaContra):
         NuevaContra.setObjectName("NuevaContra")
         NuevaContra.resize(365, 253)
@@ -83,7 +83,8 @@ class Ui_NuevaContra(object):
         self.label_4.setText(_translate("NuevaContra", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Nueva contraseña:</span></p></body></html>"))
         self.label_5.setText(_translate("NuevaContra", "<html><head/><body><p><br/></p></body></html>"))
         self.label_6.setText(_translate("NuevaContra", "<html><head/><body><p><br/></p></body></html>"))
-import CambiarContra_rc
+
+import IconosCOntraseña
 
 
 if __name__ == "__main__":

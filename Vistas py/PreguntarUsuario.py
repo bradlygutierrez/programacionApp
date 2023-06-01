@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_UsuarioRecuperar(object):
+class Ui_UsuarioRecuperar(QtWidgets.QMainWindow):
     def setupUi(self, UsuarioRecuperar):
         UsuarioRecuperar.setObjectName("UsuarioRecuperar")
         UsuarioRecuperar.resize(334, 158)
