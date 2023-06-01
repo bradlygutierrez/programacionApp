@@ -3,7 +3,12 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from Datos.dtGasto import DT_gasto
 from IniciarSesion import Ui_iniciarSesion
+from entidades.gasto import Gasto
 from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
 from Proyectos import Ui_proyectos
@@ -369,6 +374,17 @@ class MainWindow(QMainWindow):
         self.limpiar_campos_guardar_beneficiario()
         self.show_agregar_gasto()
 
+    def save_agregarGasto(self):
+        nombre = self.uiagregargasto.lineEdit.text()
+        descripcion = self.uiagregargasto.lineEdit_2.text()
+        referencia = self.uiagregargasto.lineEdit_3.text()
+        subtotal = self.uiagregargasto.lineEdit_4.text()
+        ir = self.uiagregargasto.lineEdit_5.text()
+        IVA = self.uiagregargasto.lineEdit_6.text()
+        GastoGuardar = Gasto(self._idGasto,nombre,descripcion,referencia,subtotal,ir,IVA)
+        DT_gasto.guardarGasto(GastoGuardar)
+
+
     def limpiar_campos_guardar_beneficiario(self):
         self.uiagregargasto.lineEdit_8.setText("")
         self.uiagregargasto.lineEdit_7.setText("")
@@ -444,6 +460,9 @@ class MainWindow(QMainWindow):
         self.uiespecificaciones.setupUi(self.uiespecificaciones)
         self.uiespecificaciones.pushButton.clicked.connect(self.show_ver_etapa)
         self.uiespecificaciones.show()
+
+
+    #def generar_reporte(data): para los reportes
 
 
 if __name__ == '__main__':

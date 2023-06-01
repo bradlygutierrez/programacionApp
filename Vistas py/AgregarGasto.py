@@ -248,7 +248,6 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
                 if item is not None:
                     item.setTextAlignment(alignment)
 
-
 import salida
 
 if __name__ == "__main__":

@@ -43,6 +43,7 @@ class DT_gasto:
             print(f'Exception {e}')
 
 
+
 if __name__ == '__main__':
     gastos = DT_gasto.listarGastos()
     for x in gastos:
