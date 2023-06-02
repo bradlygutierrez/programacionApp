@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>796</width>
-    <height>446</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,14 +20,15 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>0</y>
-      <width>201</width>
-      <height>41</height>
+      <x>220</x>
+      <y>10</y>
+      <width>401</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(154, 153, 150);</string>
+     <string notr="true">background-color: rgb(224, 224, 224);
+border-radius: 10px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -38,7 +39,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>140</x>
        <y>10</y>
        <width>121</width>
        <height>31</height>
@@ -50,17 +51,18 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">
+color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Bluefields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#000000;&quot;&gt;Bluefields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>370</x>
       <y>70</y>
       <width>111</width>
       <height>17</height>
@@ -76,8 +78,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>100</y>
+      <x>250</x>
+      <y>90</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -88,23 +90,25 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(35, 134, 54);</string>
+     <string notr="true">color: rgb(74, 119, 101);
+</string>
     </property>
     <property name="text">
-     <string>C$ 365, 854, 679.86</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#33d17a;&quot;&gt;C$ 365, 854, 679.86&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>170</y>
-      <width>531</width>
-      <height>231</height>
+      <y>140</y>
+      <width>751</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(224, 224, 224);</string>
+     <string notr="true">background-color: rgb(224, 224, 224);
+border-radius: 10px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -115,7 +119,7 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>310</x>
        <y>20</y>
        <width>191</width>
        <height>17</height>
@@ -138,77 +142,83 @@
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>511</width>
+       <width>731</width>
        <height>171</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(224, 224, 224);</string>
      </property>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>180</y>
-      <width>211</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 134, 54);
-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Ver gastos por etapas</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>260</y>
-      <width>211</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(191, 64, 64);
-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Anadir Gasto</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>340</y>
+      <x>60</x>
+      <y>400</y>
       <width>211</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(53, 134, 54);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
     </property>
     <property name="text">
-     <string>Ver todos los gastos</string>
+     <string>Ver gastos por etapas</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>0</y>
-      <width>61</width>
-      <height>61</height>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/iconosalida/cerrar-sesion.png);</string>
+     <string notr="true">border-image: url(:/regresar/Downloads/flecha-hacia-atras.png);
+background-color: rgb(23, 219, 133);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>400</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(191, 64, 64);
+border-radius: 10px;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Imprimir reportes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>400</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string>Ver todos los gastos</string>
     </property>
    </widget>
   </widget>
@@ -225,7 +235,7 @@ color: rgb(255, 255, 255);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../../../Downloads/salida.qrc"/>
+  <include location="../../CambiarContra.qrc"/>
  </resources>
  <connections/>
 </ui>

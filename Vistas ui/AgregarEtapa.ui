@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>600</height>
+    <height>563</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -42,24 +42,24 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>130</y>
-      <width>191</width>
-      <height>21</height>
+      <width>361</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Ubuntu&quot;;</string>
+     <string notr="true">font: 75 30pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt;Número de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Número de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>130</y>
+      <x>460</x>
+      <y>140</y>
       <width>361</width>
       <height>25</height>
      </rect>
@@ -86,7 +86,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">font: 57 20pt &quot;Ubuntu bold&quot;;
-background-color: rgb(224, 224, 224);</string>
+background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Agregar</string>
@@ -95,8 +96,8 @@ background-color: rgb(224, 224, 224);</string>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>180</y>
+      <x>460</x>
+      <y>200</y>
       <width>361</width>
       <height>25</height>
      </rect>
@@ -108,26 +109,26 @@ background-color: rgb(224, 224, 224);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>180</y>
-      <width>191</width>
-      <height>21</height>
+      <x>30</x>
+      <y>190</y>
+      <width>361</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 75 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt;Nombre de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Nombre de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>230</y>
-      <width>211</width>
-      <height>31</height>
+      <x>30</x>
+      <y>250</y>
+      <width>411</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -143,14 +144,14 @@ background-color: rgb(224, 224, 224);</string>
      <string notr="true">font: 75 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt;Prepuesto de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Prepuesto de la etapa:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>230</y>
+      <x>460</x>
+      <y>250</y>
       <width>361</width>
       <height>25</height>
      </rect>
@@ -162,14 +163,14 @@ background-color: rgb(224, 224, 224);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>190</y>
+      <x>840</x>
+      <y>200</y>
       <width>161</width>
       <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/Inicio/unnamed (1).png);</string>
+     <string notr="true">border-image: url(:/regresar/Downloads/proceso.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -186,7 +187,8 @@ background-color: rgb(224, 224, 224);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 57 10pt &quot;Ubuntu bold&quot;;
-background-color: rgb(224, 224, 224);</string>
+background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Volver</string>
@@ -195,10 +197,10 @@ background-color: rgb(224, 224, 224);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>300</y>
-      <width>141</width>
-      <height>31</height>
+      <x>30</x>
+      <y>310</y>
+      <width>251</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -214,14 +216,14 @@ background-color: rgb(224, 224, 224);</string>
      <string notr="true">font: 75 20pt &quot;Ubuntu&quot;;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Descripcion:&lt;/span&gt;&lt;span style=&quot; font-size:16pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; color:#ffffff;&quot;&gt;Descripcion:&lt;/span&gt;&lt;span style=&quot; font-size:28pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>300</y>
+      <x>460</x>
+      <y>310</y>
       <width>361</width>
       <height>141</height>
      </rect>
@@ -244,7 +246,8 @@ background-color: rgb(224, 224, 224);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../../../Downloads/drive-download-20230504T074811Z-001/iconos.qrc"/>
+  <include location="../../../Downloads/drive-download-20230504T074811Z-001/iconos.qrc"/>
+  <include location="../../CambiarContra.qrc"/>
  </resources>
  <connections/>
 </ui>

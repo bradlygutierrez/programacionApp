@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>600</height>
+    <height>586</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -130,8 +130,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-background-color: rgb(35, 134, 54)</string>
+     <string notr="true">background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Volver</string>
@@ -140,16 +140,48 @@ background-color: rgb(35, 134, 54)</string>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>140</y>
-      <width>971</width>
-      <height>391</height>
+      <width>981</width>
+      <height>401</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(224, 224, 224);</string>
+     <string notr="true">background-color: rgb(224, 224, 224);
+border-radius: 10px;</string>
     </property>
    </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>1001</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+background-color: rgb(51, 209, 122);
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>label</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>label_2</zorder>
+   <zorder>lineEdit_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>lineEdit_3</zorder>
+   <zorder>label_5</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>tableWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -164,8 +196,8 @@ background-color: rgb(35, 134, 54)</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../logos2.qrc"/>
-  <include location="../logo1.qrc"/>
+  <include location="../../Desktop/programacionApp/logos2.qrc"/>
+  <include location="../../Desktop/programacionApp/logo1.qrc"/>
  </resources>
  <connections/>
 </ui>

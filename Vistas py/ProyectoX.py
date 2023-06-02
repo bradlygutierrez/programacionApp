@@ -9,79 +9,85 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
-from Datos.dtGasto import DT_gasto
 
 
-class Ui_proyectoX(QtWidgets.QMainWindow):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(796, 446)
+        MainWindow.resize(796, 483)
         MainWindow.setStyleSheet("background-color: rgb(20, 18, 35);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(290, 0, 201, 41))
-        self.frame.setStyleSheet("background-color: rgb(154, 153, 150);")
+        self.frame.setGeometry(QtCore.QRect(220, 10, 401, 51))
+        self.frame.setStyleSheet("background-color: rgb(224, 224, 224);\n"
+"border-radius: 10px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(40, 10, 121, 31))
+        self.label.setGeometry(QtCore.QRect(140, 10, 121, 31))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label.setStyleSheet("\n"
+"color: rgb(0, 0, 0);")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(330, 70, 111, 17))
+        self.label_2.setGeometry(QtCore.QRect(370, 70, 111, 17))
         self.label_2.setStyleSheet("color: rgb(246, 245, 244);")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(220, 100, 331, 41))
+        self.label_3.setGeometry(QtCore.QRect(250, 90, 331, 41))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color: rgb(35, 134, 54);")
+        self.label_3.setStyleSheet("color: rgb(74, 119, 101);\n"
+"")
         self.label_3.setObjectName("label_3")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_2.setGeometry(QtCore.QRect(20, 170, 531, 231))
-        self.frame_2.setStyleSheet("background-color: rgb(224, 224, 224);")
+        self.frame_2.setGeometry(QtCore.QRect(20, 140, 751, 241))
+        self.frame_2.setStyleSheet("background-color: rgb(224, 224, 224);\n"
+"border-radius: 10px;")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.label_4 = QtWidgets.QLabel(self.frame_2)
-        self.label_4.setGeometry(QtCore.QRect(180, 20, 191, 17))
+        self.label_4.setGeometry(QtCore.QRect(310, 20, 191, 17))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("color: rgb(20, 18, 35);")
         self.label_4.setObjectName("label_4")
         self.tableWidget = QtWidgets.QTableWidget(self.frame_2)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 50, 511, 171))
+        self.tableWidget.setGeometry(QtCore.QRect(10, 50, 731, 171))
+        self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(570, 180, 211, 71))
-        self.pushButton.setStyleSheet("background-color: rgb(53, 134, 54);\n"
-                                      "color: rgb(255, 255, 255);")
+        self.pushButton.setGeometry(QtCore.QRect(60, 400, 211, 51))
+        self.pushButton.setStyleSheet("background-color: rgb(51, 209, 122);\n"
+"border-radius: 10px;")
         self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(570, 260, 211, 71))
-        self.pushButton_2.setStyleSheet("background-color: rgb(191, 64, 64);\n"
-                                        "color: rgb(255, 255, 255);")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(570, 340, 211, 51))
-        self.pushButton_3.setStyleSheet("background-color: rgb(53, 134, 54);\n"
-                                        "color: rgb(255, 255, 255);")
-        self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(20, 0, 61, 61))
-        self.pushButton_4.setStyleSheet("border-image: url(:/iconosalida/cerrar-sesion.png);")
+        self.pushButton_4.setGeometry(QtCore.QRect(20, 10, 31, 31))
+        self.pushButton_4.setStyleSheet("border-image: url(:/regresar/Downloads/flecha-hacia-atras.png);\n"
+"background-color: rgb(23, 219, 133);\n"
+"border-radius: 10px;")
         self.pushButton_4.setText("")
         self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(300, 400, 211, 51))
+        self.pushButton_2.setStyleSheet("background-color: rgb(191, 64, 64);\n"
+"border-radius: 10px;\n"
+"color: rgb(255, 255, 255);")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(540, 400, 211, 51))
+        self.pushButton_3.setStyleSheet("background-color: rgb(51, 209, 122);\n"
+"border-radius: 10px;")
+        self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 796, 22))
@@ -97,50 +103,21 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow",
-                                      "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Bluefields</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#000000;\">Bluefields</span></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "Saldo disponible"))
-        self.label_3.setText(_translate("MainWindow", "C$ 365, 854, 679.86"))
+        self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#33d17a;\">C$ 365, 854, 679.86</span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "GASTOS RECIENTES"))
         self.pushButton.setText(_translate("MainWindow", "Ver gastos por etapas"))
-        self.pushButton_2.setText(_translate("MainWindow", "Anadir Gasto"))
+        self.pushButton_2.setText(_translate("MainWindow", "Imprimir reportes"))
         self.pushButton_3.setText(_translate("MainWindow", "Ver todos los gastos"))
-
-    import salida
-    def cargar_proyectoX(self):
-        proyectoX = DT_gasto.listarGastos()
-        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget.setRowCount(len(proyectoX))
-        self.tableWidget.setColumnCount(4)
-        self.tableWidget.setHorizontalHeaderLabels(
-            ["ID Gasto", "ID Etapa", "Nombre", "Descripcion"])
-        self.tableWidget.setColumnWidth(0, 157)
-        self.tableWidget.setColumnWidth(1, 150)
-        self.tableWidget.setColumnWidth(2, 208)
-        self.tableWidget.setColumnWidth(3, 217)
-        self.tableWidget.setColumnHidden(0, True)
-        for i, proyecto in enumerate(proyectoX):
-            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(proyecto.idGasto)))
-            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(proyecto.idEtapa)))
-            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(proyecto.nombre)))
-            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(proyecto.descripcion)))
-
-        alignment = QtCore.Qt.AlignCenter
-
-        for i in range(self.tableWidget.columnCount()):
-            for j in range(self.tableWidget.rowCount()):
-                item = self.tableWidget.item(j, i)
-                if item is not None:
-                    item.setTextAlignment(alignment)
+import Iconosnuevos
 
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_proyectoX()
+    ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    ui.cargar_proyectoX()
     MainWindow.show()
     sys.exit(app.exec_())
