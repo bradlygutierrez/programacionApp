@@ -1,6 +1,6 @@
 from Datos.conexion import Conexion
 from entidades.factura import Factura
-
+from decimal import Decimal
 
 class DT_factura:
     _INSERT = "INSERT INTO sermiccsa.factura (id_factura, fecha_pago, referencia, subtotal, cantidad_ir, iva ) values (%d, %s, %s, %d, %d, %d)"
@@ -41,6 +41,17 @@ class DT_factura:
         except Exception as e:
             print(f'Exception {e}')
 
+    def obtener_factura(self, id_factura):
+        facturas = self.listarFactura()
+
+        for factura in facturas:
+            if factura.idFactura == id_factura:
+                if (factura.iva):
+                    gasto = Decimal(factura.subtotal) + Decimal(factura.ir) + (Decimal(factura.subtotal) * Decimal('0.15'))
+                else:
+                    gasto = factura.subtotal + factura.ir
+
+        return gasto
 
 if __name__ == '__main__':
     facturas = DT_factura.listarFactura()

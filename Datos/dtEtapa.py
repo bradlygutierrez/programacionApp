@@ -18,7 +18,8 @@ class DT_etapa:
                     x['id_proyecto'],
                     x['nombre'],
                     x['descripcion'],
-                    x['presupuesto'],x['numero_etapa'])
+                    x['presupuesto'],
+                    x['numero_etapa'])
                 etapas.append(etapa)
             return etapas
         except Exception as e:
@@ -65,6 +66,16 @@ class DT_etapa:
             return cursor.rowcount
         except Exception as e:
                 print(f'''Excepción: {e}''')
+
+    def encontrar_gastos_totales(self, id_proyecto):
+        etapitas = self.listarEtapa()
+        etapas = []
+
+        for etapa in etapitas:
+            if etapa.idProyecto == id_proyecto:
+                etapas.append(etapa.idEtapa)
+
+        return etapas
 
 
 if __name__ == '__main__':

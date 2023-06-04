@@ -9,9 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Datos.dtGasto import DT_gasto
 
-
-class Ui_MainWindow(object):
+class Ui_proyectoX(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(796, 483)
@@ -103,13 +103,17 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#000000;\">Bluefields</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style= align: center; \" font-size:18pt; font-weight:600; color:#000000;\">Bluefields</span></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "Saldo disponible"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#33d17a;\">C$ 365, 854, 679.86</span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "GASTOS RECIENTES"))
         self.pushButton.setText(_translate("MainWindow", "Ver gastos por etapas"))
         self.pushButton_2.setText(_translate("MainWindow", "Imprimir reportes"))
-        self.pushButton_3.setText(_translate("MainWindow", "Ver todos los gastos"))
+        self.pushButton_3.setText(_translate("MainWindow", "Agregar gasto"))
+
+    def cargar_proyectoX(self, proyecto, saldo):
+        self.label.setText(proyecto.nombre)
+        self.label_3.setText(str(saldo))
 import Iconosnuevos
 
 
@@ -117,7 +121,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_proyectoX()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

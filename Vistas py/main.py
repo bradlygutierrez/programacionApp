@@ -1,6 +1,7 @@
 import PyQt5
 import sys
 from PyQt5 import QtCore
+from decimal import Decimal
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from reportlab.lib.pagesizes import letter
@@ -64,15 +65,13 @@ class MainWindow(QMainWindow):
             mensaje.setText("Las claves no coinciden, intenta de nuevo")
             mensaje.setIcon(QMessageBox.Warning)
             mensaje.exec_()
-            self.show_crear_usuario()
         else:
             if(DT_Usuario.existe_solo_usuario(DT_Usuario, nombre_usuario)):
                 mensaje = QMessageBox()
                 mensaje.setWindowTitle("Sermiccsa")
                 mensaje.setText("Usuario ya existe. Intente de nuevo")
-                mensaje.setIcon(QMessageBox.Information)
+                mensaje.setIcon(QMessageBox.Warning)
                 mensaje.exec_()
-                self.show_crear_usuario()
             else:
                 usuario_a_guardar = Usuario(1, nombre_usuario, correo, pregunta, clave, respuesta)
                 DT_Usuario.guardarUsuario(usuario_a_guardar)
@@ -188,19 +187,16 @@ class MainWindow(QMainWindow):
         if self.verificador == 1:
             nombre = self.ui.lineEdit.text()
             clave = self.ui.lineEdit_2.text()
-            print(clave)
             self.verificadorInterno = 1
         elif self.verificador == 2:
             nombre = self.uiPrincipal.lineEdit.text()
             clave = self.uiPrincipal.lineEdit_2.text()
-            print(clave)
             self.verificadorInterno = 2
         else:
             pass
 
         if(DT_Usuario.existe_usuario(DT_Usuario, nombre, clave)):
             self.id_usuario = DT_Usuario.conseguir_id_usuario(DT_Usuario, nombre, clave)
-            print(self.id_usuario)
             self.show_proyectos()
         else:
             mensaje = QMessageBox()
@@ -208,11 +204,16 @@ class MainWindow(QMainWindow):
             mensaje.setText("No encontramos tus credenciales ¡Intenta de nuevo!")
             mensaje.setIcon(QMessageBox.Warning)
             mensaje.exec_()
-            if self.verificadorInterno == 1:
-                self.ui.close()
+            if self.verificador == 1:
+                self.ui.lineEdit.setText("")
+                self.ui.lineEdit_2.setText("")
+
+            elif self.verificador == 2:
+                self.uiPrincipal.lineEdit.setText("")
+                self.uiPrincipal.lineEdit_2.setText("")
             else:
-                self.uiPrincipal.close()
-            self.show_main_window()
+                pass
+
 
     def show_main_window(self):
 
@@ -220,12 +221,13 @@ class MainWindow(QMainWindow):
             self.uiCrearUsuario.close()
         elif self.verificador == 4:
             self.uiUsuarioRecuperar.close()
-        elif self.verificador == 2:
-            self.uiPrincipal.close()
+
         elif self.verificador == 1:
             self.close()
         elif self.verificador == 15:
             self.uiNuevaContra.close()
+        elif self.verificador == 7:
+            self.uiConfiguracion.close()
         else:
             pass
 
@@ -264,16 +266,23 @@ class MainWindow(QMainWindow):
         self.uiProyectos.setupUi(self.uiProyectos)
         self.uiProyectos.pushButton_4.clicked.connect(self.show_nuevo_proyecto)
         self.uiProyectos.pushButton_2.clicked.connect(self.show_configuracion)
-        self.uiProyectos.tableWidget.cellDoubleClicked.connect(self.show_proyectoX)
+        self.uiProyectos.tableWidget.cellDoubleClicked.connect(self.show_proyectoX_DAO)
         self.uiProyectos.pushButton_3.clicked.connect(self.verificar_eliminacion)
         self.uiProyectos.cargar_proyectos(self.id_usuario)
         self.uiProyectos.show()
 
     def eliminar_proyectos(self):
-        row = self.uiProyectos.tableWidget.currentRow()
-        self.nombre_proyecto = self.uiProyectos.tableWidget.item(row, 0).text()
-        DT_proyect().eliminarProyecto(self.nombre_proyecto)
-        self.show_proyectos()
+        try:
+            row = self.uiProyectos.tableWidget.currentRow()
+            self.nombre_proyecto = self.uiProyectos.tableWidget.item(row, 0).text()
+            DT_proyect().eliminarProyecto(self.nombre_proyecto)
+            self.show_proyectos()
+        except Exception as e:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("No hay ninguna fila seleccionada")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
 
     def verificar_eliminacion(self):
         if self.verificador == 5:
@@ -324,6 +333,42 @@ class MainWindow(QMainWindow):
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
         self.uiNuevoproyecto.pushButton_2.clicked.connect(self.save_nuevo_proyecto)
         self.uiNuevoproyecto.show()
+    def cambiar_clave(self):
+        nombre_usuario = DT_Usuario.conseguir_nombre(DT_Usuario, self.id_usuario)
+        clave_actual = self.uiConfiguracion.lineEdit.text()
+        nueva_clavecita = self.uiConfiguracion.lineEdit_2.text()
+        nueva_clavecita2 = self.uiConfiguracion.lineEdit_3.text()
+
+        if(DT_Usuario.existe_usuario(DT_Usuario, nombre_usuario, clave_actual)):
+            if nueva_clavecita == nueva_clavecita2:
+                DT_Usuario.actualizar_clave(DT_Usuario,nombre_usuario,nueva_clavecita)
+                self.show_main_window()
+            else:
+                mensaje = QMessageBox()
+                mensaje.setWindowTitle("SERMICCSA")
+                mensaje.setText("Las claves ingresadas no coinciden")
+                mensaje.setIcon(QMessageBox.Warning)
+                mensaje.exec_()
+        else:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Su clave actual no coincide. Intente de nuevo!")
+            mensaje.setIcon(QMessageBox.Warning)
+            mensaje.exec_()
+
+    def cambiar_nombre(self):
+        nuevo_nombre = self.uiConfiguracion.lineEdit_4.text()
+
+        if(DT_Usuario.existe_solo_usuario(DT_Usuario, nuevo_nombre)):
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Elija otro nombre de usuario, el que desea, esta ocupado")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
+        else:
+            DT_Usuario.actualizar_nombre(DT_Usuario, self.id_usuario, nuevo_nombre)
+            self.show_main_window()
+
 
     def show_configuracion(self):
 
@@ -331,8 +376,19 @@ class MainWindow(QMainWindow):
         self.uiProyectos.close()
         self.uiConfiguracion = Ui_configuracion()
         self.uiConfiguracion.setupUi(self.uiConfiguracion)
-        self.uiConfiguracion.pushButton.clicked.connect(self.show_proyectos)
+        self.uiConfiguracion.pushButton_3.clicked.connect(self.show_proyectos)
+        self.uiConfiguracion.pushButton_4.clicked.connect(self.cambiar_clave)
+        self.uiConfiguracion.pushButton_5.clicked.connect(self.cambiar_nombre)
         self.uiConfiguracion.show()
+
+    def show_proyectoX_DAO(self):
+        row = self.uiProyectos.tableWidget.currentRow()
+        self.nombre_proyecto = self.uiProyectos.tableWidget.item(row, 0).text()
+        self.proyecto_actual = DT_proyect().encontrarProyecto(self.nombre_proyecto)
+        etapas = DT_etapa.encontrar_gastos_totales(DT_etapa, self.proyecto_actual.id_proyecto)
+        self.total_gastos = DT_gasto.calcular_total_gastos(DT_gasto, etapas)
+        print(self.total_gastos)
+        self.show_proyectoX()
 
     def show_proyectoX(self):
         if self.verificador == 5:
@@ -353,7 +409,7 @@ class MainWindow(QMainWindow):
         self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos)
         self.uiproyectoX.pushButton_2.clicked.connect(self.show_agregar_gasto)
         self.uiproyectoX.pushButton.clicked.connect(self.show_ver_etapa)
-        self.uiproyectoX.cargar_proyectoX()
+        self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos)
         self.uiproyectoX.show()
 
     def show_agregar_gasto(self):

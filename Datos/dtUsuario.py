@@ -90,15 +90,24 @@ class DT_Usuario:
 
         return False
 
+    def conseguir_nombre(self, id):
+        usuarios = self.listarUsuario()
+
+        for usuario in usuarios:
+            if usuario.idUsuario == id:
+                return usuario.nombre
+
+
+
     def actualizar_clave(self, nombrecito, clavecita):
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
         try:
-            _UPDATE = f"""UPDATE `sermiccsa`.`usuario` SET `clave` = {clavecita} WHERE(`nombre` = '{nombrecito}');"""
+            _UPDATE = f"""UPDATE `sermiccsa`.`usuario` SET `clave` = '{clavecita}' WHERE(`nombre` = '{nombrecito}');"""
             cursor.execute(_UPDATE)
             mensaje = QMessageBox()
             mensaje.setWindowTitle("Sermiccsa")
-            mensaje.setText("Su clave se ha reiniciado de manera correcta. Inicise sesion y siga disfrutando de la aplicacion")
+            mensaje.setText("Su clave se ha reiniciado con exito. Inicie sesion y siga disfrutando de la aplicacion")
             mensaje.setIcon(QMessageBox.Information)
             mensaje.exec_()
             conexion.commit()
@@ -106,7 +115,28 @@ class DT_Usuario:
         except Exception as e:
             mensaje = QMessageBox()
             mensaje.setWindowTitle("Sermiccsa")
-            mensaje.setText("Erro al editar su clave. Le pedimos que intente de nuevo. Si el problema persiste, contacte a un administrador")
+            mensaje.setText("Error al editar su clave. Le pedimos que intente de nuevo. Si el problema persiste, contacte a un administrador")
+            mensaje.setIcon(QMessageBox.Warning)
+            mensaje.exec_()
+            print(f'Exception {e}')
+
+    def actualizar_nombre(self, id_usuario, nombrecito):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            _UPDATE = f"""UPDATE `sermiccsa`.`usuario` SET `nombre` = '{nombrecito}' WHERE(`id_usuario` = '{id_usuario}');"""
+            cursor.execute(_UPDATE)
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("Sermiccsa")
+            mensaje.setText("Su nombre se ha reiniciado de manera correcta! Vuelva a iniciar sesion")
+            mensaje.setIcon(QMessageBox.Information)
+            mensaje.exec_()
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("Sermiccsa")
+            mensaje.setText("Error al editar su nombre. Le pedimos que intente de nuevo. Si el problema persiste, contacte a un administrador")
             mensaje.setIcon(QMessageBox.Warning)
             mensaje.exec_()
             print(f'Exception {e}')

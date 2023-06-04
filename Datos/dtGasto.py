@@ -1,6 +1,6 @@
 from Datos.conexion import Conexion
 from entidades.gasto import Gasto
-
+from Datos.dtFactura import DT_factura
 
 class DT_gasto:
     _INSERT = "INSERT INTO sermiccsa.gasto (id_etapa, nombre, descripcion, id_rubro, id_beneficiario, id_factura ) values (%d, %s, %s, %d, %d, %d)"
@@ -34,13 +34,27 @@ class DT_gasto:
         cursor = conexion.cursor()
         try:
             print(f'Gasto a insertar: {gasto}')
-            valores = ( gasto.idEtapa, gasto.nombre, gasto.descripcion, gasto.idRubro, gasto.idBeneficiario, gasto.idFactura)
+            valores = (gasto.idEtapa, gasto.nombre, gasto.descripcion, gasto.idRubro, gasto.idBeneficiario, gasto.idFactura)
             cursor.execute(cls._INSERT, valores)
             print(f'Gasto insertado: {gasto}')
             conexion.commit()
             return cursor.rowcount
         except Exception as e:
             print(f'Exception {e}')
+
+    def calcular_total_gastos(self, lista_id_etapas):
+        gastitos = self.listarGastos()
+        total_gastos = 0
+
+        for id_etapa in lista_id_etapas:
+            for gasto in gastitos:
+                if gasto.idEtapa == id_etapa:
+                    total = DT_factura.obtener_factura(DT_factura, gasto.idFactura)
+                    total_gastos = total_gastos + total
+
+        return total_gastos
+
+
 
 
 
