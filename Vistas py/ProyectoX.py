@@ -136,7 +136,7 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         except Exception as e:
             print(f'Excepción: {e}')
 
-    def cargar_proyectoX(self, proyecto, saldo, etapas):
+    def cargar_proyectoX(self, proyecto, saldo):
         self.label.setText(proyecto.nombre)
         self.label_3.setText(str(saldo))
 

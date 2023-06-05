@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
+        self.total_gastos = 0
         self.nombre_proyecto = ""
         self.ui = Ui_iniciarSesion()
         self.ui.setupUi(self)
@@ -262,6 +263,8 @@ class MainWindow(QMainWindow):
             self.uiConfiguracion.close()
         elif self.verificador == 10:
             self.uiproyectoX.close()
+        elif self.verificador == 9:
+            self.uietapas.close()
         else:
             pass
 
@@ -430,7 +433,7 @@ class MainWindow(QMainWindow):
         self.uiproyectoX.pushButton_3.clicked.connect(self.show_agregar_gasto) #Agregar Gasto
         self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos) #Salir
         etapas = DT_etapa.encontrar_gastos_totales(DT_etapa, self.proyecto_actual.id_proyecto)
-        self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos, etapas)
+        self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos)
         self.uiproyectoX.show()
 
     def show_agregar_gasto(self):
@@ -563,6 +566,11 @@ class MainWindow(QMainWindow):
         self.proyecto_actual = self.proyectoGuardado
         self.show_proyectoX()
 
+    def cancelar_creacion(self):
+        self.proyecto_actual = self.proyectoGuardado
+        DT_proyect().eliminarProyecto(self.proyecto_actual.nombre)
+        self.show_proyectos()
+
     def show_etapas(self):
         if self.verificador == 10:
             self.uiproyectoX.close()
@@ -582,6 +590,7 @@ class MainWindow(QMainWindow):
         self.uietapas = Ui_Etapas()
         self.uietapas.setupUi(self.uietapas)
         self.uietapas.pushButton.clicked.connect(self.show_agregar_etapa)
+        self.uietapas.pushButton_3.clicked.connect(self.cancelar_creacion)
         self.uietapas.pushButton_5.clicked.connect(self.mostrar_error)
         self.uietapas.pushButton_4.clicked.connect(self.verificar_proyecto)
         self.uietapas.cargar_etapas(self.proyectoGuardado.id_proyecto)
