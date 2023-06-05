@@ -30,7 +30,7 @@ class DT_etapa:
             conexion = Conexion.getConnection()
             cursor = conexion.cursor()
             try:
-                _INSERT = f"INSERT INTO `sermiccsa`.`etapa` (`nombre`, `numero_etapa`, `descripcion`, `presupuesto`) VALUES ('{etapa.nombreEtapa}', '{etapa.NumEtapa}', '{etapa.descripcion}', '{etapa.presupuestoEtapa}');"
+                _INSERT = f"INSERT INTO `sermiccsa`.`etapa` (`nombre`, `id_proyecto`, `numero_etapa`, `descripcion`, `presupuesto`) VALUES ('{etapa.nombreEtapa}', '{etapa.idProyecto}' , '{etapa.NumEtapa}', '{etapa.descripcion}', '{etapa.presupuestoEtapa}');"
                 print(f'Etapa a insertar: {etapa}')
                 cursor.execute(_INSERT)
                 print(f'Etapa insertado: {etapa}')
@@ -82,8 +82,12 @@ class DT_etapa:
         etapas = []
 
         for etapa in etapitas:
+            print(etapa.idEtapa)
             if etapa.idProyecto == id_proyecto:
                 etapas.append(etapa.idEtapa)
+
+        for xd in etapas:
+            print(xd)
 
         return etapas
 

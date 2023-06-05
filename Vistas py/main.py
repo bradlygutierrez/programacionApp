@@ -311,23 +311,37 @@ class MainWindow(QMainWindow):
         self.uiNuevoproyecto.lineEdit.setText("")
 
     def save_nuevo_proyecto(self):
-        nombre = self.uiNuevoproyecto.lineEdit.text()
-        presupuesto_inicial = self.uiNuevoproyecto.lineEdit_2.text()
-        beneficiario = self.uiNuevoproyecto.lineEdit_3.text()
-        fecha_inicio = self.uiNuevoproyecto.lineEdit_4.text()
-        descripcion = self.uiNuevoproyecto.lineEdit_5.text()
+        try:
+            nombre = self.uiNuevoproyecto.lineEdit.text()
+            presupuesto_inicial = self.uiNuevoproyecto.lineEdit_2.text()
+            beneficiario = self.uiNuevoproyecto.lineEdit_3.text()
+            fecha_inicio = self.uiNuevoproyecto.lineEdit_4.text()
+            descripcion = self.uiNuevoproyecto.lineEdit_5.text()
 
-        proyectoGuardar = Proyecto(5, self.id_usuario, fecha_inicio, nombre, descripcion, presupuesto_inicial, beneficiario)
+            self.proyectoGuardar = Proyecto(5, self.id_usuario, fecha_inicio, nombre, descripcion, presupuesto_inicial, beneficiario)
 
-        DT_proyect.guardarProyecto(proyectoGuardar)
+            DT_proyect.guardarProyecto(self.proyectoGuardar)
 
-        self.limpiar_campos_guardar_proyecto
-        self.show_etapas()
+            self.limpiar_campos_guardar_proyecto
+
+            self.proyectoGuardado = DT_proyect.encontrarProyecto(DT_proyect, self.proyectoGuardar.nombre)
+
+            self.show_etapas()
+        except:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Error al guardar proyecto, intente de nuevo")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
+            self.show_nuevo_proyecto()
+
 
     def show_nuevo_proyecto(self):
 
         if self.verificador == 5:
             self.uiProyectos.close()
+        elif self.verificador == 9:
+            self.uietapas.close()
         else:
             pass
 
@@ -338,6 +352,7 @@ class MainWindow(QMainWindow):
         self.uiNuevoproyecto.pushButton.clicked.connect(self.show_proyectos)
         self.uiNuevoproyecto.pushButton_2.clicked.connect(self.save_nuevo_proyecto)
         self.uiNuevoproyecto.show()
+
     def cambiar_clave(self):
         nombre_usuario = DT_Usuario.conseguir_nombre(DT_Usuario, self.id_usuario)
         clave_actual = self.uiConfiguracion.lineEdit.text()
@@ -537,29 +552,49 @@ class MainWindow(QMainWindow):
             DT_factura.eliminar_factura(DT_factura, self.G_id_factura)
             self.show_proyectoX()
 
+    def mostrar_error(self):
+        mensaje = QMessageBox()
+        mensaje.setWindowTitle("SERMICCSA")
+        mensaje.setText("Agrega tus etapas antes de salir")
+        mensaje.setIcon(QMessageBox.Critical)
+        mensaje.exec_()
 
+    def verificar_proyecto(self):
+        self.proyecto_actual = self.proyectoGuardado
+        self.show_proyectoX()
 
     def show_etapas(self):
         if self.verificador == 10:
             self.uiproyectoX.close()
         elif self.verificador == 13:
             self.uiespecificaciones.close()
+        elif self.verificador == 6:
+            self.uiNuevoproyecto.close()
+        elif self.verificador == 16:
+            self.uiNuevaEtapa.close()
+        elif self.verificador == 9:
+            self.uiNuevaEtapa.close()
         else:
             pass
 
-        self.verificador = 12
+        self.verificador = 9
+
         self.uietapas = Ui_Etapas()
         self.uietapas.setupUi(self.uietapas)
         self.uietapas.pushButton.clicked.connect(self.show_agregar_etapa)
-        self.uietapas.pushButton_5.clicked.connect(self.show_nuevo_proyecto)
-        self.uietapas.pushButton_4.clicked.connect(self.show_proyectoX)
-        self.uietapas.cargar_etapas()
+        self.uietapas.pushButton_5.clicked.connect(self.mostrar_error)
+        self.uietapas.pushButton_4.clicked.connect(self.verificar_proyecto)
+        self.uietapas.cargar_etapas(self.proyectoGuardado.id_proyecto)
         self.uietapas.show()
 
     def show_agregar_etapa(self):
-        self.verificador = 13
 
-        self.uietapas.close()
+        if self.verificador == 9:
+            self.uietapas.close()
+        else:
+            pass
+
+        self.verificador = 16
         self.uiNuevaEtapa = Ui_AgregarEtapa()
         self.uiNuevaEtapa.setupUi(self.uiNuevaEtapa)
         self.uiNuevaEtapa.pushButton.clicked.connect(self.save_etapa)
@@ -571,7 +606,7 @@ class MainWindow(QMainWindow):
         nombre = self.uiNuevaEtapa.lineEdit_2.text()
         descripcion = self.uiNuevaEtapa.lineEdit_4.text()
         presupuesto = self.uiNuevaEtapa.lineEdit_3.text()
-        etapaGuardar = Etapa(1, 5, nombre, descripcion, presupuesto, numero_etapa)
+        etapaGuardar = Etapa(1, self.proyectoGuardado.id_proyecto, nombre, descripcion, presupuesto, numero_etapa)
         DT_etapa.guardarEtapa(etapaGuardar)
         self.limpiar_campos_guardar_nueva_etapa()
         self.show_etapas()
@@ -648,7 +683,7 @@ class MainWindow(QMainWindow):
             worksheet.write(0, 3, "Subtotal de la Factura")
             worksheet.write(0, 4, "Beneficiario")
 
-            resultados = self.uiproyectoX.gasto_tabla()
+            resultados = self.uiproyectoX.gasto_tabla(self.proyecto_actual.id_proyecto)
 
             for index, resultado in enumerate(resultados):
                 worksheet.write(index + 1, 0, str(resultado['Nombre del gasto']))

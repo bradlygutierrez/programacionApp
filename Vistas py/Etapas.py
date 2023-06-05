@@ -818,28 +818,33 @@ class Ui_Etapas(QtWidgets.QMainWindow):
         self.pushButton_4.setText(_translate("MainWindow", "Siguiente »"))
         self.pushButton_5.setText(_translate("MainWindow", "« Volver"))
 
-    def cargar_etapas(self):
-        etapas = DT_etapa.listarEtapa()
+    def cargar_etapas(self, id_proyecto):
+        etapas = DT_etapa.encontrar_etapas_de_proyecto(DT_etapa, id_proyecto)
+        print(id_proyecto)
+
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(etapas))
         self.tableWidget.setColumnCount(6)
         self.tableWidget.setHorizontalHeaderLabels(
-            ["ID Etapa", "ID Proyecto", "Nombre", "Descripción", "Presupuesto", "Número de Etapa"])
-        self.tableWidget.setColumnWidth(0, 0)
-        self.tableWidget.setColumnWidth(1, 100)
-        self.tableWidget.setColumnWidth(2, 126)
-        self.tableWidget.setColumnWidth(3, 212)
-        self.tableWidget.setColumnWidth(4, 100)
-        self.tableWidget.setColumnWidth(5, 140)
+            ["ID etapa", "ID proyecto", "Nombre", "Descripcion", "Presupuesto", "Numero de etapa"])
+        self.tableWidget.setColumnWidth(0, 157)
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 250)
+        self.tableWidget.setColumnWidth(3, 290)
+        self.tableWidget.setColumnWidth(4, 250)
+        self.tableWidget.setColumnWidth(5, 168)
         self.tableWidget.setColumnHidden(0, True)
+        self.tableWidget.setColumnHidden(1, True)
         for i, etapa in enumerate(etapas):
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(etapa.idEtapa)))
             self.tableWidget.setItem(i, 1, QTableWidgetItem(str(etapa.idProyecto)))
-            self.tableWidget.setItem(i, 2, QTableWidgetItem(etapa.nombreEtapa))
-            self.tableWidget.setItem(i, 3, QTableWidgetItem(etapa.descripcion))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(etapa.nombreEtapa)))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(etapa.descripcion)))
             self.tableWidget.setItem(i, 4, QTableWidgetItem(str(etapa.presupuestoEtapa)))
             self.tableWidget.setItem(i, 5, QTableWidgetItem(str(etapa.NumEtapa)))
 
         alignment = QtCore.Qt.AlignCenter
+
         for i in range(self.tableWidget.columnCount()):
             for j in range(self.tableWidget.rowCount()):
                 item = self.tableWidget.item(j, i)

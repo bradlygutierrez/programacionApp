@@ -118,12 +118,18 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.pushButton_2.setText(_translate("MainWindow", "Imprimir reportes"))
         self.pushButton_3.setText(_translate("MainWindow", "Agregar gasto"))
 
-    def gasto_tabla(self):
+    def gasto_tabla(self, id_proyecto):
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
-        cursor.execute(f"""SELECT g.nombre AS 'Nombre del gasto', g.descripcion AS 'Descripción del gasto', e.nombre AS 'Nombre de la etapa', f.subtotal
-        AS 'Total de la factura', b.nombre AS 'Nombre del beneficiario' FROM gasto g INNER JOIN etapa e ON g.id_etapa = e.id_etapa INNER
-        JOIN factura f ON g.id_factura = f.id_factura INNER JOIN beneficiario b ON g.id_beneficiario = b.id_beneficiario;""")
+        cursor.execute(f"""
+                SELECT g.nombre AS 'Nombre del gasto', g.descripcion AS 'Descripción del gasto', e.nombre AS 'Nombre de la etapa', f.subtotal
+                AS 'Total de la factura', b.nombre AS 'Nombre del beneficiario'
+                FROM gasto g
+                INNER JOIN etapa e ON g.id_etapa = e.id_etapa
+                INNER JOIN factura f ON g.id_factura = f.id_factura
+                INNER JOIN beneficiario b ON g.id_beneficiario = b.id_beneficiario
+                WHERE e.id_proyecto = {id_proyecto};
+            """)
         resultado = cursor.fetchall()
         try:
             return resultado
@@ -134,7 +140,7 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.label.setText(proyecto.nombre)
         self.label_3.setText(str(saldo))
 
-        resultados = self.gasto_tabla()
+        resultados = self.gasto_tabla(proyecto.id_proyecto)
 
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(resultados))
