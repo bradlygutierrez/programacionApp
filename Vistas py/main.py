@@ -387,7 +387,6 @@ class MainWindow(QMainWindow):
         self.proyecto_actual = DT_proyect().encontrarProyecto(self.nombre_proyecto)
         etapas = DT_etapa.encontrar_gastos_totales(DT_etapa, self.proyecto_actual.id_proyecto)
         self.total_gastos = DT_gasto.calcular_total_gastos(DT_gasto, etapas)
-        print(self.total_gastos)
         self.show_proyectoX()
 
     def show_proyectoX(self):
@@ -406,9 +405,9 @@ class MainWindow(QMainWindow):
 
         self.uiproyectoX = Ui_proyectoX()
         self.uiproyectoX.setupUi(self.uiproyectoX)
-        self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos)
-        self.uiproyectoX.pushButton_2.clicked.connect(self.show_agregar_gasto)
-        self.uiproyectoX.pushButton.clicked.connect(self.show_ver_etapa)
+        self.uiproyectoX.pushButton_2.clicked.connect(self.show_proyectos) #Imprimir
+        self.uiproyectoX.pushButton.clicked.connect(self.show_ver_etapa) #Ver gasto por etapa
+        self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos) #Salir
         etapas = DT_etapa.encontrar_gastos_totales(DT_etapa, self.proyecto_actual.id_proyecto)
         self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos, etapas)
         self.uiproyectoX.show()
@@ -483,10 +482,18 @@ class MainWindow(QMainWindow):
         self.show_etapas()
 
     def eliminar_etapa(self):
-        row = self.uiverEtapas.tableWidget.currentRow()
-        self.nombre_etapa = self.uiverEtapas.tableWidget.item(row, 0).text()
-        DT_etapa().eliminarEtapa(self.nombre_etapa)
-        self.show_ver_etapa()
+        try:
+            row = self.uiverEtapas.tableWidget.currentRow()
+
+            self.nombre_etapa = self.uiverEtapas.tableWidget.item(row, 0).text()
+            DT_etapa().eliminarEtapa(self.nombre_etapa)
+            self.show_ver_etapa()
+        except:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("No hay ninguna celda seleccionada")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
 
     def limpiar_campos_guardar_nueva_etapa(self):
         self.uiNuevaEtapa.lineEdit.setText("")
@@ -494,27 +501,44 @@ class MainWindow(QMainWindow):
         self.uiNuevaEtapa.lineEdit_3.setText("")
         self.uiNuevaEtapa.lineEdit_4.setText("")
 
+    def etapa_especifica(self):
+        row = self.uiverEtapas.tableWidget.currentRow()
+        self.nombre_etapa = self.uiverEtapas.tableWidget.item(row, 2).text()
+        self.etapa_actual = DT_etapa.buscar_etapa_por_nombre(DT_etapa, self.nombre_etapa)
+        self.show_especificaciones_etapas()
+
     def show_ver_etapa(self):
-        if self.controlador_etapas == 4:
+        if self.verificador == 10:
+            self.uiproyectoX.close()
+        elif self.verificador == 13:
             self.uiespecificaciones.close()
-        self.controlador_proyectoX = 3
+        else:
+            pass
+
+        self.verificador = 12
 
         self.uiproyectoX.close()
         self.uiverEtapas = Ui_VerEtapas()
         self.uiverEtapas.setupUi(self.uiverEtapas)
         self.uiverEtapas.pushButton.clicked.connect(self.show_proyectoX)
         self.uiverEtapas.pushButton_2.clicked.connect(self.eliminar_etapa)
-        self.uiverEtapas.cargar_etapa()
-        self.uiverEtapas.tableWidget.cellDoubleClicked.connect(self.show_especificaciones_etapas)
+        self.uiverEtapas.cargar_etapa(self.proyecto_actual.id_proyecto)
+        self.uiverEtapas.tableWidget.cellDoubleClicked.connect(self.etapa_especifica)
         self.uiverEtapas.show()
 
     def show_especificaciones_etapas(self):
-        self.controlador_etapas = 4
+        if self.verificador == 12:
+            self.uiverEtapas.close()
+        else:
+            pass
+
+        self.verificador = 13
 
         self.uiverEtapas.close()
         self.uiespecificaciones = Ui_Especificaciones_Etapas()
         self.uiespecificaciones.setupUi(self.uiespecificaciones)
         self.uiespecificaciones.pushButton.clicked.connect(self.show_ver_etapa)
+        self.uiespecificaciones.cargar_gastos(self.etapa_actual)
         self.uiespecificaciones.show()
 
 

@@ -1,6 +1,6 @@
 from Datos.conexion import Conexion
 from entidades.etapas import Etapa
-
+from PyQt5.QtWidgets import QApplication, QMessageBox
 
 class DT_etapa:
 
@@ -63,9 +63,19 @@ class DT_etapa:
             cursor.execute(_DELETE)
             print("Etapa eliminada")
             conexion.commit()
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Etapa eliminada con ecito")
+            mensaje.setIcon(QMessageBox.Warning)
+            mensaje.exec_()
             return cursor.rowcount
         except Exception as e:
-                print(f'''Excepción: {e}''')
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("No hay ninguna celda seleccionada")
+            mensaje.setIcon(QMessageBox.Warning)
+            mensaje.exec_()
+            print(f'''Excepción: {e}''')
 
     def encontrar_gastos_totales(self, id_proyecto):
         etapitas = self.listarEtapa()
@@ -74,6 +84,23 @@ class DT_etapa:
         for etapa in etapitas:
             if etapa.idProyecto == id_proyecto:
                 etapas.append(etapa.idEtapa)
+
+        return etapas
+
+    def buscar_etapa_por_nombre(self, nombre):
+        etapas = self.listarEtapa()
+
+        for etapa in etapas:
+            if etapa.nombreEtapa == nombre:
+                return etapa
+
+    def encontrar_etapas_de_proyecto(self, id_proyecto):
+        etapitas = self.listarEtapa()
+        etapas = []
+
+        for etapa in etapitas:
+            if etapa.idProyecto == id_proyecto:
+                etapas.append(etapa)
 
         return etapas
 

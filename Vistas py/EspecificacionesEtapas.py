@@ -9,7 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Datos.dtGasto import DT_gasto
+from Datos.conexion import Conexion
+from PyQt5.QtWidgets import QTableWidgetItem
 
 class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
@@ -96,7 +98,67 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Presupuesto:</span></p></body></html>"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:28pt; font-weight:600; color:#ffffff;\">Especificaciones de las etapas</span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "Volver"))
+
+    def gastos_por_etapas(self, id_etapa):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        id_etapa = int(id_etapa)  # Convertir a entero
+
+        cursor.execute("""
+            SELECT g.nombre AS nombre_gasto, g.descripcion AS descripcion_gasto,
+                e.nombre AS nombre_etapa, f.subtotal AS total_factura,
+                b.nombre AS nombre_beneficiario
+            FROM gasto g
+            JOIN etapa e ON g.id_etapa = e.id_etapa
+            JOIN factura f ON g.id_factura = f.id_factura
+            JOIN beneficiario b ON g.id_beneficiario = b.id_beneficiario
+            WHERE g.id_etapa = %s
+        """, (id_etapa,))
+
+        resultado = cursor.fetchall()
+        try:
+            return resultado
+        except Exception as e:
+            print(f'Excepción: {e}')
+
+    def cargar_gastos(self, etapa):
+        resultados = self.gastos_por_etapas(etapa.idEtapa)
+
+        self.lineEdit.setText(f"""{etapa.nombreEtapa}""")
+        self.lineEdit_2.setText(f"""{etapa.NumEtapa}""")
+        self.lineEdit_3.setText(f"""{etapa.presupuestoEtapa}""")
+
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setRowCount(len(resultados))
+        self.tableWidget.setColumnCount(5)
+        self.tableWidget.setHorizontalHeaderLabels(
+            ["Nombre del gasto", "Descripcion del gasto", "Etapa", "Total de la factura", "Beneficario"])
+        self.tableWidget.setColumnWidth(0, 157)
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 300)
+        self.tableWidget.setColumnWidth(3, 170)
+        self.tableWidget.setColumnWidth(4, 160)
+
+        for i, resultado in enumerate(resultados):
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(resultado['nombre_gasto'])))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(resultado['descripcion_gasto'])))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(resultado['nombre_etapa'])))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(resultado['total_factura'])))
+            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(resultado['nombre_beneficiario'])))
+
+        alignment = QtCore.Qt.AlignCenter
+
+        for i in range(self.tableWidget.columnCount()):
+            for j in range(self.tableWidget.rowCount()):
+                item = self.tableWidget.item(j, i)
+                if item is not None:
+                    item.setTextAlignment(alignment)
+
+
+
+
 import Iconosnuevos
+
 
 
 if __name__ == "__main__":

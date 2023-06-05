@@ -140,7 +140,7 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.tableWidget.setRowCount(len(resultados))
         self.tableWidget.setColumnCount(5)
         self.tableWidget.setHorizontalHeaderLabels(
-            ["Nombre del gasto", "Descripcion del gasto", "Etapa", "Total de la factura", "Beneficario"])
+            ["Nombre del gasto", "Descripcion del gasto", "Etapa", "Subtotal de la factura", "Beneficario"])
         self.tableWidget.setColumnWidth(0, 157)
         self.tableWidget.setColumnWidth(1, 150)
         self.tableWidget.setColumnWidth(2, 150)

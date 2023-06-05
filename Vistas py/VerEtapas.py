@@ -74,8 +74,9 @@ class Ui_VerEtapas(QtWidgets.QMainWindow):
                                       "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt; font-weight:600;\">Etapas</span></p></body></html>"))
         self.pushButton_2.setText(_translate("MainWindow", "Eliminar"))
 
-    def cargar_etapa(self):
-        etapas = DT_etapa.listarEtapa()
+    def cargar_etapa(self, id_proyecto):
+        etapas = DT_etapa.encontrar_etapas_de_proyecto(DT_etapa, id_proyecto)
+
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setRowCount(len(etapas))
         self.tableWidget.setColumnCount(6)
