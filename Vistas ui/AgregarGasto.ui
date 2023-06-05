@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>AgregarGasto</class>
+ <widget class="QMainWindow" name="AgregarGasto">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>600</height>
+    <width>800</width>
+    <height>557</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>1024</width>
-    <height>600</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1024</width>
-    <height>600</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(20, 18, 35);</string>
+   <string notr="true">background-color: rgb(21, 15, 48);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>30</y>
-      <width>221</width>
+      <x>0</x>
+      <y>10</y>
+      <width>801</width>
       <height>41</height>
      </rect>
     </property>
@@ -49,15 +37,15 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>Agregar Gasto</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Agregar Gasto&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>120</y>
-      <width>211</width>
+      <x>150</x>
+      <y>90</y>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
@@ -71,8 +59,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>120</y>
+      <x>30</x>
+      <y>90</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -94,8 +82,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>160</y>
+      <x>30</x>
+      <y>130</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -117,9 +105,9 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>160</y>
-      <width>211</width>
+      <x>150</x>
+      <y>130</y>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
@@ -133,15 +121,14 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>230</y>
-      <width>371</width>
-      <height>251</height>
+      <x>20</x>
+      <y>210</y>
+      <width>341</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -190,25 +177,6 @@
       <string>Subtotal</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>200</y>
-       <width>81</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>IVA</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
@@ -233,13 +201,12 @@
       <rect>
        <x>110</x>
        <y>50</y>
-       <width>221</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: black</string>
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string/>
@@ -250,14 +217,12 @@ color: black</string>
       <rect>
        <x>110</x>
        <y>100</y>
-       <width>221</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: black
-</string>
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string/>
@@ -273,8 +238,7 @@ color: black
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: black</string>
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string/>
@@ -284,44 +248,46 @@ color: black</string>
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>200</y>
-       <width>161</width>
-       <height>20</height>
+       <y>190</y>
+       <width>201</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>Añadir</string>
+      <string>Si</string>
      </property>
     </widget>
-    <zorder>label_6</zorder>
-    <zorder>label_4</zorder>
-    <zorder>label_5</zorder>
-    <zorder>label_7</zorder>
-    <zorder>lineEdit_3</zorder>
-    <zorder>lineEdit_4</zorder>
-    <zorder>lineEdit_5</zorder>
-    <zorder>checkBox</zorder>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>IVA</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>490</y>
+      <x>260</x>
+      <y>470</y>
       <width>291</width>
       <height>61</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu bold</family>
-      <pointsize>20</pointsize>
-      <weight>7</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">font: 57 20pt &quot;Ubuntu bold&quot;;
+     <string notr="true">font: 75 11pt &quot;Ubuntu Bold&quot;;
 background-color: rgb(51, 209, 122);
 border-radius: 10px;</string>
     </property>
@@ -329,18 +295,35 @@ border-radius: 10px;</string>
      <string>Agregar Gasto</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_3">
+   <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>130</y>
-      <width>391</width>
-      <height>91</height>
+      <x>10</x>
+      <y>10</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Ubuntu Bold&quot;;
+background-color: rgb(51, 209, 122);
+border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string>Volver</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>761</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -349,16 +332,43 @@ border-radius: 10px;</string>
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
-     <string>Rubro</string>
+     <string>Información del Gasto</string>
     </property>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>350</x>
        <y>40</y>
-       <width>281</width>
+       <width>401</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Selecciona un rubro para el Gasto agregado</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>70</y>
+       <width>261</width>
        <height>25</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0, 0, 0);</string>
      </property>
      <item>
       <property name="text">
@@ -367,7 +377,7 @@ border-radius: 10px;</string>
      </item>
      <item>
       <property name="text">
-       <string>Tecnologia</string>
+       <string>Tecnología</string>
       </property>
      </item>
      <item>
@@ -377,30 +387,98 @@ border-radius: 10px;</string>
      </item>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
+      <x>220</x>
+      <y>10</y>
       <width>51</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/regresar/Downloads/flecha-hacia-atras.png);
-background-color: rgb(51, 209, 122);
-border-radius: 10px;</string>
+     <string notr="true">border-image: url(:/regresar/Downloads/buscar.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>240</y>
+      <width>411</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="title">
+     <string>Recordatorio</string>
+    </property>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>391</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(21, 15, 48);
+border-radius: 10px;</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt; Al mantener un registro preciso de tus gastos, podrás tener un mayor control sobre tus ingresos y gastos, identificar patrones de gasto, establecer presupuestos y tomar decisiones financieras más informadas en el futuro.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>groupBox_4</zorder>
+   <zorder>label</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>lineEdit_2</zorder>
+   <zorder>groupBox_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>groupBox_5</zorder>
+   <zorder>label_9</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../../../Downloads/salida.qrc"/>
-  <include location="../../../CambiarContra.qrc"/>
+  <include location="../../CambiarContra.qrc"/>
  </resources>
  <connections/>
 </ui>
