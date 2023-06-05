@@ -10,6 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Datos.dtGasto import DT_gasto
+from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem, QDesktopWidget
+from Datos.conexion import Conexion
 
 class Ui_proyectoX(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
@@ -41,6 +43,11 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.label_3.setGeometry(QtCore.QRect(250, 90, 331, 41))
         font = QtGui.QFont()
         font.setPointSize(28)
+        desktop_rect = QDesktopWidget().availableGeometry()
+        window_rect = self.frameGeometry()
+        x = int(desktop_rect.center().x() - window_rect.width() / 2)
+        y = int(desktop_rect.center().y() - window_rect.height() / 2)
+        self.move(x, y)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("color: rgb(74, 119, 101);\n"
 "")
@@ -96,9 +103,9 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -111,9 +118,53 @@ class Ui_proyectoX(QtWidgets.QMainWindow):
         self.pushButton_2.setText(_translate("MainWindow", "Imprimir reportes"))
         self.pushButton_3.setText(_translate("MainWindow", "Agregar gasto"))
 
-    def cargar_proyectoX(self, proyecto, saldo):
+    def gasto_tabla(self):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        cursor.execute(f"""SELECT g.nombre AS 'Nombre del gasto', g.descripcion AS 'Descripción del gasto', e.nombre AS 'Nombre de la etapa', f.subtotal
+        AS 'Total de la factura', b.nombre AS 'Nombre del beneficiario' FROM gasto g INNER JOIN etapa e ON g.id_etapa = e.id_etapa INNER
+        JOIN factura f ON g.id_factura = f.id_factura INNER JOIN beneficiario b ON g.id_beneficiario = b.id_beneficiario;""")
+        resultado = cursor.fetchall()
+        try:
+            return resultado
+        except Exception as e:
+            print(f'Excepción: {e}')
+
+    def cargar_proyectoX(self, proyecto, saldo, etapas):
         self.label.setText(proyecto.nombre)
         self.label_3.setText(str(saldo))
+
+        resultados = self.gasto_tabla()
+
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setRowCount(len(resultados))
+        self.tableWidget.setColumnCount(5)
+        self.tableWidget.setHorizontalHeaderLabels(
+            ["Nombre del gasto", "Descripcion del gasto", "Etapa", "Total de la factura", "Beneficario"])
+        self.tableWidget.setColumnWidth(0, 157)
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 150)
+        self.tableWidget.setColumnWidth(3, 150)
+        self.tableWidget.setColumnWidth(4, 150)
+
+        for i, resultado in enumerate(resultados):
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(str(resultado['Nombre del gasto'])))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(str(resultado['Descripción del gasto'])))
+            self.tableWidget.setItem(i, 2, QTableWidgetItem(str(resultado['Nombre de la etapa'])))
+            self.tableWidget.setItem(i, 3, QTableWidgetItem(str(resultado['Total de la factura'])))
+            self.tableWidget.setItem(i, 4, QTableWidgetItem(str(resultado['Nombre del beneficiario'])))
+
+
+        alignment = QtCore.Qt.AlignCenter
+
+        for i in range(self.tableWidget.columnCount()):
+            for j in range(self.tableWidget.rowCount()):
+                item = self.tableWidget.item(j, i)
+                if item is not None:
+                    item.setTextAlignment(alignment)
+
+
+
 import Iconosnuevos
 
 

@@ -11,6 +11,7 @@ from PyQt5.QtWidgets import QMainWindow
 from crearCuenta import Ui_crearUsuario
 from PyQt5 import QtCore, QtGui
 from PyQt5 import uic, QtWidgets
+from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem, QDesktopWidget
 
 
 
@@ -32,6 +33,11 @@ class Ui_iniciarSesion(QtWidgets.QMainWindow):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
+        desktop_rect = QDesktopWidget().availableGeometry()
+        window_rect = self.frameGeometry()
+        x = int(desktop_rect.center().x() - window_rect.width() / 2)
+        y = int(desktop_rect.center().y() - window_rect.height() / 2)
+        self.move(x, y)
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(130, 176, 151, 31))
         self.label.setObjectName("label")

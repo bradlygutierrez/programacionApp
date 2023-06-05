@@ -256,7 +256,7 @@ class MainWindow(QMainWindow):
         elif self.verificador == 7:
             self.uiConfiguracion.close()
         elif self.verificador == 10:
-            self.uiproyectoX
+            self.uiproyectoX.close()
         else:
             pass
 
@@ -409,7 +409,8 @@ class MainWindow(QMainWindow):
         self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos)
         self.uiproyectoX.pushButton_2.clicked.connect(self.show_agregar_gasto)
         self.uiproyectoX.pushButton.clicked.connect(self.show_ver_etapa)
-        self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos)
+        etapas = DT_etapa.encontrar_gastos_totales(DT_etapa, self.proyecto_actual.id_proyecto)
+        self.uiproyectoX.cargar_proyectoX(self.proyecto_actual, Decimal(self.proyecto_actual.presupuesto_inicial) - self.total_gastos, etapas)
         self.uiproyectoX.show()
 
     def show_agregar_gasto(self):
