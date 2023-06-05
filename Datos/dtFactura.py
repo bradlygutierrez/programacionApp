@@ -51,6 +51,26 @@ class DT_factura:
 
         return gasto
 
+    def buscar_usuario_por_referencia(self, referencia):
+        facturas = self.listarFactura()
+
+        for factura in facturas:
+            if factura.referencia == referencia:
+                return factura
+
+    def eliminar_factura(self, id_factura):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            _DELETE = f"DELETE FROM `sermiccsa`.`factura` WHERE (`id_factura` = {id_factura});"
+            print("Eliminando factura")
+            cursor.execute(_DELETE)
+            print("Factura eliminado")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'''Excepción: {e}''')
+
 if __name__ == '__main__':
     facturas = DT_factura.listarFactura()
     for x in facturas:

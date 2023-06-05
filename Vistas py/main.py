@@ -430,27 +430,33 @@ class MainWindow(QMainWindow):
         self.uiagregargasto.setupUi(self.uiagregargasto)
         self.uiagregargasto.pushButton_4.clicked.connect(self.show_proyectoX)
         self.uiagregargasto.pushButton_3.clicked.connect(self.save_beneficiario)
+        self.uiagregargasto.cargar_combo_box(self.proyecto_actual.id_proyecto)
         self.uiagregargasto.show()
 
     def actual_beneficiario(self):
         DT_beneficiario.editar_beneficiario(DT_beneficiario, self.beneficiarioGuardado.id_Beneficiario, self.beneficiarioGuardar.nombre)
-        bene = DT_beneficiario.buscar_usuario_por_referencia(DT_beneficiario, self.beneficiarioGuardar.identificacion)
+        bene = DT_beneficiario.buscar_beneficiario_por_referencia(DT_beneficiario, self.beneficiarioGuardar.identificacion)
         self.G_id_beneficiaro = bene.id_Beneficiario
         self.uiReferencia.close()
+        self.controlador_beneficiario = True
         self.es_nuevo_beneficiario = False
         self.save_factura()
 
     def viejo_beneficiario(self):
         self.G_id_beneficiaro = self.beneficiarioGuardado.id_Beneficiario
         self.uiReferencia.close()
+        self.controlador_beneficiario: False
         self.es_nuevo_beneficiario = False
         self.save_factura()
 
     def nuevo_beneficiario(self):
-        bene = DT_beneficiario.buscar_usuario_por_referencia(DT_beneficiario, self.beneficiarioGuardar.identificacion)
+        bene = DT_beneficiario.buscar_beneficiario_por_referencia(DT_beneficiario, self.beneficiarioGuardar.identificacion)
         self.G_id_beneficiaro = bene.id_Beneficiario
+        self.controlador_beneficiario: False
         self.es_nuevo_beneficiario = True
         self.save_factura()
+
+
 
     def save_factura(self):
         try:
@@ -464,6 +470,9 @@ class MainWindow(QMainWindow):
                 iva = False
             self.factura_nueva = Factura(1, fecha, referencia, subtotal, ir, iva)
             DT_factura.guardarFactura(self.factura_nueva)
+            factu = DT_factura.buscar_usuario_por_referencia(DT_factura, self.factura_nueva.referencia)
+            self.G_id_factura = factu.idFactura
+            self.save_agregarGasto()
         except:
             mensaje = QMessageBox()
             mensaje.setWindowTitle("SERMICCSA")
@@ -472,9 +481,10 @@ class MainWindow(QMainWindow):
             mensaje.exec_()
             if self.es_nuevo_beneficiario:
                 DT_beneficiario.eliminar_beneficiario(DT_beneficiario, self.G_id_beneficiaro)
+            else:
+                if self.controlador_beneficiario:
+                    DT_beneficiario.editar_beneficiario(DT_beneficiario, self.beneficiarioGuardado.id_Beneficiario, self.beneficiarioGuardado.nombre)
             self.show_proyectoX()
-
-
 
 
     def save_beneficiario(self):
@@ -483,7 +493,7 @@ class MainWindow(QMainWindow):
         self.beneficiarioGuardar = Beneficiario(3, nombre, identificacion)
 
         if(DT_beneficiario.buscar_referencia(DT_beneficiario, identificacion)):
-            self.beneficiarioGuardado = DT_beneficiario.buscar_usuario_por_referencia(DT_beneficiario, identificacion)
+            self.beneficiarioGuardado = DT_beneficiario.buscar_beneficiario_por_referencia(DT_beneficiario, identificacion)
             self.verificador = 17
             self.uiReferencia = Ui_referencia()
             self.uiReferencia .setupUi(self.uiReferencia)
@@ -494,20 +504,38 @@ class MainWindow(QMainWindow):
             self.uiReferencia.pushButton.clicked.connect(self.show_agregar_gasto)
             self.uiReferencia.pushButton_2.clicked.connect(self.viejo_beneficiario)
             self.uiReferencia.pushButton_3.clicked.connect(self.actual_beneficiario)
+            self.uiagregargasto.close()
             self.uiReferencia.show()
         else:
             DT_beneficiario.guardarBeneficiario(self.beneficiarioGuardar)
             self.nuevo_beneficiario()
 
     def save_agregarGasto(self):
-        nombre = self.uiagregargasto.lineEdit.text()
-        descripcion = self.uiagregargasto.lineEdit_2.text()
-        referencia = self.uiagregargasto.lineEdit_3.text()
-        subtotal = self.uiagregargasto.lineEdit_4.text()
-        ir = self.uiagregargasto.lineEdit_5.text()
-        IVA = self.uiagregargasto.lineEdit_6.text()
-        GastoGuardar = Gasto(self._idGasto,nombre,descripcion,referencia,subtotal,ir,IVA)
-        DT_gasto.guardarGasto(GastoGuardar)
+        try:
+            nombre = self.uiagregargasto.lineEdit.text()
+            descripcion = self.uiagregargasto.lineEdit_2.text()
+            id_rubro = self.uiagregargasto.comboBox_2.currentData()
+            id_etapa = self.uiagregargasto.comboBox_3.currentData()
+            print(id_rubro)
+            print(id_etapa)
+            GastoGuardar = Gasto(3, id_etapa, id_rubro, self.G_id_factura, self.G_id_beneficiaro, nombre, descripcion)
+            DT_gasto.guardarGasto(GastoGuardar)
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Gasto guardado con exito")
+            mensaje.setIcon(QMessageBox.Information)
+            mensaje.exec_()
+            self.show_proyectoX()
+        except Exception as e:
+            print(f'Excepción: {e}')
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("No se logro guardar tu gasto")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
+            DT_factura.eliminar_factura(DT_factura, self.G_id_factura)
+            self.show_proyectoX()
+
 
 
     def show_etapas(self):

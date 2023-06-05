@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Datos.dtRubros import DT_rubro
+from Datos.dtEtapa import DT_etapa
 
 class Ui_agregarGasto(QtWidgets.QMainWindow):
     def setupUi(self, AgregarGasto):
@@ -273,6 +274,33 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.groupBox_5.setTitle(_translate("AgregarGasto", "Beneficiario"))
         self.label_11.setText(_translate("AgregarGasto", "Nombre"))
         self.label_10.setText(_translate("AgregarGasto", "ID"))
+
+    def cargar_combo_box(self, id_proyecto):
+        self.comboBox_2.clear()
+        self.comboBox_3.clear()
+
+        rubros = DT_rubro.listarrubros()
+
+        for rubro in rubros:
+            self.comboBox_2.addItem(rubro.nombre,
+                                  rubro.idRubro)  # Asocia el ID del proyecto como valor
+
+        self.comboBox_2.setCurrentIndex(-1)
+
+        etapitas = DT_etapa.listarEtapa()
+        etapas = []
+
+        for etapita in etapitas:
+            if etapita.idProyecto == id_proyecto:
+                etapas.append(etapita)
+
+        for etapa in etapas:
+            self.comboBox_3.addItem(etapa.nombreEtapa,
+                                  etapa.idEtapa)  # Asocia el ID del proyecto como valor
+
+        self.comboBox_3.setCurrentIndex(-1)
+
+
 import CambiarContra
 
 

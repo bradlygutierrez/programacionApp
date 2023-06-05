@@ -55,7 +55,7 @@ class DT_beneficiario:
             if beneficiario.identificacion == referencia:
                 return True
 
-    def buscar_usuario_por_referencia(self, referencia):
+    def buscar_beneficiario_por_referencia(self, referencia):
         beneficiarios = self.listarBeneficiario()
 
         for beneficiario in beneficiarios:

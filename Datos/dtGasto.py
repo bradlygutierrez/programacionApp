@@ -3,7 +3,6 @@ from entidades.gasto import Gasto
 from Datos.dtFactura import DT_factura
 
 class DT_gasto:
-    _INSERT = "INSERT INTO sermiccsa.gasto (id_etapa, nombre, descripcion, id_rubro, id_beneficiario, id_factura ) values (%d, %s, %s, %d, %d, %d)"
 
     @classmethod
     def listarGastos(cls):
@@ -34,8 +33,8 @@ class DT_gasto:
         cursor = conexion.cursor()
         try:
             print(f'Gasto a insertar: {gasto}')
-            valores = (gasto.idEtapa, gasto.nombre, gasto.descripcion, gasto.idRubro, gasto.idBeneficiario, gasto.idFactura)
-            cursor.execute(cls._INSERT, valores)
+            _INSERT = f"""INSERT INTO sermiccsa.gasto (`nombre`, `descripcion`, `id_etapa`, `id_rubro`, `id_beneficiario`, `id_factura`) values ('{gasto.nombre}', '{gasto.descripcion}',{gasto.idEtapa},{gasto.idRubro}, {gasto.idBeneficiario},{gasto.idFactura});"""
+            cursor.execute(_INSERT)
             print(f'Gasto insertado: {gasto}')
             conexion.commit()
             return cursor.rowcount
