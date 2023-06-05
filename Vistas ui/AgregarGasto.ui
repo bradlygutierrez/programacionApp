@@ -351,7 +351,7 @@ background-color: rgb(168, 168, 168);</string>
      <property name="geometry">
       <rect>
        <x>350</x>
-       <y>40</y>
+       <y>10</y>
        <width>401</width>
        <height>21</height>
       </rect>
@@ -376,7 +376,7 @@ background-color: rgb(168, 168, 168);</string>
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>70</y>
+       <y>40</y>
        <width>261</width>
        <height>25</height>
       </rect>
@@ -400,6 +400,45 @@ color:rgb(0, 0, 0);</string>
        <string>Materiales</string>
       </property>
      </item>
+    </widget>
+    <widget class="QComboBox" name="comboBox_3">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>100</y>
+       <width>261</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color:rgb(0, 0, 0);</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>70</y>
+       <width>401</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;color: rgb(0, 0, 0);
+
+background-color: rgb(168, 168, 168);</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Seleccione la etapa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -556,7 +595,7 @@ background-color: rgb(168, 168, 168);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../CambiarContra.qrc"/>
+  <include location="../../../CambiarContra.qrc"/>
   <include location="../../../CambiarContra.qrc"/>
  </resources>
  <connections/>

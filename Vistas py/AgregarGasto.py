@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_agregarGasto(QtWidgets.QMainWindow):
+class Ui_AgregarGasto(object):
     def setupUi(self, AgregarGasto):
         AgregarGasto.setObjectName("AgregarGasto")
         AgregarGasto.resize(800, 557)
@@ -141,7 +141,7 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
 "background-color: rgb(168, 168, 168);")
         self.groupBox_4.setObjectName("groupBox_4")
         self.label_6 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_6.setGeometry(QtCore.QRect(350, 40, 401, 21))
+        self.label_6.setGeometry(QtCore.QRect(350, 10, 401, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -152,13 +152,29 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
 "background-color: rgb(168, 168, 168);")
         self.label_6.setObjectName("label_6")
         self.comboBox_2 = QtWidgets.QComboBox(self.groupBox_4)
-        self.comboBox_2.setGeometry(QtCore.QRect(420, 70, 261, 25))
+        self.comboBox_2.setGeometry(QtCore.QRect(420, 40, 261, 25))
         self.comboBox_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "color:rgb(0, 0, 0);")
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_3 = QtWidgets.QComboBox(self.groupBox_4)
+        self.comboBox_3.setGeometry(QtCore.QRect(420, 100, 261, 25))
+        self.comboBox_3.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color:rgb(0, 0, 0);")
+        self.comboBox_3.setObjectName("comboBox_3")
+        self.label_12 = QtWidgets.QLabel(self.groupBox_4)
+        self.label_12.setGeometry(QtCore.QRect(350, 70, 401, 21))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_12.setFont(font)
+        self.label_12.setStyleSheet("border-radius: 10px;color: rgb(0, 0, 0);\n"
+"\n"
+"background-color: rgb(168, 168, 168);")
+        self.label_12.setObjectName("label_12")
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
         self.label_9.setGeometry(QtCore.QRect(220, 10, 41, 41))
         font = QtGui.QFont()
@@ -253,6 +269,7 @@ class Ui_agregarGasto(QtWidgets.QMainWindow):
         self.comboBox_2.setItemText(0, _translate("AgregarGasto", "Transporte"))
         self.comboBox_2.setItemText(1, _translate("AgregarGasto", "Tecnología"))
         self.comboBox_2.setItemText(2, _translate("AgregarGasto", "Materiales"))
+        self.label_12.setText(_translate("AgregarGasto", "<html><head/><body><p align=\"center\">Seleccione la etapa</p></body></html>"))
         self.groupBox_5.setTitle(_translate("AgregarGasto", "Beneficiario"))
         self.label_11.setText(_translate("AgregarGasto", "Nombre"))
         self.label_10.setText(_translate("AgregarGasto", "ID"))
@@ -263,7 +280,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     AgregarGasto = QtWidgets.QMainWindow()
-    ui = Ui_agregarGasto()
+    ui = Ui_AgregarGasto()
     ui.setupUi(AgregarGasto)
     AgregarGasto.show()
     sys.exit(app.exec_())
