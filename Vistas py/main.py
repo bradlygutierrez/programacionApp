@@ -1,6 +1,7 @@
 import PyQt5
 import sys
 from PyQt5 import QtCore
+import xlsxwriter
 from Datos.dtFactura import DT_factura
 from entidades.factura import Factura
 import datetime
@@ -409,7 +410,7 @@ class MainWindow(QMainWindow):
 
         self.uiproyectoX = Ui_proyectoX()
         self.uiproyectoX.setupUi(self.uiproyectoX)
-        self.uiproyectoX.pushButton_2.clicked.connect(self.show_proyectos) #Imprimir
+        self.uiproyectoX.pushButton_2.clicked.connect(self.generar_reporte) #Imprimir
         self.uiproyectoX.pushButton.clicked.connect(self.show_ver_etapa) #Ver gasto por etapa
         self.uiproyectoX.pushButton_3.clicked.connect(self.show_agregar_gasto) #Agregar Gasto
         self.uiproyectoX.pushButton_4.clicked.connect(self.show_proyectos) #Salir
@@ -636,7 +637,43 @@ class MainWindow(QMainWindow):
         self.uiespecificaciones.show()
 
 
-    #def generar_reporte(data): para los reportes
+    def generar_reporte(self):
+        try:
+            workbook = xlsxwriter.Workbook("Gastos.xlsx")
+            worksheet = workbook.add_worksheet("Gastito")
+
+            worksheet.write(0, 0, "Nombre del Gasto")
+            worksheet.write(0, 1, "Descripcion del Gasto")
+            worksheet.write(0, 2, "Etapa")
+            worksheet.write(0, 3, "Subtotal de la Factura")
+            worksheet.write(0, 4, "Beneficiario")
+
+            resultados = self.uiproyectoX.gasto_tabla()
+
+            for index, resultado in enumerate(resultados):
+                worksheet.write(index + 1, 0, str(resultado['Nombre del gasto']))
+                worksheet.write(index + 1, 1, str(resultado['Descripción del gasto']))
+                worksheet.write(index + 1, 2, str(resultado['Nombre de la etapa']))
+                worksheet.write(index + 1, 3, str(resultado['Total de la factura']))
+                worksheet.write(index + 1, 4, str(resultado['Nombre del beneficiario']))
+
+            workbook.close()
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("El reporte se ha generado de manera exitosa")
+            mensaje.setIcon(QMessageBox.Information)
+            mensaje.exec_()
+        except:
+            mensaje = QMessageBox()
+            mensaje.setWindowTitle("SERMICCSA")
+            mensaje.setText("Fallo al generar el reporte")
+            mensaje.setIcon(QMessageBox.Critical)
+            mensaje.exec_()
+
+
+
+
+
 
 
 if __name__ == '__main__':
