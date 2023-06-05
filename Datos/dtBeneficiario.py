@@ -37,29 +37,43 @@ class DT_beneficiario:
             except Exception as e:
                 print(f'Exception {e}')
 
-    def Editar_beneficiario(self):
-        if Conexion.getConnection():
-            print("Conexión exitosa editar")
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-                try:
-                    cursor.execute("UPDATE FROM sermiccsa.beneficiario SET nombre = 'PRUEBA 1'")
-                    cursor.commit()
-                    print("Registro editado con éxito")
-                except Exception as e:
-                    print("Error durante la conexión", e)
+    def editar_beneficiario(self, id, nombre):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            cursor.execute(f"""UPDATE sermiccsa.beneficiario SET nombre = '{nombre}' WHERE id_beneficiario = '{id}'""")
+            conexion.commit()
+            return cursor.rowcount
 
-    def Eliminar_beneficiario(self):
-        if Conexion.getConnection():
-            print("Conexión exitosa")
-        with Conexion.getConnection() as conexion:
-            with conexion.cursor() as cursor:
-                try:
-                    cursor.execute("DELETE FROM sermiccsa.etapa WHERE id_etapa = 1")
-                    cursor.commit()
-                    print("Registro eliminado con éxito")
-                except Exception as e:
-                    print("Error durante la conexión", e)
+        except Exception as e:
+                print("Error durante la conexión en editar", e)
+
+    def buscar_referencia(self, referencia):
+        beneficiarios= self.listarBeneficiario()
+
+        for beneficiario in beneficiarios:
+            if beneficiario.identificacion == referencia:
+                return True
+
+    def buscar_usuario_por_referencia(self, referencia):
+        beneficiarios = self.listarBeneficiario()
+
+        for beneficiario in beneficiarios:
+            if beneficiario.identificacion == referencia:
+                return beneficiario
+
+    def eliminar_beneficiario(cls, id):
+        conexion = Conexion.getConnection()
+        cursor = conexion.cursor()
+        try:
+            _DELETE = f"DELETE FROM `sermiccsa`.`beneficiario` WHERE (`id_beneficiario` = '{id}');"
+            print("Eliminando beneficiario")
+            cursor.execute(_DELETE)
+            print("Beneficiario eliminado")
+            conexion.commit()
+            return cursor.rowcount
+        except Exception as e:
+            print(f'''Excepción: {e}''')
 
 
 if __name__ == '__main__':

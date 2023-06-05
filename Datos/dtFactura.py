@@ -3,7 +3,7 @@ from entidades.factura import Factura
 from decimal import Decimal
 
 class DT_factura:
-    _INSERT = "INSERT INTO sermiccsa.factura (id_factura, fecha_pago, referencia, subtotal, cantidad_ir, iva ) values (%d, %s, %s, %d, %d, %d)"
+
 
     @classmethod
     def listarFactura(cls):
@@ -32,10 +32,8 @@ class DT_factura:
         conexion = Conexion.getConnection()
         cursor = conexion.cursor()
         try:
-            print(f'Factura a insertar: {factura}')
-            valores = (factura.idFactura, factura.fecha, factura.referencia, factura.subtotal, factura.ir, factura.iva)
-            cursor.execute(cls._INSERT, valores)
-            print(f'Factura insertada: {factura}')
+            _INSERT = f"""INSERT INTO sermiccsa.factura (`fecha_pago`, `referencia`, `subtotal`, `cantidad_ir`, `iva`) values ('{factura.fecha}', '{factura.referencia}',{factura.subtotal},{factura.ir}, {factura.iva});"""
+            cursor.execute(_INSERT)
             conexion.commit()
             return cursor.rowcount
         except Exception as e:

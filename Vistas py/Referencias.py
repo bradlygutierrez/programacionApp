@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_referencia(QtWidgets.QMainWindow):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 586)
@@ -128,12 +128,12 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Nombre guardado:</span></p></body></html>"))
         self.pushButton_2.setText(_translate("MainWindow", "Nombre guardado"))
         self.pushButton_3.setText(_translate("MainWindow", "Nombre actual"))
-        self.label_10.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">1234567891011121314151619202122232425</span></p></body></html>"))
-        self.label_11.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">1234567891011121314151619202122232425</span></p></body></html>"))
+        self.label_10.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">GuardadoNOmbre</span></p></body></html>"))
+        self.label_11.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">ReferenciGUardada</span></p></body></html>"))
         self.label_8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Referencia guardada:</span></p></body></html>"))
-        self.label_12.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">1234567891011121314151619202122232425</span></p></body></html>"))
+        self.label_12.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">referencia Aktual/span></p></body></html>"))
         self.label_9.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Referencia actual:</span></p></body></html>"))
-        self.label_13.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">1234567891011121314151619202122232425</span></p></body></html>"))
+        self.label_13.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">nombre AKtual</span></p></body></html>"))
         self.label_14.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600;\">Nombre actual:</span></p></body></html>"))
         self.groupBox.setTitle(_translate("MainWindow", "Datos:"))
         self.groupBox_2.setTitle(_translate("MainWindow", "Datos:"))
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_referencia()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

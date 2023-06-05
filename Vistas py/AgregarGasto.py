@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_AgregarGasto(object):
+class Ui_agregarGasto(QtWidgets.QMainWindow):
     def setupUi(self, AgregarGasto):
         AgregarGasto.setObjectName("AgregarGasto")
         AgregarGasto.resize(800, 557)
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     AgregarGasto = QtWidgets.QMainWindow()
-    ui = Ui_AgregarGasto()
+    ui = Ui_agregarGasto()
     ui.setupUi(AgregarGasto)
     AgregarGasto.show()
     sys.exit(app.exec_())
