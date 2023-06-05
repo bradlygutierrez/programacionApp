@@ -10,7 +10,6 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from Datos.dtGasto import DT_gasto
 from IniciarSesion import Ui_iniciarSesion
 from entidades.gasto import Gasto
-from recuperarContraseña import Ui_recuperarContrasena
 from crearCuenta import Ui_crearUsuario
 from Proyectos import Ui_proyectos
 from NuevoProyecto import Ui_nuevoProyecto
@@ -34,7 +33,8 @@ from entidades.usuario import Usuario
 from Datos.dtPregunta import DT_pregunta
 from PreguntarUsuario import Ui_UsuarioRecuperar
 from OlvidasteContra import Ui_PreguntaContra
-from CambiarContra import Ui_NuevaContra
+from ContraNueva import Ui_NuevaContra
+
 class MainWindow(QMainWindow):
     """Main application window, handles the workflow of secondary windows"""
 
@@ -419,8 +419,7 @@ class MainWindow(QMainWindow):
         self.uiagregargasto = Ui_agregarGasto()
         self.uiagregargasto.setupUi(self.uiagregargasto)
         self.uiagregargasto.pushButton_4.clicked.connect(self.save_beneficiario)
-        self.uiagregargasto.pushButton.clicked.connect(self.show_proyectoX)
-        self.uiagregargasto.cargar_beneficiario()
+        self.uiagregargasto.pushButton_3.clicked.connect(self.show_proyectoX)
         self.uiagregargasto.show()
 
     def save_beneficiario(self):

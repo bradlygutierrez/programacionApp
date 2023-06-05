@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_ConfimarContra(object):
+class Ui_NuevaContra(QtWidgets.QMainWindow):
     def setupUi(self, ConfimarContra):
         ConfimarContra.setObjectName("ConfimarContra")
         ConfimarContra.resize(402, 266)
@@ -79,14 +79,14 @@ class Ui_ConfimarContra(object):
         self.label_5.setText(_translate("ConfimarContra", "<html><head/><body><p><br/></p></body></html>"))
         self.label_6.setText(_translate("ConfimarContra", "<html><head/><body><p><br/></p></body></html>"))
         self.label_7.setText(_translate("ConfimarContra", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Confirmar contraseña:</span></p></body></html>"))
-import CambiarContra_rc
+import CambiarContra
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     ConfimarContra = QtWidgets.QMainWindow()
-    ui = Ui_ConfimarContra()
+    ui = Ui_NuevaContra()
     ui.setupUi(ConfimarContra)
     ConfimarContra.show()
     sys.exit(app.exec_())
