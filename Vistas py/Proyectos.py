@@ -70,19 +70,8 @@ class Ui_proyectos(QtWidgets.QMainWindow):
                                         "border: none;")
         self.pushButton_5.setText("")
         self.pushButton_5.setObjectName("pushButton_5")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(870, 480, 41, 41))
-        self.label.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                                 "border-top-right-radius: 10px;\n"
-                                 "border-bottom-right-radius: 10px;")
-        self.label.setObjectName("label")
-        self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_9.setGeometry(QtCore.QRect(680, 480, 191, 41))
-        self.pushButton_9.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_9.setStyleSheet("border-top-left-radius: 10px;\n"
-                                        "background-color: rgb(51, 209, 122);\n"
-                                        "border-bottom-left-radius: 10px;")
-        self.pushButton_9.setObjectName("pushButton_9")
+
+
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(60, 140, 851, 321))
         self.tableWidget.setStyleSheet("background-color: rgb(224, 224, 224);\n"
@@ -101,9 +90,7 @@ class Ui_proyectos(QtWidgets.QMainWindow):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow",
-                                      "<html><head/><body><p><img src=\":/iconos principal/impresora (2).png\"/></p></body></html>"))
-        self.pushButton_9.setText(_translate("MainWindow", "Imprimir presupuesto"))
+
 
     def cargar_proyectos(self, usuario):
         proyectitos = DT_proyect.listarProyectos()

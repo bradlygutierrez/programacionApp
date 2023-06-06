@@ -814,7 +814,7 @@ class Ui_Etapas(QtWidgets.QMainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "ETAPAS"))
         self.pushButton.setText(_translate("MainWindow", "Nueva etapa"))
-        self.pushButton_3.setText(_translate("MainWindow", "Editar"))
+        self.pushButton_3.setText(_translate("MainWindow", "Cancelar"))
         self.pushButton_4.setText(_translate("MainWindow", "Siguiente »"))
         self.pushButton_5.setText(_translate("MainWindow", "« Volver"))
 
