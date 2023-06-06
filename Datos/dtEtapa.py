@@ -108,6 +108,14 @@ class DT_etapa:
 
         return etapas
 
+    def buscar_etapa_por_nomdes(self, nombre, descripcion):
+        etapas = self.listarEtapa()
+
+        for etapa in etapas:
+            if etapa.nombreEtapa == nombre:
+                if etapa.descripcion == descripcion:
+                    return etapa
+
 
 if __name__ == '__main__':
     #LISTAR Etapas

@@ -643,7 +643,8 @@ class MainWindow(QMainWindow):
     def etapa_especifica(self):
         row = self.uiverEtapas.tableWidget.currentRow()
         self.nombre_etapa = self.uiverEtapas.tableWidget.item(row, 2).text()
-        self.etapa_actual = DT_etapa.buscar_etapa_por_nombre(DT_etapa, self.nombre_etapa)
+        descripcion = self.uiverEtapas.tableWidget.item(row, 3).text()
+        self.etapa_actual = DT_etapa.buscar_etapa_por_nomdes(DT_etapa, self.nombre_etapa, descripcion)
         self.show_especificaciones_etapas()
 
     def show_ver_etapa(self):

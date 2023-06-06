@@ -106,8 +106,8 @@ class Ui_Especificaciones_Etapas(QtWidgets.QMainWindow):
 
         cursor.execute("""
             SELECT g.nombre AS nombre_gasto, g.descripcion AS descripcion_gasto,
-                e.nombre AS nombre_etapa, f.subtotal AS total_factura,
-                b.nombre AS nombre_beneficiario
+            e.nombre AS nombre_etapa, f.subtotal AS total_factura,
+            b.nombre AS nombre_beneficiario
             FROM gasto g
             JOIN etapa e ON g.id_etapa = e.id_etapa
             JOIN factura f ON g.id_factura = f.id_factura
